@@ -7,6 +7,6 @@
 <title>Estoquista</title>
 </head>
 <body>
-<h1>ESTOQUISTA PORRA</h1>
+<h1>ESTOQUISTA</h1>
 </body>
 </html>

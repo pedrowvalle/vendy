@@ -7,6 +7,6 @@
 <title>operador</title>
 </head>
 <body>
-<h1>OPERADOR PORRA</h1>
+<h1>OPERADOR</h1>
 </body>
 </html>
