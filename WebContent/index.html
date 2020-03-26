@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!--No content, o device width serve para deixar a pagina com a largura da tela que está sendo exibida
+        O initial scale serve para deixar o zoom padrão como "100%"
+        O name eu não faço ideia do que seja, mas deve ser coisa do bootstrap tb-->
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Vendy - Login
+        </title>
+        <link rel="stylesheet" href="style_login.css">
+        <!--Estes links e scripts são do bootstrap, só copiei e colei kkk-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+            <h1> </h1>
+            <img src="logo.png" alt="Vendy - Login">
+            <!--Precisa adicionar o action do form aqui, mas fica faltando a classe controller do java-->
+            <form action="Login.do" method="GET">
+                <!--As propriedades "class" dos itens servem para que eles peguem o estilo do bootstrap-->
+                <label for="user">Login:</label>
+                <input type="user" class="form-control" placeholder="Digite seu usuário" name="usuario">
+                <p></p>
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" placeholder="Digite sua senha" name="senha">
+                <p></p>
+                <input type="submit" class="btn btn-primary">
+              </form>
+    </body>
+</html>
