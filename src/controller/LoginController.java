@@ -29,6 +29,9 @@ public class LoginController extends HttpServlet {
 		EmpregadoService es = new EmpregadoService();
 		es.tipoEmpregado(emp);
 		
+		//empregado tipo 1 = operador de caixa
+		//empregado tipo 2 = estoquista (retaguarda)
+		//empregado tipo -1 = usuário ou senha incorretos
 		if(emp.getTipo_emp() == 1) {
 			RequestDispatcher view = request.getRequestDispatcher("operador.jsp");
 			view.forward(request, response);
