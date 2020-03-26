@@ -12,29 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import model.Empregado;
 import service.EmpregadoService;
 
-/**
- * Servlet implementation class LoginController
- */
 @WebServlet("/Login.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public LoginController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pUser = request.getParameter("usuario");
 		String pPsw = request.getParameter("senha");
 		
 		Empregado emp = new Empregado (pUser, pPsw);
+		System.out.println(pUser + pPsw);
 		EmpregadoService es = new EmpregadoService();
 		es.tipoEmpregado(emp);
 		
@@ -49,12 +40,7 @@ public class LoginController extends HttpServlet {
 			view.forward(request, response);
 		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
