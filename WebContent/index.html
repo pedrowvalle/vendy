@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <!--No content, o device width serve para deixar a pagina com a largura da tela que está sendo exibida
-        O initial scale serve para deixar o zoom padrão como "100%"
-        O name eu não faço ideia do que seja, mas deve ser coisa do bootstrap tb-->
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            Vendy - Login
-        </title>
+        <!-- Meta tags necessárias para o Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        
         <link rel="stylesheet" href="style_login.css">
-        <!--Estes links e scripts são do bootstrap, só copiei e colei kkk-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <title>Vendy - Login</title>
+
     </head>
     <body>
-            <h1> </h1>
-            <img src="logo.png" alt="Vendy - Login">
-            <!--Precisa adicionar o action do form aqui, mas fica faltando a classe controller do java-->
-            <form action="Login.do" method="GET">
-                <!--As propriedades "class" dos itens servem para que eles peguem o estilo do bootstrap-->
-                <label for="user">Login:</label>
-                <input type="user" class="form-control" placeholder="Digite seu usuário" name="usuario">
-                <p></p>
-                <label for="senha">Senha:</label>
-                <input type="password" class="form-control" placeholder="Digite sua senha" name="senha">
-                <p></p>
-                <input type="submit" class="btn btn-primary">
-              </form>
+        <div id="main" class="container">
+            <img src="logo.png" class="mx-auto d-block">
+        </div>
+        <form action="Login.do" method="GET">
+            <div class="row">
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="user">Login:</label>
+                    <input type="user" class="form-control" id="usuario" name="usuario" placeholder="Digite seu usuário">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+                </div>
+            </div>
+            <div id="actions" class="row">
+				<div class="col-md-6 mx-auto">
+					<button type="submit" class="btn btn-primary custom" name="acao" value="Criar">Entrar</button>
+					<a href="index.html" class="btn btn-default custom">Cancelar</a>
+				</div>
+			</div>
+        </form>
+
+
+        <!-- Stcipts Bootstrap -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
