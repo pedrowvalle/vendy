@@ -13,7 +13,7 @@
         <!-- Bootstrap CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Cadastro de Produtos</title>
+        <title>Cadastro de Clientes</title>
     </head>
     <body>
     <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
@@ -48,36 +48,38 @@
 		</nav>
 		<br>
         <div id="main" class="container">
-            <h3 class="page-header">Cadastro de Produtos</h3>
+            <h3 class="page-header">Cadastro de Clientes</h3>
             <hr>
             <form action="ManterProduto.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="nome_produto">Nome do Produto:</label>
-                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto">
+                        <label for="nome_cliente">Nome do Cliente:</label>
+                        <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente">
                     </div>
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="preco">Preço do produto</label>
-                        <input type="number" class="form-control" id="preco" name="preco" placeholder="Insira o preço de venda do produto">
+                        <label for="cpf_cliente">CPF: </label>
+                        <input type="number" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Apenas numeros">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-	                    <label for="categoria">Selecione a categoria do produto</label>
-		                    <select class="form-control" id="categoria" name="categoria">
-		                        <option>Lanches</option>
-		                        <option>Bebidas</option>
-		                        <option>Cafeteria</option>
-		                        <option>Sobremesas</option>
-		                        <option>Padaria</option>
-		                        <option>Outros</option>
-		                    </select>
+	                    <label for="dt_nsc">Data de Nascimento: </label>
+                        <input type="number" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
                     </div>
-					<div class="form-group col-md-6">
-						<label for="estoque">Digite a quantidade inicial do estoque</label>
-						<input type="number" class="form-control" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque">
+                    <div class="col-md-3 align-self-center text-center">
+                    	<h4>Gênero: </h4>
+                    </div>
+					<div class="form-group col-md-3" style="margin-top:30px; margin-left:auto">
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
+						  <label class="form-check-label" for="genero">Masculino</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f">
+						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
+						</div>
 					</div>
-                </div>
+				</div>
                 <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">

@@ -13,6 +13,10 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/pedro.mompean/Documents/eclipse-workspace/Vendy/WebContent/WEB-INF/mysql-connector-java-8.0.9-rc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro.mompean/Documents/eclipse-workspace/Vendy/WebContent/WEB-INF/mysql-connector-java-8.0.9-rc.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

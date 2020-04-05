@@ -1,6 +1,11 @@
 @charset "ISO-8859-1";
 body{
-	padding-top: 50px;
 	background: #e4eded !important;
 }
+
+.custom{
+    margin-right: auto;
+    margin-top: auto;
+}
+
 
