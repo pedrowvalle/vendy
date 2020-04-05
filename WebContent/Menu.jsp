@@ -1,24 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!--Importação de taglibs-->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Meta tags necessárias para o Bootstrap -->
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta charset="UTF-8">
-
-        <link rel="stylesheet" href="style_estoquista.css">
-
-        <!-- Bootstrap CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <title>Estoquista</title>
-    </head>
-    <body>
-    <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
+	pageEncoding="ISO-8859-1"%>
+<!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 
 	<!-- container-fluid para ocupar toda a extensão horizontal sempre -->
@@ -69,9 +51,3 @@
 		</div>
 	</div>
 </nav>
-        <div id="main" class="container">
-            <h1 class="mx-auto d-block">Bem vindo, <!--nome do operador por jsp--></h1>
-            <h3 class="mx-auto d-block">Selecione uma opção no menu acima<h3>
-        </div>
-    </body>
-</html>

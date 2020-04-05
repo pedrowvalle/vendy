@@ -16,7 +16,7 @@ public class ConnectionFactory {
 	
 	String url = "jdbc:mysql://localhost:3306/vendy?useSSL=false&useTimezone=true&serverTimezone=UTC";
 	
-	return DriverManager.getConnection(url, "root", "");
+	return DriverManager.getConnection(url, "root", "52565256");
 	
 	}
 

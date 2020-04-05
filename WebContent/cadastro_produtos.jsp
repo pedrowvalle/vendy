@@ -11,11 +11,11 @@
         <meta charset="UTF-8">
 
         <link rel="stylesheet" href="style_estoquista.css">
-
+        
         <!-- Bootstrap CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Estoquista</title>
+        <title>Cadastro de Produtos</title>
     </head>
     <body>
     <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
@@ -70,8 +70,46 @@
 	</div>
 </nav>
         <div id="main" class="container">
-            <h1 class="mx-auto d-block">Bem vindo, <!--nome do operador por jsp--></h1>
-            <h3 class="mx-auto d-block">Selecione uma opção no menu acima<h3>
+            <h3 class="page-header">Cadastro de Produtos</h1>
+            <hr>
+            <form action="ManterProduto.do" method="GET">
+                <div class="row">
+                    <div class="form-group col-md-6 mx-auto">
+                        <label for="nome_produto">Nome do Produto:</label>
+                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mx-auto">
+                        <label for="preco">Preço do produto</label>
+                        <input type="number" class="form-control" id="preco" name="preco" placeholder="Insira o preço de venda do produto">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mx-auto">
+                    <label for="categoria">Selecione a categoria do produto</label>
+                    <select class="form-control" id="categoria" name="categoria">
+                        <option>Lanches</option>
+                        <option>Bebidas</option>
+                        <option>Cafeteria</option>
+                        <option>Sobremesas</option>
+                        <option>Padaria</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+                <div id="actions" class="row">
+				<div class="col-md-6 mx-auto">
+					<button type="submit" class="btn btn-primary custom" name="acao" value="Criar">Cadastrar</button>
+					<a href="cadastro_produtos.jsp" class="btn btn-default custom">Cancelar</a>
+				</div>
+			</div>
+            </form>
         </div>
+
+
+        <!-- Stcipts Bootstrap -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
