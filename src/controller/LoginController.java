@@ -24,7 +24,6 @@ public class LoginController extends HttpServlet {
 		String pPsw = request.getParameter("senha");
 		
 		Empregado emp = new Empregado (pUser, pPsw);
-		System.out.println(pUser + pPsw);
 		EmpregadoService es = new EmpregadoService();
 		es.tipoEmpregado(emp);
 		
