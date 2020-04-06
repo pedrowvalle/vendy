@@ -2,33 +2,28 @@ package model;
 
 
 public class Cliente{
-	private int id;
-	private long cpf;
+	private String cpf;
 	private String nome;
 	private String datan;
 	private String sexo;
 	
-	public Cliente(int id, long cpf, String nome, String datan, String sexo) {
-		this.id = id;
+	public Cliente(String cpf, String nome, String datan, String sexo) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.datan = datan;
 		this.sexo = sexo;
 	}
 
-	public Cliente(long cpf) {
+	public Cliente(String cpf) {
 		this.cpf = cpf;
 	}
 	
-	public Cliente(int id) {
-		this.id = id;
-	}
 
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
@@ -56,17 +51,10 @@ public class Cliente{
 		this.sexo = sexo;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", cpf=" + cpf + ", nome=" + nome + ", datan=" + datan + ", sexo=" + sexo + "]";
+		return "Cliente [cpf=" + cpf + ", nome=" + nome + ", datan=" + datan + ", sexo=" + sexo + "]";
 	}
 }
 
