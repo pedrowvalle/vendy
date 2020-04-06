@@ -8,7 +8,7 @@ import model.Produto;
 
 public class ProdutoDAO {
 	public int incluir(Produto prod) {
-		String SQLInsert = "INSERT INTO produto (nome,categoria,preco,quantidade) VALUES (?,?,?,?)";
+		String SQLInsert = "INSERT INTO produto (nome,categoria,preco,estoque) VALUES (?,?,?,?)";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLInsert);){
 			stm.setString(1, prod.getNome());
@@ -30,7 +30,7 @@ public class ProdutoDAO {
 	}
 	
 	public void atualizar(Produto prod) {
-		String SQLUpdate = "UPDATE produto nome=?,categoria=?,preco=?,quantidade=? WHERE id=?";
+		String SQLUpdate = "UPDATE produto nome=?,categoria=?,preco=?,estoque=? WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLUpdate);){
 			stm.setString(1, prod.getNome());
@@ -44,7 +44,7 @@ public class ProdutoDAO {
 	}
 	
 	public void excluir(Produto prod) {
-		String SQLDelete = "DELETE FROM produto WHERE id=?";
+		String SQLDelete = "DELETE FROM produto WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLDelete);){
 			stm.setInt(1, prod.getId());
@@ -56,7 +56,7 @@ public class ProdutoDAO {
 	}
 	
 	public Produto carregar(Produto prod) {
-		String SQLSelect = "SELECT * FROM produto WHERE produto.id = ?";
+		String SQLSelect = "SELECT * FROM produto WHERE produto.cod = ?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLSelect);){
 			stm.setInt(1, prod.getId());
