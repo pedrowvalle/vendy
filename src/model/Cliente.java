@@ -18,7 +18,6 @@ public class Cliente{
 		this.cpf = cpf;
 	}
 	
-
 	public String getCpf() {
 		return cpf;
 	}
