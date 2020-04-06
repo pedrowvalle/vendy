@@ -16,6 +16,14 @@ public class Produto{
 		this.preco = preco;
 		this.quantidade = quantidade;
 	}
+	
+	public Produto(String nome, String categoria, double preco, int quantidade) {
+		super();
+		this.nome = nome;
+		this.categoria = categoria;
+		this.preco = preco;
+		this.quantidade = quantidade;
+	}
 
 	public Produto(int id) {
 		this.id = id;
