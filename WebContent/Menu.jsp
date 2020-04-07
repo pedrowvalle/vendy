@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="#">Vendy - Sistema de Automação Comercial</a>
+		  <a class="navbar-brand" href="estoquista.jsp">Vendy - Sistema de Automação Comercial</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
 		  	aria-controls="navbar" aria-expanded="false">
 		    <span class="navbar-toggler-icon"></span>
