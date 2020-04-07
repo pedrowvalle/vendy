@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,36 +17,10 @@
         <title>Cadastro de Produtos</title>
     </head>
     <body>
-    <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="#">Vendy - Sistema de Automação Comercial</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-		  	aria-controls="navbar" aria-expanded="false">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbar">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Produtos
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="cadastro_produtos.jsp">Cadastro</a>
-	          <a class="dropdown-item" href="consulta_produtos.jsp">Consulta</a>
-	        </div>
-	      </li>
-	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Clientes
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="cadastro_clientes.jsp">Cadastro</a>
-	          <a class="dropdown-item" href="consulta_clientes.jsp">Consulta</a>
-	        </div>
-	      </li>
-		    </ul>
-		  </div>
-		</nav>
+    	<!-- Importação da barra de menus -->
+    	<c:import url="Menu.jsp"/>
+		<br>
+		<!-- Inicio do container principal -->
 		<br>
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Produtos</h3>
