@@ -34,6 +34,8 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("operador.jsp");
 			view.forward(request, response);
 		}else if(emp.getTipo_emp() == 2) {
+			es.nomeEmpregado(emp);
+			request.setAttribute("estoquista", emp);
 			RequestDispatcher view = request.getRequestDispatcher("estoquista.jsp");
 			view.forward(request, response);
 		}else {

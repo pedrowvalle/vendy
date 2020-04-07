@@ -30,4 +30,22 @@ public class EmpregadoDAO {
 		}
 		return emp;
 	}
+	
+	public Empregado nomeEmpregado(Empregado emp) {
+		String sqlSelect = "select nome from empregado where usuario=?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);){
+			stm.setString(1,  emp.getUsuario());
+			try(ResultSet rs = stm.executeQuery()){
+				if(rs.next()) {
+					emp.setNome(rs.getString("nome"));
+				}
+			}catch (SQLException e) {
+				System.out.println(e.getStackTrace());
+			}
+		}catch (SQLException e1) {
+			System.out.println(e1.getStackTrace());
+		}
+		return emp;
+	}
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@page import="model.Empregado" %>   
 <!--Importação de taglibs-->
 <!DOCTYPE html>
 <html>
@@ -18,9 +19,10 @@
     	<c:import url="Menu.jsp"/>
 		<br>
 		<!-- Inicio do container principal -->
+		<% Empregado estoquista = (Empregado)request.getAttribute("estoquista"); %>
 		<br>
 	    <div id="main" class="container">
-	        <h1 class="mx-auto d-block">Bem vindo, <!--nome do operador por jsp--></h1>
+	        <h1 class="mx-auto d-block">Bem vindo, ${estoquista.nome}</h1>
 	        <h3 class="mx-auto d-block">Selecione uma opção no menu acima</h3>
 	    </div>
     	<c:import url="bootstrap_body.jsp"/>    

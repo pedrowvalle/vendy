@@ -8,6 +8,10 @@ public class EmpregadoService {
 	EmpregadoDAO dao = new EmpregadoDAO();
 	
 	public void tipoEmpregado (Empregado empregado) {
-	dao.empregadoLogado(empregado);
+		dao.empregadoLogado(empregado);
+	}
+	
+	public void nomeEmpregado (Empregado empregado) {
+		dao.nomeEmpregado(empregado);
 	}
 }
