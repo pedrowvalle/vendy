@@ -15,7 +15,8 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	          <a class="dropdown-item" href="cadastro_produtos.jsp">Cadastro</a>
-	          <a class="dropdown-item" href="consulta_produtos.jsp">Consulta</a>
+	          <a class="dropdown-item" href="consulta_produto.jsp">Consulta</a>
+	          <a class="dropdown-item" href="alteracao_produto.jsp">Altera</a>
 	        </div>
 	      </li>
 	      <li class="nav-item dropdown">

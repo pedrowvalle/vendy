@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import model.Produto;
 
 public class ProdutoDAO {
@@ -20,13 +22,13 @@ public class ProdutoDAO {
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
 					ResultSet rs = stm2.executeQuery();) {
 				if(rs.next()) {
-					prod.setId(rs.getInt(1));
+					prod.setCod(rs.getInt(1));
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	return prod.getId();
+	return prod.getCod();
 	}
 	
 	public void atualizar(Produto prod) {
@@ -37,6 +39,7 @@ public class ProdutoDAO {
 			stm.setString(2, prod.getCategoria());
 			stm.setDouble(3, prod.getPreco());
 			stm.setInt(4, prod.getQuantidade());
+			stm.setInt(5, prod.getCod());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,7 +50,7 @@ public class ProdutoDAO {
 		String SQLDelete = "DELETE FROM produto WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLDelete);){
-			stm.setInt(1, prod.getId());
+			stm.setInt(1, prod.getCod());
 			
 			stm.execute();
 		} catch (SQLException e) {
@@ -56,16 +59,16 @@ public class ProdutoDAO {
 	}
 	
 	public Produto carregar(Produto prod) {
-		String SQLSelect = "SELECT * FROM produto WHERE produto.cod = ?";
+		String SQLSelect = "SELECT * FROM produto WHERE cod = ?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLSelect);){
-			stm.setInt(1, prod.getId());
+			stm.setInt(1, prod.getCod());
 			try(ResultSet rs = stm.executeQuery();){
 				if (rs.next()) {
 					prod.setNome(rs.getString("nome"));
 					prod.setCategoria(rs.getString("categoria"));
 					prod.setPreco(rs.getDouble("preco"));
-					prod.setQuantidade(rs.getInt("quantidade"));
+					prod.setQuantidade(rs.getInt("estoque"));
 				} 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -75,5 +78,54 @@ public class ProdutoDAO {
 		}
 		
 		return prod;
+	}
+	
+	public Produto carregar(int cod) {
+		Produto prod = new Produto();
+		String SQLSelect = "SELECT * FROM produto WHERE cod = ?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(SQLSelect);){
+			stm.setInt(1, cod);
+			try(ResultSet rs = stm.executeQuery();){
+				if (rs.next()) {
+					prod.setCod(rs.getInt("cod"));
+					prod.setNome(rs.getString("nome"));
+					prod.setCategoria(rs.getString("categoria"));
+					prod.setPreco(rs.getDouble("preco"));
+					prod.setQuantidade(rs.getInt("estoque"));
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.println(e1.getStackTrace());
+		}
+		
+		return prod;
+	}
+	
+	public ArrayList<Produto> listarProduto(){
+		Produto prod;
+		ArrayList<Produto> lista = new ArrayList<>();
+		String sqlSelect = "select * from produto";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			try(ResultSet rs = stm.executeQuery()){
+				if(rs.next()) {
+					prod = new Produto();
+					prod.setCod(rs.getInt("cod"));
+					prod.setNome(rs.getString("nome"));
+					prod.setCategoria(rs.getString("categoria"));
+					prod.setPreco(rs.getDouble("preco"));
+					prod.setQuantidade(rs.getInt("estoque"));
+					lista.add(prod);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
 	}
 }

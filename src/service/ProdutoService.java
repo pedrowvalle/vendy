@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.ProdutoDAO;
 import model.Produto;
 
@@ -27,5 +29,9 @@ public class ProdutoService {
 	}
 	public Produto carregar(int id) {
 		return dao.carregar(new Produto (id));
+	}
+	
+	public ArrayList<Produto> listarProdutos(){
+		return dao.listarProduto();
 	}
 }

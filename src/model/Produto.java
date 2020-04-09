@@ -2,15 +2,16 @@ package model;
 
 
 public class Produto{
-	private int id;
+	private int cod;
 	private String nome;
 	private String categoria;
 	private double preco;
 	private int quantidade;
 	
-	public Produto(int id, String nome, String categoria, double preco, int quantidade) {
-		super();
-		this.id = id;
+	public Produto() {}
+	
+	public Produto(int cod, String nome, String categoria, double preco, int quantidade) {
+		this.cod = cod;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.preco = preco;
@@ -18,23 +19,22 @@ public class Produto{
 	}
 	
 	public Produto(String nome, String categoria, double preco, int quantidade) {
-		super();
 		this.nome = nome;
 		this.categoria = categoria;
 		this.preco = preco;
 		this.quantidade = quantidade;
 	}
 
-	public Produto(int id) {
-		this.id = id;
+	public Produto(int cod) {
+		this.cod = cod;
 	}
 
-	public int getId() {
-		return id;
+	public int getCod() {
+		return cod;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCod(int cod) {
+		this.cod = cod;
 	}
 
 	public String getNome() {
@@ -71,7 +71,7 @@ public class Produto{
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco
+		return "Produto [cod=" + cod + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco
 				+ ", quantidade=" + quantidade + "]";
 	}
 }
