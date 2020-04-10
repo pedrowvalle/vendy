@@ -111,7 +111,7 @@ public class ProdutoDAO {
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
 			try(ResultSet rs = stm.executeQuery()){
-				if(rs.next()) {
+				while(rs.next()) {
 					prod = new Produto();
 					prod.setCod(rs.getInt("cod"));
 					prod.setNome(rs.getString("nome"));

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="../estoquista.jsp">Vendy - Sistema de Automação Comercial</a>
+		  <a class="navbar-brand" href="<%= request.getContextPath() %>/estoquista.jsp">Vendy - Sistema de Automação Comercial</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
 		  	aria-controls="navbar" aria-expanded="false">
 		    <span class="navbar-toggler-icon"></span>
@@ -14,9 +14,9 @@
 	          Produtos
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="/WebContent/produtos/cadastro_produtos.jsp">Cadastro</a>
-	          <a class="dropdown-item" href="/WebContent/produtos/consulta_produto.jsp">Consulta</a>
-	          <a class="dropdown-item" href="/WebContent/WebContent/produtos/alteracao_produto.jsp">Altera</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/produtos/cadastro_produtos.jsp">Cadastro</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/produtos/consulta_produto.jsp">Consulta</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/produtos/alteracao_produto.jsp">Altera</a>
 	        </div>
 	      </li>
 	      <li class="nav-item dropdown">

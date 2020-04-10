@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,6 +35,8 @@ public class ListarProdutosController extends HttpServlet {
 		ArrayList<Produto> lista = null;
 		ProdutoService ps = new ProdutoService();
 		lista = ps.listarProdutos();
+		
+		System.out.println(lista);
 		
 		request.setAttribute("lista", lista);
 		

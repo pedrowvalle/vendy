@@ -8,7 +8,7 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/style_estoquista.css">
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style_estoquista.css">
 		<c:import url="../bootstrap_head.jsp"/>
         <title>Alterar Produtos</title>
     </head>
@@ -55,7 +55,6 @@
 						<input type="number" class="form-control" value="${produto.quantidade}" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque">
 					</div>
                 </div>
-                <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6">
 						<button type="submit" class="btn btn-primary" name="acao" value="Alterar">Alterar</button>
