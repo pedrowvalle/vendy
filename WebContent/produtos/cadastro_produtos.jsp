@@ -8,19 +8,19 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style_estoquista.css">
-		<c:import url="bootstrap_head.jsp"/>
+        <link rel="stylesheet" href="../css/style_estoquista.css">
+		<c:import url="../bootstrap_head.jsp"/>
         <title>Cadastro de Produtos</title>
     </head>
     <body>
     	<!-- Importação da barra de menus -->
-    	<c:import url="Menu.jsp"/>
+    	<c:import url="../Menu.jsp"/>
 		<br>
 		<!-- Inicio do container principal -->
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Produtos</h3>
             <hr>
-            <form action="ManterProduto" method="GET">
+            <form action="../ManterProduto" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_produto">Nome do Produto:</label>
@@ -57,6 +57,6 @@
                 </div>
             </form>
         </div>
-		<c:import url="bootstrap_body.jsp"/>
+		<c:import url="../bootstrap_body.jsp"/>
 	</body>
 </html>

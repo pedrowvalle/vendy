@@ -8,20 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Produto;
 import service.ProdutoService;
 
 /**
- * Servlet implementation class ManterProdutoController
+ * Servlet implementation class AlterarProdutoControler
  */
-@WebServlet("/ManterProduto")
-public class ManterProdutoController extends HttpServlet {
+@WebServlet("/AlterarProduto")
+public class AlterarProdutoControler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManterProdutoController() {
+    public AlterarProdutoControler() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +35,13 @@ public class ManterProdutoController extends HttpServlet {
 		double precoProduto = Double.parseDouble(request.getParameter("preco"));
 		String categoriaProduto = request.getParameter("categoria");
 		int estoqueInicial = Integer.parseInt(request.getParameter("estoque"));
+		int cod = Integer.parseInt(request.getParameter("cod_produto"));
 		
-		Produto produto = new Produto(nomeProduto, categoriaProduto, precoProduto, estoqueInicial);
+		Produto produto = new Produto(cod, nomeProduto, categoriaProduto, precoProduto, estoqueInicial);
 		ProdutoService ps = new ProdutoService();
-		ps.incluir(produto);
+		ps.atualizar(produto);
 		
-		RequestDispatcher view = request.getRequestDispatcher("produtos/cadastro_produtos.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("produtos/alteracao_produto.jsp");
 		view.forward(request, response);
 	}
 

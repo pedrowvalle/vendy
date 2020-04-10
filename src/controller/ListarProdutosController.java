@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,20 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Produto;
 import service.ProdutoService;
 
 /**
- * Servlet implementation class ManterProdutoController
+ * Servlet implementation class ListarProdutosController
  */
-@WebServlet("/ManterProduto")
-public class ManterProdutoController extends HttpServlet {
+@WebServlet("/ListarProdutos")
+public class ListarProdutosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManterProdutoController() {
+    public ListarProdutosController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,16 +32,13 @@ public class ManterProdutoController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeProduto = request.getParameter("nome_produto");
-		double precoProduto = Double.parseDouble(request.getParameter("preco"));
-		String categoriaProduto = request.getParameter("categoria");
-		int estoqueInicial = Integer.parseInt(request.getParameter("estoque"));
-		
-		Produto produto = new Produto(nomeProduto, categoriaProduto, precoProduto, estoqueInicial);
+		ArrayList<Produto> lista = null;
 		ProdutoService ps = new ProdutoService();
-		ps.incluir(produto);
+		lista = ps.listarProdutos();
 		
-		RequestDispatcher view = request.getRequestDispatcher("produtos/cadastro_produtos.jsp");
+		request.setAttribute("lista", lista);
+		
+		RequestDispatcher view = request.getRequestDispatcher("produtos/listagem_produtos.jsp");
 		view.forward(request, response);
 	}
 
