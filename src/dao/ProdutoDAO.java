@@ -32,7 +32,7 @@ public class ProdutoDAO {
 	}
 	
 	public void atualizar(Produto prod) {
-		String SQLUpdate = "UPDATE produto nome=?,categoria=?,preco=?,estoque=? WHERE cod=?";
+		String SQLUpdate = "UPDATE produto SET nome=?,categoria=?,preco=?,estoque=? WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLUpdate);){
 			stm.setString(1, prod.getNome());

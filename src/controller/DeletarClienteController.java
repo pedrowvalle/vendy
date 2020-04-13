@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
+
 import service.ClienteService;
 
 /**
- * Servlet implementation class ManterClienteController
+ * Servlet implementation class DeletarClienteController
  */
-@WebServlet("/ManterCliente")
-public class ManterClienteController extends HttpServlet {
+@WebServlet("/DeletarCliente")
+public class DeletarClienteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManterClienteController() {
+    public DeletarClienteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +30,11 @@ public class ManterClienteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeCliente = request.getParameter("nome_cliente");
-		String cpfCliente = request.getParameter("cpf_cliente");
-		String dtNsc = request.getParameter("dt_nsc");
-		String genero = request.getParameter("genero");
-		
-		Cliente cliente = new Cliente(cpfCliente, nomeCliente, dtNsc, genero);
+		String cpf = request.getParameter("cpf_cliente_del");
 		ClienteService cs = new ClienteService();
-		try {
-			cs.incluir(cliente);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		cs.excluir(cpf);
 		
-		RequestDispatcher view = request.getRequestDispatcher("clientes/cadastro_clientes.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("clientes/consulta_clientes.jsp");
 		view.forward(request, response);
 	}
 

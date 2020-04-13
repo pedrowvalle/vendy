@@ -34,3 +34,9 @@ img {
     margin-right: auto;
     margin-top: auto;
 }
+
+.caixa-login {
+    width: 940px;
+    background: white;
+    margin: 0 auto;
+}

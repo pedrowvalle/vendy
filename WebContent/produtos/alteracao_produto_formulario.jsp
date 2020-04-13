@@ -67,7 +67,7 @@
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do produto, confirme o código do produto:</label>
-						<input type="text" class="form-control" id="cod_produto" name="cod_produto" placeholder="Esta ação não pode ser desfeita">
+						<input type="text" class="form-control" id="cod_produto_del" name="cod_produto_del" placeholder="Esta ação não pode ser desfeita">
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="acao"

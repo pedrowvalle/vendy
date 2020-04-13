@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+body{
+	background: #e4eded !important;
+}
+
+.lista{
+	text-align: center;
+	font-weight: normal;
+}

@@ -1,6 +1,7 @@
 package service;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import dao.ClienteDAO;
 import model.Cliente;
@@ -29,5 +30,8 @@ public class ClienteService {
 	}
 	public Cliente carregar(String cpf) {
 		return dao.carregar(new Cliente (cpf));
+	}
+	public ArrayList<Cliente> listarCliente (){
+		return dao.listarCliente();
 	}
 }

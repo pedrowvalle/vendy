@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import model.Cliente;
+import model.Produto;
 
 public class ClienteDAO {
 	public Cliente incluir(Cliente cli) throws ParseException {
@@ -73,5 +75,29 @@ public class ClienteDAO {
 		}
 		
 		return cli;
+	}
+	
+	public ArrayList<Cliente> listarCliente(){
+		Cliente cli;
+		ArrayList<Cliente> lista = new ArrayList<>();
+		String sqlSelect = "select * from cliente";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			try(ResultSet rs = stm.executeQuery()){
+				while(rs.next()) {
+					cli = new Cliente();
+					cli.setCpf(rs.getString("cpf"));
+					cli.setNome(rs.getString("nome"));
+					cli.setDatan(rs.getString("dt_nsc"));
+					cli.setSexo(rs.getString("genero"));
+					lista.add(cli);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
 	}
 }

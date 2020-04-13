@@ -24,8 +24,9 @@
 	          Clientes
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="cadastro_clientes.jsp">Cadastro</a>
-	          <a class="dropdown-item" href="consulta_clientes.jsp">Consulta</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/clientes/cadastro_clientes.jsp">Cadastro</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/clientes/consulta_clientes.jsp">Consulta</a>
+	          <a class="dropdown-item" href="<%= request.getContextPath() %>/clientes/alteracao_cliente.jsp">Alteração</a>
 	        </div>
 	      </li>
 		    </ul>

@@ -35,9 +35,6 @@ public class ListarProdutosController extends HttpServlet {
 		ArrayList<Produto> lista = null;
 		ProdutoService ps = new ProdutoService();
 		lista = ps.listarProdutos();
-		
-		System.out.println(lista);
-		
 		request.setAttribute("lista", lista);
 		
 		RequestDispatcher view = request.getRequestDispatcher("produtos/listagem_produtos.jsp");

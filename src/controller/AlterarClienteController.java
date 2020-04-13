@@ -9,20 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Cliente;
 import service.ClienteService;
 
 /**
- * Servlet implementation class ManterClienteController
+ * Servlet implementation class AlterarClienteController
  */
-@WebServlet("/ManterCliente")
-public class ManterClienteController extends HttpServlet {
+@WebServlet("/AlterarCliente")
+public class AlterarClienteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManterClienteController() {
+    public AlterarClienteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,19 +34,16 @@ public class ManterClienteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeCliente = request.getParameter("nome_cliente");
 		String cpfCliente = request.getParameter("cpf_cliente");
-		String dtNsc = request.getParameter("dt_nsc");
+		String dtNsc = request.getParameter("datan");
 		String genero = request.getParameter("genero");
 		
 		Cliente cliente = new Cliente(cpfCliente, nomeCliente, dtNsc, genero);
 		ClienteService cs = new ClienteService();
-		try {
-			cs.incluir(cliente);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		cs.atualizar(cliente);
 		
 		RequestDispatcher view = request.getRequestDispatcher("clientes/cadastro_clientes.jsp");
 		view.forward(request, response);
+		
 	}
 
 	/**

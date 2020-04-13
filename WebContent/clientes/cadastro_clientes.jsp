@@ -8,19 +8,19 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style_estoquista.css">
-		<c:import url="bootstrap_head.jsp"/>
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style_estoquista.css">
+		<c:import url="../bootstrap_head.jsp"/>
         <title>Cadastro de Clientes</title>
     </head>
     <body>
     	<!-- Importação da barra de menus -->
-    	<c:import url="Menu.jsp"/>
+    	<c:import url="../Menu.jsp"/>
 		<br>
 		<!-- Inicio do container principal -->
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Clientes</h3>
             <hr>
-            <form action="ManterCliente" method="GET">
+            <form action="../ManterCliente" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Cliente:</label>
@@ -34,12 +34,12 @@
                 <div class="row">
                     <div class="form-group col-md-6">
 	                    <label for="dt_nsc">Data de Nascimento: </label>
-                        <input type="number" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
+                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
                     </div>
                     <div class="col-md-3 align-self-center text-center">
                     	<h4>Gênero: </h4>
                     </div>
-					<div class="form-group col-md-3" style="margin-top:30px; margin-left:auto">
+					<div class="form-group col-md-3" style="margin-top:30px;">
 						<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
 						  <label class="form-check-label" for="genero">Masculino</label>
@@ -59,6 +59,6 @@
                 </div>
             </form>
         </div>
-		<c:import url="bootstrap_body.jsp"/>
+		<c:import url="../bootstrap_body.jsp"/>
 	</body>
 </html>
