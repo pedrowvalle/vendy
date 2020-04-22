@@ -51,7 +51,7 @@
                 <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">
-						<button type="submit" class="btn btn-primary custom" name="acao" value="Criar">Cadastrar</button>
+						<button type="submit" class="btn btn-primary custom" name="acao" value="incluir">Cadastrar</button>
 						<a href="cadastro_produtos.jsp" class="btn btn-default custom">Cancelar</a>
 					</div>
                 </div>

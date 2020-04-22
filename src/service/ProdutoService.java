@@ -34,4 +34,8 @@ public class ProdutoService {
 	public ArrayList<Produto> listarProdutos(){
 		return dao.listarProduto();
 	}
+	
+	public ArrayList<Produto> listarProdutos(String chave){
+		return dao.listarProduto(chave);
+	}
 }

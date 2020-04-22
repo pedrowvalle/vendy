@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Produtos</h3>
             <hr>
-				<form action="AlterarProduto" method="GET">
+				<form action="ManterProduto" method="GET">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">Código do Produto:</label>
@@ -57,13 +57,13 @@
                 </div>
                 <div class="row">
                 	<div id="actions" class="col-md-6">
-						<button type="submit" class="btn btn-primary" name="acao" value="Alterar">Alterar</button>
+						<button type="submit" class="btn btn-primary" name="acao" value="alterar">Alterar</button>
 						<a href="consulta_produto.jsp" class="btn btn-default">Cancelar</a>
 					</div>
                 </div>
             </form>
            	<hr>
-       		<form action="DeletarProduto" method="get">
+       		<form action="ManterProduto" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do produto, confirme o código do produto:</label>
@@ -71,7 +71,7 @@
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="acao"
-						value="listar">Apagar Produtos</button>
+						value="excluir">Apagar Produtos</button>
 					</div>
 				</div>
 			</form>

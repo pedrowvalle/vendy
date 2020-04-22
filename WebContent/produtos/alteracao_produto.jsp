@@ -20,14 +20,14 @@
 	    		<br>
 	    		<h3 class="page-header">Alterar produtos</h3>
 	    		<hr>
-	    		<form action="../AlterarProdutoConsulta" method="get">
+	    		<form action="../ManterProduto" method="get">
 	    			<div class="row">
 	    				<div class="form-group col-md-6">
 	    					<label for="cod_produto">Digite o código do produto: </label>
-	    					<input type="text" class="form-control" id="cod_produto" name="cod_produto" placeholder="Código">
+	    					<input type="text" class="form-control" id="cod" name="cod" placeholder="Código">
 	    				</div>
 	    				<div class="col-md-6 align-self-end custom">
-							<button type="submit" class="btn btn-primary" name="acao" value="Criar">Consultar</button>
+							<button type="submit" class="btn btn-primary" name="acao" value="editar">Consultar</button>
 							<a href="alteracao_produtos.jsp" class="btn btn-default">Cancelar</a>
 						</div>
 	    			</div>

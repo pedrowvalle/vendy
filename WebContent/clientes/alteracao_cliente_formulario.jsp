@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Clientes</h3>
             <hr>
-				<form action="AlterarCliente" method="GET">
+				<form action="ManterCliente" method="GET">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">CPF:</label>
@@ -55,13 +55,13 @@
                 </div>
                 <div class="row">
                 	<div id="actions" class="col-md-6">
-						<button type="submit" class="btn btn-primary" name="acao" value="Alterar">Alterar</button>
-						<a href="consulta_cliente.jsp" class="btn btn-default">Cancelar</a>
+						<button type="submit" class="btn btn-primary" name="acao" value="alterar">Alterar</button>
+						<a href="alteracao_cliente.jsp" class="btn btn-default">Cancelar</a>
 					</div>
                 </div>
             </form>
            	<hr>
-       		<form action="DeletarCliente" method="get">
+       		<form action="ManterCliente" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
@@ -69,7 +69,7 @@
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="acao"
-						value="listar">Apagar Cliente</button>
+						value="excluir">Apagar Cliente</button>
 					</div>
 				</div>
 			</form>

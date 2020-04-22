@@ -100,4 +100,29 @@ public class ClienteDAO {
 		}
 		return lista;
 	}
+	
+	public ArrayList<Cliente> listarCliente(String chave){
+		Cliente cli;
+		ArrayList<Cliente> lista = new ArrayList<>();
+		String sqlSelect = "select * from cliente where upper (nome) like ?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			stm.setString(1,  "%"+chave.toUpperCase()+"%");
+			try(ResultSet rs = stm.executeQuery()){
+				while(rs.next()) {
+					cli = new Cliente();
+					cli.setCpf(rs.getString("cpf"));
+					cli.setNome(rs.getString("nome"));
+					cli.setDatan(rs.getString("dt_nsc"));
+					cli.setSexo(rs.getString("genero"));
+					lista.add(cli);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
+	}
 }

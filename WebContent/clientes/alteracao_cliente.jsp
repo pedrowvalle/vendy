@@ -20,14 +20,14 @@
 	    		<br>
 	    		<h3 class="page-header">Alterar Clientes</h3>
 	    		<hr>
-	    		<form action="../AlterarClienteConsulta" method="get">
+	    		<form action="../ManterCliente" method="get">
 	    			<div class="row">
 	    				<div class="form-group col-md-6">
-	    					<label for="cod_produto">Digite o código do produto: </label>
+	    					<label for="cod_produto">Digite o CPF do cliente: </label>
 	    					<input type="text" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Apenas números">
 	    				</div>
 	    				<div class="col-md-6 align-self-end custom">
-							<button type="submit" class="btn btn-primary" name="acao" value="Criar">Consultar</button>
+							<button type="submit" class="btn btn-primary" name="acao" value="editar">Consultar</button>
 							<a href="alteracao_cliente.jsp" class="btn btn-default">Cancelar</a>
 						</div>
 	    			</div>

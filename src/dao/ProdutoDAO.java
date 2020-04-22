@@ -128,4 +128,30 @@ public class ProdutoDAO {
 		}
 		return lista;
 	}
+	
+	public ArrayList<Produto> listarProduto(String chave){
+		Produto prod;
+		ArrayList<Produto> lista = new ArrayList<>();
+		String sqlSelect = "select * from produto where upper(nome) like ?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			stm.setString(1,  "%"+chave.toUpperCase()+"%");
+			try(ResultSet rs = stm.executeQuery()){
+				while(rs.next()) {
+					prod = new Produto();
+					prod.setCod(rs.getInt("cod"));
+					prod.setNome(rs.getString("nome"));
+					prod.setCategoria(rs.getString("categoria"));
+					prod.setPreco(rs.getDouble("preco"));
+					prod.setQuantidade(rs.getInt("estoque"));
+					lista.add(prod);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
+	}
 }

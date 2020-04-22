@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+v<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
                 <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">
-						<button type="submit" class="btn btn-primary custom" name="acao" value="Criar">Cadastrar</button>
+						<button type="submit" class="btn btn-primary custom" name="acao" value="incluir">Cadastrar</button>
 						<a href="cadastro_produtos.jsp" class="btn btn-default custom">Cancelar</a>
 					</div>
                 </div>

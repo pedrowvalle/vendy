@@ -19,15 +19,15 @@
 	    	<div id="main" class="container">
 	    		<h3 class="page-header">Consulta de Clientes</h3>
 	    		<hr>
-	    		<form action="../ConsultaCliente" method="get">
+	    		<form action="../ManterCliente" method="get">
 	    			<div class="row">
 	    				<div class="form-group col-md-6">
 	    					<label for="cod_produto">Digite o CPF do cliente: </label>
 	    					<input type="text" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Apenas números">
 	    				</div>
 	    				<div class="col-md-6 align-self-end custom">
-							<button type="submit" class="btn btn-primary" name="acao" value="Criar">Consultar</button>
-							<a href="cadastro_clientes.jsp" class="btn btn-default">Cancelar</a>
+							<button type="submit" class="btn btn-primary" name="acao" value="visualizar">Consultar</button>
+							<a href="consulta_clientes.jsp" class="btn btn-default">Cancelar</a>
 						</div>
 	    			</div>
 	    		</form>

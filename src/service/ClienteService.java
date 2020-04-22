@@ -34,4 +34,7 @@ public class ClienteService {
 	public ArrayList<Cliente> listarCliente (){
 		return dao.listarCliente();
 	}
+	public ArrayList<Cliente> listarCliente (String chave){
+		return dao.listarCliente(chave);
+	}
 }
