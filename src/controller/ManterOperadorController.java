@@ -37,7 +37,7 @@ public class ManterOperadorController extends HttpServlet {
 			String nome = request.getParameter("nome_operador");
 			String cpf = request.getParameter("cpf_operador");
 			String dtNsc = request.getParameter("dt_nsc");
-			char genero = request.getParameter("genero").charAt(0);
+			String genero = request.getParameter("genero");
 			String usuario = request.getParameter("usuario");
 			String senha = request.getParameter("senha");
 			String tipo = request.getParameter("tipo");
@@ -57,16 +57,12 @@ public class ManterOperadorController extends HttpServlet {
 			empregado.setSenha(senha);
 			empregado.setTipo_emp(tipoOp);
 			
-			try {
-				es.incluir(empregado);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			es.incluir(empregado);
 			session.setAttribute("empregado", empregado);
 			view = request.getRequestDispatcher("operadores/consulta_operadores_resultado.jsp");
 		}else if (pAcao.equals("excluir")) {
 			es.excluir(empregado.getCpf());
-			ArrayList<Cliente> lista = es.listarEmpregado();
+			ArrayList<Empregado> lista = es.listarEmpregados();
 			session.setAttribute("lista", lista);
 			view = request.getRequestDispatcher("operadores/listagem_operadores.jsp");
 		}else if (pAcao.equals("alterar")) {
@@ -74,11 +70,11 @@ public class ManterOperadorController extends HttpServlet {
 			session.setAttribute("empregado", empregado);
 			view = request.getRequestDispatcher("operadores/consulta_operadores_resultado.jsp");
 		}else if (pAcao.equals("visualizar")) {
-			empregado = es.carregar(empregado.getCpf());
+			empregado = es.carregar(request.getParameter("cpf_operador"));
 			session.setAttribute("empregado", empregado);
 			view = request.getRequestDispatcher("operadores/consulta_operadores_resultado.jsp");
 		}else if (pAcao.equals("editar")) {
-			empregado = es.carregar(empregado.getCpf());
+			empregado = es.carregar(request.getParameter("cpf_operador"));
 			session.setAttribute("empregado", empregado);
 			view = request.getRequestDispatcher("operadores/alteracao_operadores_formulario.jsp");
 		}

@@ -32,25 +32,13 @@
 	    		<div class="row">
 	    			<div class="col-4 align-self-center">
 	    				<p><strong>Data de nascimento: </strong></p>
-	    				<p>${empregado.datan}</p>	    			
+	    				<p>${empregado.dt_nsc}</p>	    			
 	    			</div>
 	    			<div class="col-4 align-self-center">
-	    				<p><strong>Gênero: </strong></p>
-	    				<c:if test="${empregado.sexo=='m'}">
-	    				<p>Masculino</p>
-	    				</c:if>
-	    				<c:if test="${cliente.sexo=='f'}">
-	    				<p>Feminino</p>
-	    				</c:if>    			
+	    				    			
 	    			</div>
 	    			<div class="col-4 align-self-center">
-	    				<p><strong>Tipo: </strong></p>
-	    				<c:if test="${empregado.tipo==1}">
-	    				<p>Operador de Caixa</p>
-	    				</c:if>
-	    				<c:if test="${empregado.tipo==2}">
-	    				<p>Estoquista</p>
-	    				</c:if>    			
+	    				    			
 	    			</div>
 	    		</div>
 	    	</div>

@@ -76,21 +76,9 @@
 					</div>
                 </div>
             </form>
-           	<hr>
-       		<form action="ManterCliente" method="get">
-       			<div class="row">
-					<div class="form-group col-md-6">
-						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
-						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita">
-					</div>
-					<div class="col-md-6 align-self-end custom">
-						<button type="submit" class="btn btn-danger" name="acao"
-						value="excluir">Apagar Cliente</button>
-					</div>
-				</div>
-			</form>
+           	
 			<hr>
-       		<form action="ManterCliente" method="get">
+       		<form action="ManterOperador" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Operador, confirme o CPF:</label>

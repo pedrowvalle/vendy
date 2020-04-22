@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Empregado;
 import service.ClienteService;
+import service.EmpregadoService;
 
 
 @WebServlet("/ListarOperadores")
@@ -24,11 +25,11 @@ public class ListarOperadoresController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Empregado> lista = null;
-		ClienteService cs = new ClienteService();
+		EmpregadoService es = new EmpregadoService();
 		lista = es.listarEmpregados();
 		request.setAttribute("lista", lista);
 		
-		RequestDispatcher view = request.getRequestDispatcher("operador/listagem_operadores.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("operadores/listagem_operadores.jsp");
 		view.forward(request, response);
 	}
 

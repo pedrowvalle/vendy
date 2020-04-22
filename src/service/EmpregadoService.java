@@ -1,6 +1,6 @@
 package service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import dao.EmpregadoDAO;
 import model.Empregado;
@@ -30,8 +30,13 @@ public class EmpregadoService {
 	public Empregado carregar(String cpf) {
 		return dao.carregar(new Empregado (cpf));
 	}
-	public List <Empregado> listar (){
+	public ArrayList <Empregado> listarEmpregados (){
 		return dao.listar();
 	}
-
+	public void tipoEmpregado(Empregado empregado) {
+		dao.empregadoLogado(empregado);
+	}
+	public void nomeEmpregado(Empregado empregado) {
+		dao.nomeEmpregado(empregado);
+	}
 }

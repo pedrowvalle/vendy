@@ -38,14 +38,9 @@
 	    								<tr class="lista">
 	    									<th>${empregado.cpf}</th>
 	    									<th>${empregado.nome}</th>
-	    									<th>${empregado.datan}</th>
+	    									<th>${empregado.dt_nsc}</th>
 	    									<th>
-												<c:if test="${empregado.sexo=='m'}">
-													Masculino
-												</c:if>
-	    										<c:if test="${empregado.sexo=='f'}">
-													Feminino
-												</c:if>
+												${empregago.genero}
 	    									</th>
 	    									<th>
 												<c:if test="${empregado.tipo==1}">

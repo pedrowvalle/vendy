@@ -20,7 +20,7 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Operadores</h3>
             <hr>
-            <form action="../ManterCliente" method="GET">
+            <form action="../ManterOperador" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
