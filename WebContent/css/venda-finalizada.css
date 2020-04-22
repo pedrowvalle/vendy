@@ -1,0 +1,72 @@
+body{
+    background-color: rgb(199, 199, 199);
+}
+#main-container{
+    margin-top: 3rem;
+}
+#titulo{
+    text-align: center;
+    font-size: 35px;
+    margin-left: 30rem;
+}
+#meio{
+    margin-top: 2rem;
+}
+#esquerda{
+    border-right: solid;
+    border-width: 2px;
+}
+#pagamento-titulo, #cpf-titulo, #total-titulo, #recebido-titulo, #troco-titulo{
+    font-size: 20px;
+}
+#pagamento-campo, #cpf-campo{
+    border-radius: 8px;
+    border-style: solid;
+    border-color: rgb(128, 128, 128);
+    text-align: center;
+}
+#pagamento-campo{
+    margin-left: 10rem;
+}
+#row-cpf{
+    margin-top: 2.5rem;
+}
+#cpf-campo{
+    margin-left: 14.2rem;
+}
+#direita{
+    margin-left: 5rem;
+}
+#total-campo, #recebido-campo, #troco-campo{
+    border-radius: 8px;
+    border-style: solid;
+    border-color: rgb(128, 128, 128);
+    text-align: right;
+}
+#total-campo{
+    margin-left: 10rem;
+}
+#recebido-campo{
+    margin-left: 7.5rem;
+}
+#troco-campo{
+    margin-left: 9.6rem;
+}
+#botoes{
+    margin-top: 8rem;
+}
+#imprimir, #proxima-venda{
+    font-size: 30px;
+    text-align: center;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: rgb(41, 73, 255);
+}
+#imprimir{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-left: 20.25rem;
+}
+#proxima-venda{
+    margin-left: 3rem;
+}

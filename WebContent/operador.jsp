@@ -9,7 +9,11 @@
 		<c:import url="bootstrap_head.jsp"/> 
 	</head>
 	<body>
-		<h1>OPERADOR</h1>
+		<h1>OPERADOR - teste</h1>
+		
+		<h3><a href="caixa/teclado.jsp">OPÇÃO TECLADO 1</a></h3>
+		<h3><a href="caixa/teclado2.jsp">OPÇÃO TECLADO 2</a></h3>
+		
 		<c:import url="bootstrap_body.jsp"/>
 	</body>
 </html>

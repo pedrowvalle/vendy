@@ -1,0 +1,148 @@
+body{
+    background-color: rgb(233, 233, 233);
+}
+
+#main-container{
+    height: 39rem;
+}
+
+.lista{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    background-color: white;
+    height: 18rem;
+    border-radius: 15px;
+    border-color: rgb(112, 112, 112);
+    border-style: solid;
+    border-width: 2px;
+    font-size: 20px;
+}
+
+.col{
+    padding-bottom: 14rem;
+    padding-inline: 3.25rem;
+    border-inline-end-style: solid;
+    border-right-color: rgb(71, 71, 71);
+}
+
+#ultimo{
+    border-inline-end-style: none;
+}
+
+#categorias-quantidade{
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+}
+
+#categorias{
+    background-color: rgb(254, 160, 37);
+    font-size: 50px;
+    padding: 1.5rem 8rem;
+    border-radius: 30px;
+    border-color: rgb(112, 112, 112);
+}
+
+#quantidade{
+    background-color: rgb(86, 86, 86);
+    font-size: 25px;
+    padding: 10px 1rem;
+
+    margin-left: 3rem;
+    border-radius: 14px;
+    border-color: rgb(112, 112, 112);
+
+}
+
+#produtos-prox-container{
+    padding-left: 1rem;
+    
+}
+
+#produtos{
+    background-color: rgb(110, 177, 245);
+    font-size: 50px;
+    margin-top: 1rem;
+    padding: 1.5rem 9rem;
+    border-radius: 30px;
+    border-color: rgb(112, 112, 112);
+}
+
+#prox{
+    background-color: rgb(50, 46, 168);
+    border-color: rgb(112, 112, 112);
+    background-size: 7rem 5rem;
+    background-image: url('../images/seta.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3.5rem 6rem;
+    margin-left: 2.5rem;
+    border-radius: 15px;
+    border-color: rgb(112, 112, 112);
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+.total{
+    background-color: white;
+    height: 10rem;
+    margin: 1rem 1rem;
+    border-radius: 15px;
+    border-color: rgb(112, 112, 112);
+    border-style: solid;
+    border-width: 2px;
+}
+
+.total-titulo{
+    font-size: 40px;
+    padding-left: 1rem;
+}
+
+.total-preco{
+    font-size: 40px;
+    padding-right: 1rem;
+    text-align: end;
+    
+}
+
+.teclado{
+    background-color: white;
+    margin: 0.9rem 1.5rem ;
+    height: 25rem;
+    border-radius: 15px;
+    border-color: rgb(112, 112, 112);
+    border-style: solid;
+    border-width: 2px;
+}
+
+#numpad{
+    text-align: center;
+    margin-left: 0.1rem;
+    margin-top: 16px;
+    font-size: 45px;
+}
+
+#num{
+    padding: 0.3rem 1.7rem;
+    border-radius: 15px;
+    margin-inline-start: 10px;
+}
+
+#finalizar{
+    background-color: rgb(60, 241, 96);
+    background-image: url('../images/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem 2.5rem;
+    border-radius: 15px;
+    margin-inline-start: 10px;
+}
+
+#deletar{
+    background-color: rgb(255, 57, 57);
+    background-image: url('../images/delete.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem 2.5rem;
+    border-radius: 15px;
+    margin-inline-start: 10px;
+}

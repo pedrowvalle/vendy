@@ -1,0 +1,150 @@
+body{
+    background-color: rgb(199, 199, 199);
+    
+}
+#main-container{
+    height: 39rem;
+    padding-top: 2rem;
+}
+#esquerdo{
+
+    border-right: solid;
+    border-width: 2px;
+    border-color: rgb(128, 128, 128);
+}
+#row-finalizar-venda{
+    padding-left: 9rem;
+    padding-top: 0rem;
+}
+#finalizar{
+    font-size: 30px;
+}
+#row-lista{
+    background-color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 0.7rem;
+    height: 18rem;
+    border-radius: 15px;
+    border-color: rgb(112, 112, 112);
+    border-width: 2px;
+    border-width: 2px;
+    font-size: 20px;
+}
+.col{
+    padding-bottom: 10rem;
+    padding-inline: 2rem;
+}
+#ultimo{
+    border-inline-end-style: none;
+}
+#total{
+    text-align: right;
+    margin-top: 12rem;
+    margin-left: 1.5rem;
+    padding-top: 1rem;
+    border-top-style: solid;
+    border-width: 2px;
+}
+#row-voltar{
+    margin-left: 1rem;
+    margin-top: 5rem;
+}
+#voltar{
+    font-size: 20px;
+    border-radius: 7px;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 10rem;
+}
+
+/*-----------------------------------------------------------------------------------*/
+#direito{
+
+    padding-top: 5rem;
+}
+#row-taxas{
+    padding-left: 20rem;
+}
+#taxas{
+    font-size: 20px;
+    
+}
+#campo-taxa{
+    margin-left: 2rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-width: 1.5px;
+    text-align: right;
+}
+#row-desconto{
+    margin-top: 1rem;
+    margin-left: 10em;
+}
+#campo-esquerdo{
+    text-align: right;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-width: 1.5px;
+    margin-inline-start: 2.5rem;
+}
+#campo-direito{
+    text-align: right;
+    margin-inline-start: 2rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-width: 1.5px;
+}
+#row-dinheiro{
+    margin-top: 1rem;
+    margin-left: 10em;
+}
+#campo-dinheiro{
+    text-align: right;
+    margin-inline-start: 3.28rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-width: 1.5px;
+}
+#row-recebido,#row-falta{
+    margin-left: 13.5rem;
+    margin-top: 1rem;
+    font-size: 25px;
+}
+#row-recebido{
+    margin-top: 2rem;
+}
+#recebido-valor,#falta-valor{
+    margin-left: 5rem;
+}
+#recebido-valor{
+    margin-left: 3.8rem;
+}
+#falta-valor{
+    margin-left: 7rem;
+}
+#row-limpar-finalizar{
+    margin-top: 2rem;
+    padding-left: 10rem;
+}
+#limpar,#finalizar{
+    font-size: 20px;
+    border-radius: 10px;
+    padding-top: 0.2rem;
+    padding-left: 0.1rem;
+    padding-right: 0.2rem;
+    padding-bottom: 0.5rem;
+}
+#finalizar{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: 3rem;
+}
