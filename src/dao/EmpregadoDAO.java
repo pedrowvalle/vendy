@@ -44,7 +44,7 @@ public class EmpregadoDAO {
             stm.setString(4, emp.getUsuario());
             stm.setString(5, emp.getSenha());
             stm.setString(6, emp.getGenero());
-            stm.setString(7, "123456");
+            stm.setString(7, "0123456789");
             stm.setInt(8, emp.getTipo_emp());
             stm.execute();
             String sqlQuery = "SELECT LAST_INSERT_ID()";
