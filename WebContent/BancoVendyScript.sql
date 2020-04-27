@@ -1,9 +1,10 @@
+drop database if exists vendy;
 create database vendy;
 use vendy;
 /*comércio (nome, cnpj, endereco, telefone)*/
 create table comercio (nome varchar(20) not null, cnpj varchar(20) not null, endereco varchar(50), telefone varchar(10), primary key (cnpj));
 /*empregado (CPF, sexo, dt_nsc, nome, cnpj_comercio)*/
-create table empregado (cpf varchar(10) not null, genero varchar(1), dt_nsc varchar(10), nome varchar(20) not null, cnpj_comercio varchar(20), usuario varchar(20), senha varchar(20), tipo smallint, primary key (cpf));
+create table empregado (cpf varchar(10) not null, genero smallint, dt_nsc varchar(10), nome varchar(20) not null, cnpj_comercio varchar(20), usuario varchar(20), senha varchar(20), tipo smallint, primary key (cpf));
 /*estoqusta(cpf_emp, cod)*/
 create table estoquista (cpf_emp varchar(10) not null, cod int, primary key (cod));
 /*operador (cpf_emp, cod)*/
@@ -15,9 +16,6 @@ create table pedido (cod int not null, cod_produto int, data_pedido date, preco 
 /*cliente (CPF, nome, dt_nsc, sexo)*/
 create table cliente (cpf varchar(10) not null, nome varchar (20), dt_nsc varchar(10), genero char, primary key(cpf));
 
-select * from cliente;
-select * from produto;
-select * from empregado;
 
 /* adicionar fk em empregado*/
 ALTER TABLE `vendy`.`empregado` 
