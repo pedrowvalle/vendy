@@ -41,11 +41,11 @@
                     </div>
 					<div class="form-group col-md-3" style="margin-top:30px;">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino">
 						  <label class="form-check-label" for="genero">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino">
 						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
 						</div>
 					</div>

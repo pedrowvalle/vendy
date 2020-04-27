@@ -100,6 +100,7 @@ public class ManterOperadorController extends HttpServlet {
 			session.setAttribute("empregado", empregado);
 			view = request.getRequestDispatcher("operadores/consulta_operadores_resultado.jsp");
 		}else if (pAcao.equals("editar")) {
+			System.out.println((int)'m' +" " +(int) 'f');
 			String pCpf = request.getParameter("cpf_operador");
 			empregado.setCpf(pCpf);
 			empregado = es.carregar(empregado.getCpf());

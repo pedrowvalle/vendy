@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,7 +39,18 @@
 	    								<tr class="lista">
 	    									<th>${empregado.cpf}</th>
 	    									<th>${empregado.nome}</th>
-	    									<th>${empregado.dt_nsc}</th>
+	    									<th>
+	    										 ${empregado.dt_nsc.charAt(8) }
+	    										 ${empregado.dt_nsc.charAt(9) }
+	    										 /
+	    										 ${empregado.dt_nsc.charAt(5) } 
+	    										 ${empregado.dt_nsc.charAt(6) } 
+	    										 /
+	    										 ${empregado.dt_nsc.charAt(0) } 
+	    										 ${empregado.dt_nsc.charAt(1) } 
+	    										 ${empregado.dt_nsc.charAt(2) } 
+	    										 ${empregado.dt_nsc.charAt(3) }    										
+											</th>
 	    									<th>${empregado.genero}</th>
 	    									<th>
 												<c:if test="${empregado.tipo_emp == 1}">
