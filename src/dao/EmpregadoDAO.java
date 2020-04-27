@@ -24,7 +24,11 @@ public class EmpregadoDAO {
 				emp.setDt_nsc(rs.getString("dt_nsc"));
 				emp.setUsuario(rs.getString("usuario"));
 				emp.setSenha(rs.getString("senha"));
-				emp.setGenero(rs.getString("genero"));
+				if(rs.getInt("genero") == 1) {
+					emp.setGenero("Masculino");
+				}else {
+					emp.setGenero("Feminino");
+				}
 				emp.setTipo_emp(rs.getInt("tipo"));
 				empregados.add(emp);
 			}
@@ -43,7 +47,11 @@ public class EmpregadoDAO {
             stm.setString(3, emp.getDt_nsc());
             stm.setString(4, emp.getUsuario());
             stm.setString(5, emp.getSenha());
-            stm.setString(6, emp.getGenero());
+            if(emp.getGenero().equals("Masculino")) {
+            	stm.setInt(6, 1);
+            }else {
+            	stm.setInt(6,  2);
+            }
             stm.setString(7, "0123456789");
             stm.setInt(8, emp.getTipo_emp());
             stm.execute();
@@ -69,7 +77,11 @@ public class EmpregadoDAO {
 			stm.setString(2, emp.getDt_nsc());
 			stm.setString(3, emp.getUsuario());
 			stm.setString(4, emp.getSenha());
-			stm.setString(5, emp.getGenero());
+			if(emp.getGenero().equals("Masculino")) {
+            	stm.setInt(6, 1);
+            }else {
+            	stm.setInt(6,  2);
+            }
 			stm.setInt(6, emp.getTipo_emp());
 			stm.setString(7, emp.getCpf());
 			stm.execute();
@@ -104,8 +116,11 @@ public class EmpregadoDAO {
 					emp.setUsuario(rs.getString("usuario"));
 					emp.setSenha(rs.getString("senha"));
 					emp.setTipo_emp(rs.getInt("tipo"));
-					emp.setGenero(rs.getString("genero"));
-					System.out.println(emp.getCpf());
+					if(rs.getInt("genero") == 1) {
+						emp.setGenero("Masculino");
+					}else {
+						emp.setGenero("Feminino");
+					}
 				} return emp;
 			} catch (SQLException e) {
 				e.printStackTrace();
