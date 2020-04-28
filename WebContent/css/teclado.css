@@ -1,0 +1,47 @@
+body{
+	background: #e4eded !important;
+}
+
+.tabela{
+	border-style: solid;
+	border-width: medium;
+	border-radius: 5px;
+	
+}
+
+#lista{
+}
+#area-lista{
+	margin-top: 1rem;
+	margin-bottom: 1rem
+	
+}
+
+#total{
+}
+#area-total{
+	margin-top: 1rem;
+	margin-bottom: 1rem
+}
+#categorias{
+}
+#area-categorias{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+}
+#produtos{
+    padding: 10px;
+	align-self: center;
+}
+
+#area-produtos{
+	padding: 5px;
+	align-self: center;
+}
+
+.custom {
+	position: relative;
+	width: 24%;
+	margin: 2px;
+}

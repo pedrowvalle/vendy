@@ -176,6 +176,27 @@ public class ProdutoDAO {
 		return lista;
 	}
 	
+	public ArrayList<Produto> listarCategorias(){
+		Produto prod;
+		ArrayList<Produto> lista = new ArrayList<>();
+		String sqlSelect = "SELECT DISTINCT categoria FROM produto";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			try(ResultSet rs = stm.executeQuery()){
+				while(rs.next()) {
+					prod = new Produto();
+					prod.setCategoria(rs.getString("categoria"));
+					lista.add(prod);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
+	}
+	
 	public ArrayList<Produto> listarProdutoCategoria(String categoria){
 		ArrayList<Produto> lista = new ArrayList<>();
 		String sqlSelect = "SELECT * FROM produto WHERE categoria=?";

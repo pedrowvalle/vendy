@@ -38,7 +38,12 @@ public class ProdutoService {
 		return dao.listarCategoria();
 	}
 	
+	public ArrayList<Produto> listarCategorias(){
+		return dao.listarCategorias();
+	}
+	
 	public ArrayList<Produto> listarProdutoCategoria(String categoria){
 		return dao.listarProdutoCategoria(categoria);
 	}
+
 }
