@@ -3,7 +3,7 @@
 <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand"
-		href="<%=request.getContextPath()%>/estoquista.jsp">Vendy -
+		href="<%=request.getContextPath()%>/operador.jsp">Vendy -
 		Sistema de Automação Comercial</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbar" aria-controls="navbar" aria-expanded="false">
@@ -36,10 +36,8 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<form action="TecladoListarCategorias" method="get">
-					<button type="submit" class="btn btn-success">Abrir
-						PDV</button>
-					</form>
+					<a href="ManterTeclado?acao=inicio"
+							class="btn btn-success custom">Abre PDV</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 

@@ -22,70 +22,90 @@
 		<div class="row" id="first-row">
 			<div class="col-md-8 tabela" id="lista">
 				<div class="col-md-12" id="area-lista">
-					<table class="table table-striped">
-						<thead>
-							<th>Produto</th>
-							<th>Quantidade</th>
-							<th>Preço</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+					<c:if test="${empty venda }">
+						<table class="table table-striped">
+							<thead>
+								<th>Produto</th>
+								<th>Quantidade</th>
+								<th>Preço</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</c:if>
+					<c:if test="${not empty venda }">
+						<table class="table table-striped">
+							<thead>
+								<th>Produto</th>
+								<th>Quantidade</th>
+								<th>Preço</th>
+							</thead>
+							<tbody>
+								<c:forEach var="produto" items="${venda}">
+									<tr>
+										<td>${produto.nome }</td>
+										<td>${produto.nome }</td>
+										<td>${produto.preco }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</c:if>
 				</div>
 			</div>
 			<div class="col-md-4 tabela" id="total">
@@ -144,13 +164,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="produto" items="${categorias}">
+								<c:forEach var="categoria" items="${categorias}">
 									<tr>
-										<th>
-											<button type="submit" class="btn btn-outline-info btn-block"
-												value="${produto.categoria }" name="categoria">
-												${produto.categoria }</button>
-										</th>
+										<th><a
+											href="<%=request.getContextPath()%>/ManterTeclado?acao=categoria&categoria=${categoria.categoria }"
+											class="btn btn-outline-info btn-block">${categoria.categoria}</a></th>
 								</c:forEach>
 							</tbody>
 						</table>
@@ -161,13 +179,67 @@
 			<div class="col-md-8" id="produtos">
 				<div id="area-produtos">
 					<c:forEach var="produto" items="${produtos}">
-						<button type="submit" class="btn btn-outline-primary custom"
-							name="acao" href="#">${produto.nome}</button>
+						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }"
+							class="btn btn-outline-primary custom">${produto.nome }</a>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
+		<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal"
+		data-target="#cancelar">Cancelar venda</button>
+		<a href="<%=request.getContextPath()%>/caixa/finalizar-venda.jsp" type="button" class="btn btn-success" style="float: right;">Finalizar venda</a>
+	</div>
+	<!-- The Modal -->
+	<div class="modal" id="Modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
 
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Quantidade</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					Quantidade <input type="number" value="1" name="qtd">
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<a href="ManterTeclado?acao=adicionar&cod=${produto.cod }"
+						class="btn btn-outline-primary custom">Confirmar</a>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- The Modal -->
+	<div class="modal" id="cancelar">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Cancelar a venda</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					Deseja cancelar a venda?
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<a href="ManterTeclado?acao=inicio"
+						class="btn btn-outline-primary custom">Confirmar</a>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				</div>
+
+			</div>
+		</div>
 	</div>
 	<c:import url="../bootstrap_body.jsp" />
 </body>

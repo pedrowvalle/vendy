@@ -3,7 +3,7 @@
 <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand"
-		href="<%=request.getContextPath()%>/estoquista.jsp">Vendy -
+		href="<%=request.getContextPath()%>/operador.jsp">Vendy -
 		Sistema de Automação Comercial</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbar" aria-controls="navbar" aria-expanded="false">
