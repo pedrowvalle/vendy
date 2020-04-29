@@ -85,9 +85,10 @@ public class ManterTecladoController extends HttpServlet {
 			}else {
 				double total = Double.parseDouble(request.getParameter("total"));
 				int cod = Integer.parseInt(request.getParameter("cod"));
-				int i = busca(cod, venda);
-				venda.remove(i);
+				produto = ps.carregar(cod);
+				int i = busca(produto, venda);
 				total -= venda.get(i).getPreco();
+				venda.remove(i);
 				session.setAttribute("venda", venda);
 				session.setAttribute("total", total);
 				view = request.getRequestDispatcher("caixa/teclado.jsp");
@@ -98,11 +99,11 @@ public class ManterTecladoController extends HttpServlet {
 		
 	}
 	
-	public int busca(int cod, ArrayList<Produto> lista) {
+	public int busca(Produto produto, ArrayList<Produto> lista) {
 		Produto p;
 		for(int i = 0; i < lista.size(); i++) {
 			p = lista.get(i);
-			if(p.getCod() == cod) {
+			if(p.getCod() == produto.getCod()) {
 				return i;
 			}
 		}
