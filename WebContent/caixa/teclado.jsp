@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -88,6 +89,7 @@
 					<c:if test="${not empty venda }">
 						<table class="table table-striped">
 							<thead>
+								<th></th>
 								<th>Produto</th>
 								<th>Quantidade</th>
 								<th>Preço</th>
@@ -95,9 +97,10 @@
 							<tbody>
 								<c:forEach var="produto" items="${venda}">
 									<tr>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
 										<td>${produto.nome }</td>
-										<td>${produto.preco }</td>
+										<td>R$ ${produto.preco }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -110,7 +113,7 @@
 					<h1>Total</h1>
 					<br><br><br><br><br><br><br><br><br>
 					<hr/>
-					<h1>R$ ${total}</h1>
+					<h1 style="float: right;">R$ <fmt:formatNumber type="number" maxFractionDigits="2" value="${total}"/></h1>
 				</div>
 			</div>
 		</div>

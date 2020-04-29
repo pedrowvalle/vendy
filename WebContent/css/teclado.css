@@ -18,6 +18,11 @@ body{
 	margin-bottom: 1rem;
 }
 
+.lixo{
+	width: 20px;
+	height: 20px;
+}
+
 div.scroll{
 	overflow: auto;
 	height: 400px;
@@ -29,6 +34,8 @@ div.scroll{
 	margin-top: 1rem;
 	margin-bottom: 1rem
 }
+
+
 #categorias{
 }
 #area-categorias{

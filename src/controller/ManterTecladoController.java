@@ -69,12 +69,44 @@ public class ManterTecladoController extends HttpServlet {
 			session.setAttribute("venda", venda);
 			session.setAttribute("total", total);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
-		}else if (pAcao.equals("cancelar")) {
-			
+		}else if (pAcao.equals("excluir")) {
+			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+			if(venda.size() == 1) {
+				ArrayList<Produto> categorias = ps.listarCategorias();
+				venda = new ArrayList<>();
+				String categoria = request.getParameter("categoria");
+				ArrayList<Produto> produtos = ps.listarProdutoCategoria(categoria);
+				double total = 0;
+				session.setAttribute("produtos", produtos);
+				session.setAttribute("categorias", categorias);
+				session.setAttribute("venda", venda);
+				session.setAttribute("total", total);
+				view = request.getRequestDispatcher("caixa/teclado.jsp");
+			}else {
+				double total = Double.parseDouble(request.getParameter("total"));
+				int cod = Integer.parseInt(request.getParameter("cod"));
+				int i = busca(cod, venda);
+				venda.remove(i);
+				total -= venda.get(i).getPreco();
+				session.setAttribute("venda", venda);
+				session.setAttribute("total", total);
+				view = request.getRequestDispatcher("caixa/teclado.jsp");
+			}
 		}
 		
 		view.forward(request, response);
 		
+	}
+	
+	public int busca(int cod, ArrayList<Produto> lista) {
+		Produto p;
+		for(int i = 0; i < lista.size(); i++) {
+			p = lista.get(i);
+			if(p.getCod() == cod) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
