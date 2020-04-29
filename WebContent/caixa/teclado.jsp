@@ -9,9 +9,6 @@
 <title>Teclado</title>
 <link href="<%=request.getContextPath()%>/css/teclado.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
-	rel="stylesheet">
-
 <c:import url="/bootstrap_head.jsp" />
 </head>
 <body>
@@ -21,7 +18,7 @@
 
 		<div class="row" id="first-row">
 			<div class="col-md-8 tabela" id="lista">
-				<div class="col-md-12" id="area-lista">
+				<div class="col-md-12 scroll" id="area-lista">
 					<c:if test="${empty venda }">
 						<table class="table table-striped">
 							<thead>
@@ -109,47 +106,11 @@
 				</div>
 			</div>
 			<div class="col-md-4 tabela" id="total">
-				<div class="col-md-12" id="area-total">
-					<table class="table table-striped">
-						<thead>
-							<th>Total</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="col-md-12 scroll" id="area-total">
+					<h1>Total</h1>
+					<br><br><br><br><br><br><br><br><br>
+					<hr/>
+					<h1>R$ ${total}</h1>
 				</div>
 			</div>
 		</div>
@@ -179,7 +140,7 @@
 			<div class="col-md-8" id="produtos">
 				<div id="area-produtos">
 					<c:forEach var="produto" items="${produtos}">
-						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }"
+						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }&total=${total}"
 							class="btn btn-outline-primary custom">${produto.nome }</a>
 					</c:forEach>
 				</div>

@@ -37,15 +37,18 @@ public class ManterTecladoController extends HttpServlet {
 			session.setAttribute("produto", produto);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}else if(pAcao.equals("adicionar")) {
+			double total = Double.parseDouble(request.getParameter("total"));
 			int cod = Integer.parseInt(request.getParameter("cod"));
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
 			produto = ps.carregar(cod);
 			venda.add(produto);
+			total += produto.getPreco();
 			ArrayList<Produto> categorias = ps.listarCategorias();
 			ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
 			session.setAttribute("venda", venda);
 			session.setAttribute("produtos", produtos);
 			session.setAttribute("categorias", categorias);
+			session.setAttribute("total", total);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}else if(pAcao.equals("categoria")) {
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
@@ -60,9 +63,11 @@ public class ManterTecladoController extends HttpServlet {
 			ArrayList<Produto> venda = new ArrayList<>();
 			String categoria = request.getParameter("categoria");
 			ArrayList<Produto> produtos = ps.listarProdutoCategoria(categoria);
+			double total = 0;
 			session.setAttribute("produtos", produtos);
 			session.setAttribute("categorias", categorias);
 			session.setAttribute("venda", venda);
+			session.setAttribute("total", total);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}else if (pAcao.equals("cancelar")) {
 			

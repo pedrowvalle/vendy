@@ -5,16 +5,22 @@ body{
 .tabela{
 	border-style: solid;
 	border-width: medium;
-	border-radius: 5px;
+	border-radius: 25px;
+	border-color: grey;
 	
 }
 
 #lista{
+	
 }
 #area-lista{
 	margin-top: 1rem;
-	margin-bottom: 1rem
-	
+	margin-bottom: 1rem;
+}
+
+div.scroll{
+	overflow: auto;
+	height: 400px;
 }
 
 #total{
