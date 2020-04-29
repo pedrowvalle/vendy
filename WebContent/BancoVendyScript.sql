@@ -73,10 +73,10 @@ ADD CONSTRAINT `cpf_cliente`
   ON UPDATE NO ACTION;
   
 insert into comercio (nome, cnpj, endereco, telefone) values ("seu zé", "0123456789", "Rua dos bobos, 0", "0116587852");
-insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("40305550", 1, '1991-05-30', "Pedro", "0123456789", "pedro", "0123", 1);
-insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("11122233", 1, '2001-07-10', "Caio", "0123456789", "caio", "0123", 2);
+insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("40305550", 1, '30/05/1991', "Pedro", "0123456789", "pedro", "0123", 1);
+insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("11122233", 1, '10/07/2001', "Caio", "0123456789", "caio", "0123", 2);
 
-
+select * from produto;
 select * from empregado;
 
 insert into produto (nome, preco, categoria, estoque) values ("Coca-cola 350ml", '2.05', "Bebidas", 10);
@@ -96,4 +96,6 @@ insert into produto (nome, preco, categoria, estoque) values ("Sabão em pó", 9
 insert into produto (nome, preco, categoria, estoque) values ("Vassoura", 9, "Outros", 10);
 insert into produto (nome, preco, categoria, estoque) values ("Ingresso HopiHari", 9, "Outros", 10);
 insert into produto (nome, preco, categoria, estoque) values ("Espeto Churrasco", 9, "Outros", 10);
-  
+
+
+  delete from empregado where cpf=40305550;
