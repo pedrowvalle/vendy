@@ -11,7 +11,7 @@ body{
 }
 
 #lista{
-	
+
 }
 #area-lista{
 	margin-top: 1rem;
@@ -29,18 +29,44 @@ div.scroll{
 }
 
 #total{
+	height: 17rem;
+}
+#row-total
+{
+	height: 17rem;
 }
 #area-total{
 	margin-top: 1rem;
-	margin-bottom: 1rem
+	margin-bottom: 1rem;
+	height: 16rem;
 }
 
+#botao-cancelar, #botao-finalizar{
+	margin-top: 0.5rem;
+	background-position: center;
+    background-repeat: no-repeat;
+    padding: 3.25rem 3.25rem;
+    border-radius: 15px;
+}
+
+#botao-cancelar{
+	background-image: url('../images/close.png');
+    background-size: 75px 75px;
+    margin-left: 4.5rem;
+    
+}
+#botao-finalizar{
+	background-image: url('../images/check.png');
+    background-size: 75px 60px;
+    margin-left: 1.5rem;
+}
 
 #categorias{
 }
 #area-categorias{
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	height: 15rem;
 
 }
 #produtos{

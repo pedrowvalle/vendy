@@ -92,6 +92,7 @@
 								<th></th>
 								<th>Produto</th>
 								<th>Quantidade</th>
+								<th></th>
 								<th>Preço</th>
 							</thead>
 							<tbody>
@@ -99,8 +100,9 @@
 									<tr>
 										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
-										<td>${produto.nome }</td>
-										<td>R$ ${produto.preco }</td>
+										<td><input type="number" class="form-control" min="1" id="quantidade" name="quantidade" value="1"></td>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
+										<td>R$ ${produto.preco }0</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -109,11 +111,18 @@
 				</div>
 			</div>
 			<div class="col-md-4 tabela" id="total">
-				<div class="col-md-12 scroll" id="area-total">
-					<h1>Total</h1>
-					<br><br><br><br><br><br><br><br><br>
-					<hr/>
-					<h1 style="float: right;">R$ <fmt:formatNumber type="number" maxFractionDigits="2" value="${total}"/></h1>
+				<div class="row">
+					<div class="col-md-12 scroll" id="area-total">
+						<h1>Total</h1>
+						<br><br><br><br>
+						<hr/>
+						<h1 style="float: right;">R$ <fmt:formatNumber type="number" maxFractionDigits="2" value="${total}"/></h1>
+					</div>
+				</div>
+				<div class="row">
+					<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal"
+					data-target="#cancelar" id="botao-cancelar"></button>
+					<a href="<%=request.getContextPath()%>/caixa/finalizar-venda.jsp" type="button" class="btn btn-success" style="float: right;" id="botao-finalizar"></a>
 				</div>
 			</div>
 		</div>
@@ -149,9 +158,7 @@
 				</div>
 			</div>
 		</div>
-		<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal"
-		data-target="#cancelar">Cancelar venda</button>
-		<a href="<%=request.getContextPath()%>/caixa/finalizar-venda.jsp" type="button" class="btn btn-success" style="float: right;">Finalizar venda</a>
+		
 	</div>
 	<!-- The Modal -->
 	<div class="modal" id="Modal">
