@@ -104,6 +104,26 @@ public class ProdutoDAO {
 		return prod;
 	}
 	
+	public Produto carregarPreco(int cod) {
+		Produto prod = new Produto();
+		String SQLSelect = "SELECT preco FROM produto WHERE cod = ?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(SQLSelect);){
+			stm.setInt(1, cod);
+			try(ResultSet rs = stm.executeQuery();){
+				if (rs.next()) {
+					prod.setPreco(rs.getDouble("preco"));
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.println(e1.getStackTrace());
+		}
+		
+		return prod;
+	}
+	
 	public ArrayList<Produto> listarProduto(){
 		Produto prod;
 		ArrayList<Produto> lista = new ArrayList<>();

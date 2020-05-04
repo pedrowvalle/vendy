@@ -25,6 +25,10 @@ public class ProdutoService {
 		return dao.carregar(id);
 	}
 	
+	public Produto carregarPreco(int id) {
+		return dao.carregarPreco(id);
+	}
+	
 	
 	public ArrayList<Produto> listarProdutos(){
 		return dao.listarProduto();

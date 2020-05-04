@@ -39,6 +39,7 @@ public class ManterTecladoController extends HttpServlet {
 		}else if(pAcao.equals("adicionar")) {
 			double total = Double.parseDouble(request.getParameter("total"));
 			int cod = Integer.parseInt(request.getParameter("cod"));
+			int cont = Integer.parseInt(request.getParameter("cont"));
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
 			produto = ps.carregar(cod);
 			venda.add(produto);
@@ -49,6 +50,7 @@ public class ManterTecladoController extends HttpServlet {
 			session.setAttribute("produtos", produtos);
 			session.setAttribute("categorias", categorias);
 			session.setAttribute("total", total);
+			session.setAttribute("cont", cont);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}else if(pAcao.equals("categoria")) {
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
@@ -93,8 +95,43 @@ public class ManterTecladoController extends HttpServlet {
 				session.setAttribute("total", total);
 				view = request.getRequestDispatcher("caixa/teclado.jsp");
 			}
+		}else if (pAcao.equals("aumentarQuantidade")) {
+			int cont = Integer.parseInt(request.getParameter("cont"));
+			double total = Double.parseDouble(request.getParameter("total"));
+			int cod = Integer.parseInt(request.getParameter("cod"));
+			int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+			produto = ps.carregar(cod);
+			total +=produto.getPreco()*quantidade;
+			cont++;
+			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+			ArrayList<Produto> categorias = ps.listarCategorias();
+			ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
+			session.setAttribute("quantidade", quantidade);
+			session.setAttribute("venda", venda);
+			session.setAttribute("produtos", produtos);
+			session.setAttribute("categorias", categorias);
+			session.setAttribute("total", total);
+			session.setAttribute("cont", cont);
+			view = request.getRequestDispatcher("caixa/teclado.jsp");	
+		}else if (pAcao.equals("diminuirQuantidade")) {
+			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+			int cont = Integer.parseInt(request.getParameter("cont"));
+			double total = Double.parseDouble(request.getParameter("total"));
+			int cod = Integer.parseInt(request.getParameter("cod"));
+			int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+			produto = ps.carregarPreco(cod);
+			total -=produto.getPreco()*quantidade;
+			cont--;
+			ArrayList<Produto> categorias = ps.listarCategorias();
+			ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
+			session.setAttribute("quantidade", quantidade);
+			session.setAttribute("venda", venda);
+			session.setAttribute("produtos", produtos);
+			session.setAttribute("categorias", categorias);
+			session.setAttribute("total", total);
+			session.setAttribute("cont", cont);
+			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}
-		
 		view.forward(request, response);
 		
 	}

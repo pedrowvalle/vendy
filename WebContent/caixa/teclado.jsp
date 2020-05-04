@@ -91,6 +91,7 @@
 							<thead>
 								<th></th>
 								<th>Produto</th>
+								<th></th>
 								<th>Quantidade</th>
 								<th></th>
 								<th>Preço</th>
@@ -98,10 +99,12 @@
 							<tbody>
 								<c:forEach var="produto" items="${venda}">
 									<tr>
+										
 										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
-										<td><input type="number" class="form-control" min="1" id="quantidade" name="quantidade" value="1"></td>
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=diminuirQuantidade&cod=${produto.cod}&total=${total}&quantidade=1&cont=${cont}" id="botaoQuantidade">-1</a></td>
+										<td>${cont }</td>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=aumentarQuantidade&cod=${produto.cod}&total=${total}&quantidade=1&cont=${cont}" id="botaoQuantidade">+1</a> </td>
 										<td>R$ ${produto.preco }0</td>
 									</tr>
 								</c:forEach>
@@ -152,7 +155,7 @@
 			<div class="col-md-8" id="produtos">
 				<div id="area-produtos">
 					<c:forEach var="produto" items="${produtos}">
-						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }&total=${total}"
+						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }&total=${total}&cont=1"
 							class="btn btn-outline-primary custom">${produto.nome }</a>
 					</c:forEach>
 				</div>
