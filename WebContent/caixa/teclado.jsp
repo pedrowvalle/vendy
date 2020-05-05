@@ -102,9 +102,9 @@
 										
 										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=diminuirQuantidade&cod=${produto.cod}&total=${total}&quantidade=1&cont=${cont}" id="botaoQuantidade">-1</a></td>
-										<td>${cont }</td>
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=aumentarQuantidade&cod=${produto.cod}&total=${total}&quantidade=1&cont=${cont}" id="botaoQuantidade">+1</a> </td>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=diminuirQuantidade&cod=${produto.cod}" id="botaoQuantidade"><img src="images/minus.png" class="modificarQuantidade"></a></td>
+										<td>${produto.cont }</td>
+										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=aumentarQuantidade&cod=${produto.cod}" id="botaoQuantidade"><img src="images/plus.png" class="modificarQuantidade"></a> </td>
 										<td>R$ ${produto.preco }0</td>
 									</tr>
 								</c:forEach>
@@ -164,7 +164,7 @@
 		
 	</div>
 	<!-- The Modal -->
-	<div class="modal" id="Modal">
+	<div class="modal" id="modalQuantidade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 

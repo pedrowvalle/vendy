@@ -7,6 +7,7 @@ body{
 	border-width: medium;
 	border-radius: 25px;
 	border-color: grey;
+	text-align: center;
 	
 }
 
@@ -16,11 +17,17 @@ body{
 #area-lista{
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	text-ali
 }
 
 .lixo{
 	width: 20px;
 	height: 20px;
+}
+
+.modificarQuantidade{
+	width: 18px;
+	height: 18px;
 }
 
 div.scroll{

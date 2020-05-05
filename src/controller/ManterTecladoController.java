@@ -42,6 +42,7 @@ public class ManterTecladoController extends HttpServlet {
 			int cont = Integer.parseInt(request.getParameter("cont"));
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
 			produto = ps.carregar(cod);
+			produto.setCont(1);
 			venda.add(produto);
 			total += produto.getPreco();
 			ArrayList<Produto> categorias = ps.listarCategorias();
@@ -96,40 +97,37 @@ public class ManterTecladoController extends HttpServlet {
 				view = request.getRequestDispatcher("caixa/teclado.jsp");
 			}
 		}else if (pAcao.equals("aumentarQuantidade")) {
-			int cont = Integer.parseInt(request.getParameter("cont"));
-			double total = Double.parseDouble(request.getParameter("total"));
-			int cod = Integer.parseInt(request.getParameter("cod"));
-			int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-			produto = ps.carregar(cod);
-			total +=produto.getPreco()*quantidade;
-			cont++;
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
-			ArrayList<Produto> categorias = ps.listarCategorias();
-			ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-			session.setAttribute("quantidade", quantidade);
+			int cod = Integer.parseInt(request.getParameter("cod"));
+			double total = 0;
+			for (Produto prod : venda) {
+				if (prod.getCod() == cod) {
+					int aux = prod.getCont();
+					aux++;
+					prod.setCont(aux);
+				}
+				total += prod.getPreco() * prod.getCont();
+			}
 			session.setAttribute("venda", venda);
-			session.setAttribute("produtos", produtos);
-			session.setAttribute("categorias", categorias);
 			session.setAttribute("total", total);
-			session.setAttribute("cont", cont);
-			view = request.getRequestDispatcher("caixa/teclado.jsp");	
+			view = request.getRequestDispatcher("caixa/teclado.jsp");
+			
 		}else if (pAcao.equals("diminuirQuantidade")) {
 			ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
-			int cont = Integer.parseInt(request.getParameter("cont"));
-			double total = Double.parseDouble(request.getParameter("total"));
 			int cod = Integer.parseInt(request.getParameter("cod"));
-			int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-			produto = ps.carregarPreco(cod);
-			total -=produto.getPreco()*quantidade;
-			cont--;
-			ArrayList<Produto> categorias = ps.listarCategorias();
-			ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-			session.setAttribute("quantidade", quantidade);
+			double total = 0;
+			for (Produto prod : venda) {
+				if (prod.getCod() == cod) {
+					int aux = prod.getCont();
+					if(aux > 1) {
+						aux--;
+						prod.setCont(aux);
+					}
+				}
+				total += prod.getPreco() * prod.getCont();
+			}
 			session.setAttribute("venda", venda);
-			session.setAttribute("produtos", produtos);
-			session.setAttribute("categorias", categorias);
 			session.setAttribute("total", total);
-			session.setAttribute("cont", cont);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}
 		view.forward(request, response);

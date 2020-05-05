@@ -7,6 +7,7 @@ public class Produto{
 	private String categoria;
 	private double preco;
 	private int quantidade;
+	private int cont;
 	
 	public Produto() {}
 	
@@ -77,6 +78,14 @@ public class Produto{
 	public String toString() {
 		return "Produto [cod=" + cod + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco
 				+ ", quantidade=" + quantidade + "]";
+	}
+
+	public int getCont() {
+		return cont;
+	}
+
+	public void setCont(int cont) {
+		this.cont = cont;
 	}
 	
 	
