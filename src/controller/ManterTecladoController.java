@@ -90,7 +90,7 @@ public class ManterTecladoController extends HttpServlet {
 				int cod = Integer.parseInt(request.getParameter("cod"));
 				produto = ps.carregar(cod);
 				int i = busca(produto, venda);
-				total -= venda.get(i).getPreco();
+				total -= (venda.get(i).getPreco() * venda.get(i).getCont());
 				venda.remove(i);
 				session.setAttribute("venda", venda);
 				session.setAttribute("total", total);
