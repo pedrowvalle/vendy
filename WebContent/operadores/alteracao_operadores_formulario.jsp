@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Operador</h3>
             <hr>
-				<form action="ManterOperador" method="GET">
+				<form action="../controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
@@ -71,21 +71,21 @@
                 <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">
-                		<button type="submit" class="btn btn-primary custom" name="acao" value="alterar">Cadastrar</button>
+                		<button type="submit" class="btn btn-primary custom" name="command" value="AlterarOperador">Cadastrar</button>
 						<a href="operadores/alteracao_operadores.jsp" class="btn btn-default custom">Cancelar</a>
 					</div>
                 </div>
             </form>
            	
 			<hr>
-       		<form action="ManterOperador" method="get">
+       		<form action="../controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Operador, confirme o CPF:</label>
 						<input type="text" class="form-control" id="cpf_operador_del" name="cpf_operador_del" placeholder="Esta ação não pode ser desfeita">
 					</div>
 					<div class="col-md-6 align-self-end custom">
-						<button type="submit" class="btn btn-danger" name="acao" value="excluir">Apagar Operador</button>
+						<button type="submit" class="btn btn-danger" name="command" value="ExcluirOperador">Apagar Operador</button>
 					</div>
 				</div>
 			</form>

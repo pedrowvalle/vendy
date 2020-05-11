@@ -100,12 +100,12 @@
 								<c:forEach var="produto" items="${venda}">
 									<tr>
 										
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=excluir&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
+										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoExcluirProduto&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=diminuirQuantidade&cod=${produto.cod}" id="botaoQuantidade"><img src="images/minus.png" class="modificarQuantidade"></a></td>
+										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoDiminuirQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/minus.png" class="modificarQuantidade"></a></td>
 										<td>${produto.cont }</td>
-										<td><a href="<%=request.getContextPath()%>/ManterTeclado?acao=aumentarQuantidade&cod=${produto.cod}" id="botaoQuantidade"><img src="images/plus.png" class="modificarQuantidade"></a> </td>
-										<td>R$ ${produto.preco }0</td>
+										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoAumentarQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/plus.png" class="modificarQuantidade"></a> </td>
+										<td>R$ ${produto.preco }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -132,7 +132,7 @@
 		<div class="row" id="second-row">
 			<div class="col-md-4" id="categorias">
 				<div class="table-responsive col-md-12" id="area-categorias">
-					<form action="TecladoListarProdutos" method="GET">
+					<form action="../controller.do" method="GET">
 						<table class="table table-borderless">
 							<thead>
 								<tr>
@@ -143,7 +143,7 @@
 								<c:forEach var="categoria" items="${categorias}">
 									<tr>
 										<th><a
-											href="<%=request.getContextPath()%>/ManterTeclado?acao=categoria&categoria=${categoria.categoria }"
+											href="<%=request.getContextPath()%>/controller.do?command=TecladoCategorias&categoria=${categoria.categoria }"
 											class="btn btn-outline-info btn-block">${categoria.categoria}</a></th>
 								</c:forEach>
 							</tbody>
@@ -155,7 +155,7 @@
 			<div class="col-md-8" id="produtos">
 				<div id="area-produtos">
 					<c:forEach var="produto" items="${produtos}">
-						<a href="<%=request.getContextPath()%>/ManterTeclado?acao=adicionar&cod=${produto.cod }&total=${total}&cont=1"
+						<a href="<%=request.getContextPath()%>/controller.do?command=TecladoAddProduto&cod=${produto.cod }&total=${total}&cont=1"
 							class="btn btn-outline-primary custom">${produto.nome }</a>
 					</c:forEach>
 				</div>
@@ -181,7 +181,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="ManterTeclado?acao=adicionar&cod=${produto.cod }"
+					<a href="controller.do?command=TecladoAddProduto&cod=${produto.cod }"
 						class="btn btn-outline-primary custom">Confirmar</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
@@ -207,7 +207,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="ManterTeclado?acao=inicio"
+					<a href="controller.do?command=TecladoInicio"
 						class="btn btn-outline-primary custom">Confirmar</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>

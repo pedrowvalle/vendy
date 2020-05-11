@@ -20,22 +20,22 @@
 	    		<br>
 	    		<h3 class="page-header">Alterar Operador</h3>
 	    		<hr>
-	    		<form action="../ManterOperador" method="get">
+	    		<form action="../controller.do" method="get">
 	    			<div class="row">
 	    				<div class="form-group col-md-6">
 	    					<label for="cod_produto">Digite o CPF do operador: </label>
 	    					<input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas números">
 	    				</div>
 	    				<div class="col-md-6 align-self-end custom">
-							<button type="submit" class="btn btn-primary" name="acao" value="editar">Consultar</button>
+							<button type="submit" class="btn btn-primary" name="command" value="EditarOperador">Consultar</button>
 							<a href="../estoquista.jsp" class="btn btn-default">Cancelar</a>
 						</div>
 	    			</div>
 	    		</form>
 	    		<hr/>
-	    		<form action="../ListarOperadores" method="get">
-					<button type="submit" class="btn btn-success" name="acao"
-					value="listar">Listar Operador</button>
+	    		<form action="../controller.do" method="get">
+					<button type="submit" class="btn btn-success" name="command"
+					value="ListarOperadores">Listar Operador</button>
 				</form>
 	    	</div>
 	    	<c:import url="../bootstrap_body.jsp"/>

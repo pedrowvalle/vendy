@@ -104,7 +104,7 @@
 		<div class="row" id="second-row">
 			<div class="col-md-4" id="categorias">
 				<div class="table-responsive col-md-12" id="area-categorias">
-					<form action="TecladoListarProdutos" method="GET">
+					<form action="../controller.do" method="GET">
 					<table class="table table-borderless">
 						<thead>
 							<tr>

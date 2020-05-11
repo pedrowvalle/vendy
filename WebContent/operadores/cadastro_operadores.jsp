@@ -20,7 +20,7 @@
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Operadores</h3>
             <hr>
-            <form action="../ManterOperador" method="GET">
+            <form action="../controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
@@ -70,7 +70,7 @@
                 <hr>
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">
-						<button type="submit" class="btn btn-primary custom" name="acao" value="incluir">Cadastrar</button>
+						<button type="submit" class="btn btn-primary custom" name="command" value="IncluirOperador">Cadastrar</button>
 						<a href="../estoquista.jsp" class="btn btn-default custom">Cancelar</a>
 					</div>
                 </div>

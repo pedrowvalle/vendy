@@ -36,7 +36,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="ManterTeclado?acao=inicio"
+					<a href="controller.do?command=TecladoInicio"
 							class="btn btn-success custom">Abre PDV</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>

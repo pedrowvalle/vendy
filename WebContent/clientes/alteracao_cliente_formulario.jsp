@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Clientes</h3>
             <hr>
-				<form action="ManterCliente" method="GET">
+				<form action="../controller.do" method="get">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">CPF:</label>
@@ -55,21 +55,21 @@
                 </div>
                 <div class="row">
                 	<div id="actions" class="col-md-6">
-						<button type="submit" class="btn btn-primary" name="acao" value="alterar">Alterar</button>
+						<button type="submit" class="btn btn-primary" name="command" value="AlterarCliente">Alterar</button>
 						<a href="clientes/alteracao_cliente.jsp" class="btn btn-default">Cancelar</a>
 					</div>
                 </div>
             </form>
            	<hr>
-       		<form action="ManterCliente" method="get">
+       		<form action="../controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
 						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita">
 					</div>
 					<div class="col-md-6 align-self-end custom">
-						<button type="submit" class="btn btn-danger" name="acao"
-						value="excluir">Apagar Cliente</button>
+						<button type="submit" class="btn btn-danger" name="command"
+						value="ExcluirCliente">Apagar Cliente</button>
 					</div>
 				</div>
 			</form>

@@ -20,22 +20,22 @@
 	    		<br>
 	    		<h3 class="page-header">Alterar Clientes</h3>
 	    		<hr>
-	    		<form action="../ManterCliente" method="get">
+	    		<form action="../controller.do" method="get">
 	    			<div class="row">
 	    				<div class="form-group col-md-6">
 	    					<label for="cod_produto">Digite o CPF do cliente: </label>
 	    					<input type="text" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Apenas números">
 	    				</div>
 	    				<div class="col-md-6 align-self-end custom">
-							<button type="submit" class="btn btn-primary" name="acao" value="editar">Consultar</button>
+							<button type="submit" class="btn btn-primary" name="command" value="EditarCliente">Consultar</button>
 							<a href="../estoquista.jsp" class="btn btn-default">Cancelar</a>
 						</div>
 	    			</div>
 	    		</form>
 	    		<hr/>
-	    		<form action="../ListarClientes" method="get">
-					<button type="submit" class="btn btn-success" name="acao"
-					value="listar">Listar Clientes</button>
+	    		<form action="../controller.do" method="get">
+					<button type="submit" class="btn btn-success" name="command"
+					value="ListarClientes">Listar Clientes</button>
 				</form>
 	    	</div>
 	    	<c:import url="../bootstrap_body.jsp"/>

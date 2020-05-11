@@ -20,7 +20,7 @@
         <div id="main" class="container">
             <h3 class="page-header">Cadastro de Clientes</h3>
             <hr>
-            <form action="../controller.do" method="get">
+            <form action="controller.do" method="get">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Cliente:</label>
