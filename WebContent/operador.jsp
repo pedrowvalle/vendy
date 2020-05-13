@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style_estoquista.css">
-<title>operador</title>
+<title>Operador</title>
 <c:import url="bootstrap_head.jsp" />
 </head>
 <body>

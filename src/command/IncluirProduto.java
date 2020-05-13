@@ -39,6 +39,8 @@ public class IncluirProduto implements Command {
 		view = request.getRequestDispatcher("produtos/consulta_produto_resultado.jsp");
 		view.forward(request, response);
 
+		
+		
 	}
 
 }
