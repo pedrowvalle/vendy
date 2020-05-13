@@ -10,12 +10,13 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbar">
-			<button type="button" class="btn" data-toggle="modal"
+			<button type="button" class="btn btn-outline-danger" data-toggle="modal"
 		data-target="#myModal">
 				Fechar PDV</button>
 		<ul class="navbar-nav mr-auto">
 
 		</ul>
+		<a class="btn btn-danger"href="<%=request.getContextPath()%>/controller.do?command=Logoff">Logoff</a>
 	</div>
 
 	<!-- The Modal -->
@@ -36,7 +37,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="<%=request.getContextPath()%>/operador.jsp" type="button" class="btn btn-success" >Fecha Caixa
+					<a href="<%=request.getContextPath()%>/operador.jsp" type="button" class="btn btn-success" >Fechar Caixa
 						</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>

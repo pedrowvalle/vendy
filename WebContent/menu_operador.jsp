@@ -10,12 +10,13 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbar">
-			<button type="button" class="btn" data-toggle="modal"
+			<button type="button" class="btn btn-outline-success" data-toggle="modal"
 		data-target="#myModal">
 				Abrir PDV</button>
 		<ul class="navbar-nav mr-auto">
-
+		
 		</ul>
+		<a class="btn btn-danger"href="<%=request.getContextPath()%>/controller.do?command=Logoff">Logoff</a>
 	</div>
 
 	<!-- The Modal -->

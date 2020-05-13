@@ -44,5 +44,6 @@
 	        </div>
 	      </li>
 		    </ul>
+		    <a class="btn btn-danger"href="<%=request.getContextPath()%>/controller.do?command=Logoff">Logoff</a>
 		  </div>
 		</nav>
