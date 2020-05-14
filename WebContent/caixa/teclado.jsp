@@ -25,7 +25,7 @@
 							<thead>
 								<th>Produto</th>
 								<th>Quantidade</th>
-								<th>Preço</th>
+								<th>Preço Unt.</th>
 							</thead>
 							<tbody>
 								<tr>
@@ -94,7 +94,7 @@
 								<th></th>
 								<th>Quantidade</th>
 								<th></th>
-								<th>Preço</th>
+								<th>Preço Unt.</th>
 							</thead>
 							<tbody>
 								<c:forEach var="produto" items="${venda}">
@@ -125,7 +125,7 @@
 				<div class="row">
 					<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal"
 					data-target="#cancelar" id="botao-cancelar"></button>
-					<a href="<%=request.getContextPath()%>/caixa/finalizar-venda.jsp" type="button" class="btn btn-success" style="float: right;" id="botao-finalizar"></a>
+					<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal"	data-target="#confirmar" id="botao-finalizar"></button>
 				</div>
 			</div>
 		</div>
@@ -186,6 +186,30 @@
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 
+			</div>
+		</div>
+	</div>
+	<!-- The Modal -->
+	<div class="modal" id="confirmar">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Confirmar a venda</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					Selecione o método de pagamento:
+					<ul>
+						<li><a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary">Dinheiro</a></li>
+						<li><a href="#" class="btn btn-primary">Crédito</a></li>
+						<li><a href="#" class="btn btn-primary">Débito</a></li>
+						<li><a href="#" class="btn btn-primary">Outros</a></li>
+					</ul>         
+				</div>
 			</div>
 		</div>
 	</div>

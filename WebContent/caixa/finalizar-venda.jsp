@@ -19,11 +19,23 @@
                 </div>
                 <div class="row" id="row-lista">
                     <div class="lista" id="lista-produtos">
-                        <a class="col">Item</a>
-                        <a class="col">Produto</a>
-                        <a class="col">Qtd.</a>
-                        <a class="col" id="ultimo">Preço</a>
-                        <p id="total">Total: R$0,00</p>
+                        <table class="table table-striped">
+							<thead>
+								<th>Produto</th>
+								<th>Quantidade</th>
+								<th>Preço</th>
+							</thead>
+							<tbody>
+								<c:forEach var="produto" items="${venda}">
+									<tr>
+										<td>${produto.nome }</td>
+										<td>${produto.cont }</td>
+										<td>R$ ${produto.preco }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						${total }
                     </div>
                 </div>
                 <div class="row" id="row-voltar">

@@ -1,0 +1,12 @@
+.tabela{
+	border-style: solid;
+	border-width: medium;
+	border-radius: 25px;
+	border-color: grey;
+	text-align: center;
+}
+
+div.scroll{
+	overflow: auto;
+	height: 400px;
+}
