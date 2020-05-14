@@ -10,3 +10,8 @@ div.scroll{
 	overflow: auto;
 	height: 400px;
 }
+
+#main-container{
+    height: 20rem;
+
+}
