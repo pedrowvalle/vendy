@@ -41,7 +41,7 @@
 	        	</div>
 	        	<div class="row" id="left-third-row">
 		        	<div class="col-md-12" id="area-total">
-		        		<p id="total-texto"><strong>Total: </strong>R$ ${total }</p>
+		        		<p id="total-texto"><strong>${totalTitulo }: </strong>R$ ${totalDinheiro }</p>
 		        	</div>
 	        	</div>
 	        	<div class="row" id="left-fourth-row">
@@ -51,7 +51,7 @@
 	        	</div>
 	        </div>
 	        <div class="col-md-6" id="right">
-	        	<form action="../controller.do" method="GET">
+	        	<form action="<%=request.getContextPath()%>/controller.do" method="GET">
 	        		<div class="row" id="right-first-row">
 		        		<div class="col-md-12" id="area-desconto">
 		        			<button id="btn-desconto" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularDesconto">Calcular desconto</button>
@@ -59,24 +59,28 @@
 		        			<input class="form-control" id="descPorc" placeholder="0%" onkeypress="return isNumberKey(event)" type="text" name="descPorc">
 		        		</div>
 	        		</div>
+	        	</form>
+	        		
 		        	<div class="row" id="right-second-row">
 		        		<div class="col-md-12" id="area-pagamento">
 		        			<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
 		        			<input class="form-control" id="pagamento" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="pagamento">
 		        		</div>
 		        	</div>
+		        	
 		        	<div class="row" id="right-third-row">
 		        		<div class="col-md-12" id="area-falta-troco">
 	
 		        		</div>
 		        	</div>
+		        	
 		        	<div class="row" id="right-fourth-row">
 		        		<div class="col-md-12" id="area-btn-limpar-finalizar">
 		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar" id="btn-limpar">Limpar<br>pagamentos</button>
 		        			<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
 		        		</div>
 		        	</div>
-	        	</form>
+	        	
         	</div>
         </div>
     </div>

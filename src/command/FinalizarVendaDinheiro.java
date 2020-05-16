@@ -19,8 +19,10 @@ public class FinalizarVendaDinheiro implements Command {
 		HttpSession session = request.getSession();
 		RequestDispatcher view = null;
 		ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+		session.setAttribute("totalTitulo", "Total");
 		session.setAttribute("venda", venda);
-		session.getAttribute("total");
+		Object total = session.getAttribute("total");
+		session.setAttribute("totalDinheiro", total);
 		view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
 		
 		view.forward(request, response);
