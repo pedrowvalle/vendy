@@ -3,7 +3,7 @@
 <!-- Barra de navegação (inverse para ficar de cor inversa e top para ficar no topo -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand"
-		href="<%=request.getContextPath()%>/operador.jsp">Vendy - Sistema
+		href="#">Vendy - Sistema
 		de Automação Comercial</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbar" aria-controls="navbar" aria-expanded="false">
@@ -13,8 +13,7 @@
 		<button type="button" class="btn btn-outline-danger"
 			data-toggle="modal" data-target="#myModal">Fechar PDV</button>
 
-		<button type="button" class="btn btn-outline-danger" style="float: right;"
-			data-toggle="modal" data-target="#cancelarVenda" id="btn-cancelar">Cancelar venda</button>	
+
 		<ul class="navbar-nav mr-auto">
 
 		</ul>

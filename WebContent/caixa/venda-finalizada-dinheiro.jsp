@@ -11,15 +11,15 @@
 	<c:import url="../bootstrap_head.jsp"/>
 </head>
 <body>
-	<c:import url="../menu_teclado.jsp" />
+	<c:import url="../menu_venda_finalizada.jsp" />
 
     <div class="container" id="main">
-    	<div class="row" id="main-container">
+    	
 			<div class="row" id="row-titulo">
 				<p id="titulo-texto"><strong>Venda<br>finalizada!</strong></p>
 			</div>
 			<div class="row" id="row-dados">
-				<div class="col-md-6" id="esquerda">
+				<div class="col-md-5" id="esquerda">
 					<div class="row" id="row-pagamento">
 						<p id="titulo-texto"><strong>Pagamento: </strong></p>
 						<input type="text" class="form-control" READONLY value="Dinheiro"/> 
@@ -29,6 +29,7 @@
 						<input type="text" name="cpf" class="form-control" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
 					</div>
 				</div>
+				<div class="col-md-1" id="meio"></div>
 				<div class="col-md-6" id="direita">
 					<div class="row" id="row-total">
 						<p id="titulo-texto"><strong>Total: </strong></p>
@@ -57,7 +58,7 @@
 						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#proxima-venda" id="btn-limpar-pagamentos">Próxima venda</button>
 					</div>
 				</div>
-			</div>
+		
         </div>
         
     <!-- Modals -->

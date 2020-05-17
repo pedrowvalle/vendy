@@ -11,7 +11,7 @@
 	<c:import url="../bootstrap_head.jsp"/>
 </head>
 <body>
-	<c:import url="../menu_teclado.jsp" />
+	<c:import url="../menu_finalizar_venda.jsp" />
 
     <div class="container" id="main">
     	<div class="row" id="main-container">
@@ -186,7 +186,10 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					Deseja finalizar a venda?
+					Digite o CPF de cliente:<br>
+					<input type="text" name="cpf-cliente-dinheiro" class="form-control" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+					<br><br>
+					Após finalizada, não será possível editar a venda.
 				</div>
 
 				<!-- Modal footer -->
@@ -202,5 +205,22 @@
 	
 	<c:import url="../bootstrap_body.jsp"/>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
+	<script type="text/javascript">
+		function fMasc(objeto,mascara) {
+			obj=objeto
+			masc=mascara
+			setTimeout("fMascEx()",1)
+		}
+		function fMascEx() {
+			obj.value=masc(obj.value)
+		}
+		function mCPF(cpf){
+			cpf=cpf.replace(/\D/g,"")
+			cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+			cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+			cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+			return cpf
+		}
+	</script>
 </body>
 </html>
