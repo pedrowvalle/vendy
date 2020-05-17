@@ -23,6 +23,10 @@ public class FinalizarVendaDinheiro implements Command {
 		session.setAttribute("venda", venda);
 		Object total = session.getAttribute("total");
 		session.setAttribute("totalDinheiro", total);
+		
+		session.setAttribute("totalDinheiroAux", null);
+		session.setAttribute("resultado", "");
+		
 		view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
 		
 		view.forward(request, response);

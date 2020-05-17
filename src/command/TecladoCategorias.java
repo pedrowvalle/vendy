@@ -27,7 +27,11 @@ public class TecladoCategorias implements Command {
 		session.setAttribute("venda", venda);
 		session.setAttribute("produtos", produtos);
 		session.setAttribute("categorias", categorias);
+		session.setAttribute("totalDinheiroAux", null);
+		session.setAttribute("resultado", "");
 		view = request.getRequestDispatcher("caixa/teclado.jsp");
+		
+
 		
 		view.forward(request, response);
 

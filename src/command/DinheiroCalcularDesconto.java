@@ -22,6 +22,9 @@ public class DinheiroCalcularDesconto implements Command {
 		ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
 		session.setAttribute("venda", venda);
 		
+		session.setAttribute("totalDinheiroAux", null);
+		session.setAttribute("resultado", null);
+		
 		Double total = (Double) session.getAttribute("totalDinheiro");
 		Double descReais = 0.0;
 		if (!isNullOrBlank(request.getParameter("descReais")) && Double.parseDouble(request.getParameter("descReais")) <= total && isNullOrBlank(request.getParameter("descPorc")))

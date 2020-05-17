@@ -60,23 +60,25 @@
 		        		</div>
 	        		</div>
 	        	</form>
-	        		
+	        	
+	        	<form action="<%=request.getContextPath()%>/controller.do" method="GET">	
 		        	<div class="row" id="right-second-row">
 		        		<div class="col-md-12" id="area-pagamento">
 		        			<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
 		        			<input class="form-control" id="pagamento" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="pagamento">
 		        		</div>
 		        	</div>
-		        	
+		        	</form>
 		        	<div class="row" id="right-third-row">
-		        		<div class="col-md-12" id="area-falta-troco">
-	
+		        		<div class="col-md-12" id="area-resultado">
+							<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>					
 		        		</div>
 		        	</div>
 		        	
 		        	<div class="row" id="right-fourth-row">
 		        		<div class="col-md-12" id="area-btn-limpar-finalizar">
-		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar" id="btn-limpar">Limpar<br>pagamentos</button>
+		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
+		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
 		        			<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
 		        		</div>
 		        	</div>
@@ -86,7 +88,7 @@
     </div>
     
     <!-- The Modal -->
-	<div class="modal" id="limpar">
+	<div class="modal" id="limpar-pagamentos">
 		<div class="modal-dialog">
 			<div class="modal-content">
 
@@ -103,8 +105,35 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="controller.do?command=FinalizarVendaDinheiro"
-						class="btn btn-success">Limpar</a>
+					<a href="controller.do?command=DinheiroLimparPagamentos"
+						class="btn btn-success">Limpar pagamentos</a>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	   <!-- The Modal -->
+	<div class="modal" id="limpar-descontos">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Limpar Descontos</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					Deseja limpar descontos?
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<a href="controller.do?command=DinheiroLimparDesconto"
+						class="btn btn-success">Limpar descontos</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 
@@ -130,7 +159,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="#"
+					<a href="controller.do?command=DinheiroFinalizado"
 						class="btn btn-success">Finalizar</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
