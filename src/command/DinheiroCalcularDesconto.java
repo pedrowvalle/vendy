@@ -24,6 +24,7 @@ public class DinheiroCalcularDesconto implements Command {
 		
 		session.setAttribute("totalDinheiroAux", null);
 		session.setAttribute("resultado", null);
+		session.setAttribute("valorRecebido", null);
 		
 		Double total = (Double) session.getAttribute("totalDinheiro");
 		Double descReais = 0.0;

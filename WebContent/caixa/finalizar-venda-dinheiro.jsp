@@ -11,13 +11,13 @@
 	<c:import url="../bootstrap_head.jsp"/>
 </head>
 <body>
+	<c:import url="../menu_teclado.jsp" />
+
     <div class="container" id="main">
     	<div class="row" id="main-container">
     	
 	        <div class="col-md-6" id="left">
-	        	<div class="row" id="left-first-row">
-	        		<p id="finalizar-texto"><strong>Finalizar venda</strong></p>
-	        	</div>
+
 	        	<div class="row" id="left-second-row">
 	        		<div class="col-md-12 scroll tabela" id="area-lista">
 	        			<div class="lista" id="lista-produtos">
@@ -26,6 +26,7 @@
 									<th>Produto</th>
 									<th>Quantidade</th>
 									<th>Preço Unt.</th>
+
 								</thead>
 								<tbody>
 									<c:forEach var="produto" items="${venda}">
@@ -33,6 +34,7 @@
 											<td>${produto.nome }</td>
 											<td>${produto.cont }</td>
 											<td>R$ ${produto.preco }</td>
+
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -47,7 +49,7 @@
 	        	</div>
 	        	<div class="row" id="left-fourth-row">
 	        		<div class="col-md-12" id="area-btn-voltar">
-		        		<a href="<%=request.getContextPath()%>/controller.do?command=TecladoCategorias" class="btn btn-primary">Voltar</a>
+		        		<a href="<%=request.getContextPath()%>/controller.do?command=TecladoCategorias" class="btn btn-lg btn-primary">Voltar</a>
 		        	</div>
 	        	</div>
 	        </div>
@@ -61,10 +63,16 @@
 		        			  		<button id="btn-desconto" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularDesconto">Calcular desconto</button>
 		        			  	</div>
 							 	<div class="col">
-							 		<input class="form-control" id="descReais" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="descReais">
+							 		<div class="input-group">
+							 			<span class="input-group-addon" id="sizing-addon1">R$</span>
+							 			<input class="form-control" id="descReais" placeholder="0.00" onkeypress="return isNumberKey(event)" type="text" name="descReais" aria-describedby="sizing-addon1">
+							 		</div>
 							 	</div>
 							 	<div class="col">
-							 		<input class="form-control" id="descPorc" placeholder="0%" onkeypress="return isNumberKey(event)" type="text" name="descPorc">
+							 		<div class="input-group">
+							 			<span class="input-group-addon" id="sizing-addon2">%</span>
+							 			<input class="form-control" id="descPorc" placeholder="0" onkeypress="return isNumberKey(event)" type="text" name="descPorc" aria-describedby="sizing-addon2">
+							 		</div>
 							 	</div>
 							 </div>
 		        		</div>
@@ -77,31 +85,33 @@
 		        			  	<div class="col">
 		        			  		<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
 		        			  	</div>
-							 	<div class="col">
-							 		<input class="form-control" id="pagamento" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="pagamento">
+							 	<div class="col col-md-8">
+							 		<div class="input-group">
+							 			<span class="input-group-addon" id="sizing-addon3">R$</span>
+							 			<input class="form-control" id="pagamento" placeholder="0.00" onkeypress="return isNumberKey(event)" type="text" name="pagamento" aria-describedby="sizing-addon3">
+							 		</div>						 		
 							 	</div>
 							 </div>
-
 		        		</div>
 		        	</div>
 		        </form>
 		        <div class="row" id="right-third-row">
 		        	<div class="col-md-12" id="area-resultado">
-						<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>					
+		        		
+		        			<p id="total-texto"><strong>Recebido: </strong>R$ ${valorRecebido }</p>	
+
+
+		        			<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>	
+
+										
 		        	</div>
 		        </div>
 		        <div class="row" id="right-fourth-row">
 		        	<div class="col-md-12" id="area-btn-limpar-finalizar">
 		        		<div class="form-row">
-		        			  <div class="col">
-		        			  	<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
-		        			  </div>
-							 <div class="col">
-							 	<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
-							 </div>
-							 <div class="col">
-							 	<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
-							 </div>
+		        			 <button type="button" class="btn btn-lg btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
+							 <button type="button" class="btn btn-lg btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
+							 <button type="button" class="btn btn-lg btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
 						</div>
 		        	</div>
 		        </div>

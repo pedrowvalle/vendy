@@ -6,11 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<%= request.getContextPath() %>/css/finalizar_venda_dinheiro.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/venda-finalizada-dinheiro.css" rel="stylesheet">
     <title>Venda finalizada</title>
 	<c:import url="../bootstrap_head.jsp"/>
 </head>
 <body>
+	<c:import url="../menu_teclado.jsp" />
+
     <div class="container" id="main">
     	<div class="row" id="main-container">
 			<div class="row" id="row-titulo">
@@ -30,27 +32,26 @@
 				<div class="col-md-6" id="direita">
 					<div class="row" id="row-total">
 						<p id="titulo-texto"><strong>Total: </strong></p>
-   						<input type="text" class="form-control" id='txt' value=${total } READONLY/>
-
+   						<input type="text" class="form-control" id='txt' readonly value=${total } >
 					</div>
 					<div class="row" id="row-desconto">
 						<p id="titulo-texto"><strong>Desconto: </strong></p>
-   						<input type="text" class="form-control" id='txt' value=" " READONLY/>
+   						<input type="text" class="form-control" id='txt' readonly value=${valorDescontado }>
 					</div>
 					<div class="row" id="row-recebido">
 						<p id="titulo-texto"><strong>Recebido: </strong></p>
-   						<input type="text" class="form-control" id='txt' value=" " READONLY/>
+   						<input type="text" class="form-control" id='txt' readonly value=${valorRecebido } >
 					</div>
 					<div class="row" id="row-troco">
 						<p id="titulo-texto"><strong>Troco: </strong></p>
-   						<input type="text" class="form-control" id='txt' value=" " READONLY/>
+   						<input type="text" class="form-control" id='txt' readonly value=${valorTroco } >
 					</div>
 				</div>
 			</div>
 			<div class="row" id="row-botoes">
 				<div class="form-row">
 		        	<div class="col">
-		        		<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#imprimir" id="btn-limpar-descontos">Imprimir nota fiscal</button>
+		        		<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#imprimir" id="btn-limpar-descontos">Imprimir recibo</button>
 		        	</div>
 					<div class="col">
 						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#proxima-venda" id="btn-limpar-pagamentos">Próxima venda</button>
@@ -68,13 +69,20 @@
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title">Nota fiscal</h4>
+					<h4 class="modal-title">Recibo</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					Nota fiscal impressa com sucesso!
+					Deseja imprimir o recibo?
+				</div>
+				
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<a href="#"
+						class="btn btn-success">Imprimir</a>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 
 			</div>

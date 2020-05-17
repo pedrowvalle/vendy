@@ -34,23 +34,35 @@ public class DinheiroCalcularTroco implements Command {
 		if (!isNullOrBlank(request.getParameter("pagamento"))) 
 			pagamento = Double.parseDouble(request.getParameter("pagamento"));
 		
+		
+		Double totalPagamento = 0.0;
+		if (session.getAttribute("valorRecebido") != null)
+			totalPagamento = (Double) session.getAttribute("valorRecebido");
+		
+		
 		if (pagamento > 0.0) 
 		{
 
 			if (pagamento <= total) 
 			{
 				total = total - pagamento;
+				totalPagamento = totalPagamento + pagamento;
 				session.setAttribute("resultadoTitulo", "Falta: ");
 				session.setAttribute("resultado", "R$ "+total);
+				session.setAttribute("valorRecebido", totalPagamento);
+
 				view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
 				view.forward(request, response);
 			}
 			else if (pagamento > total) 
 			{
 				total = total - pagamento;
+				totalPagamento = totalPagamento + pagamento;
 				Double totalModulo = Math.abs(total);
 				session.setAttribute("resultado", "R$ "+totalModulo);
 				session.setAttribute("resultadoTitulo", "Troco: ");
+				session.setAttribute("valorRecebido", totalPagamento);
+				session.setAttribute("valorTroco", totalModulo);
 				view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
 				view.forward(request, response);
 			}

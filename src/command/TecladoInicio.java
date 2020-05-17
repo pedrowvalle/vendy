@@ -30,6 +30,8 @@ public class TecladoInicio implements Command {
 		session.setAttribute("categorias", categorias);
 		session.setAttribute("venda", venda);
 		session.setAttribute("total", total);
+		session.setAttribute("valorRecebido", null);
+		session.setAttribute("valorTroco", null);
 		view = request.getRequestDispatcher("caixa/teclado.jsp");
 		
 		view.forward(request, response);

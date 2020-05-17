@@ -15,12 +15,19 @@ public class DinheiroFinalizado implements Command {
 			throws ServletException, IOException {
 		RequestDispatcher view = null;
 		HttpSession session = request.getSession();
-		Object total = session.getAttribute("total");
-		session.setAttribute("total", total);
-		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");
 		
+		Double total = (Double)session.getAttribute("total");
+		session.setAttribute("total", total);
+		
+		Double desconto = (Double)session.getAttribute("totalDinheiro");
+		session.setAttribute("valorDescontado", total-desconto);
+		
+		//if(session.getAttribute("valorTroco") == null);
+			//session.setAttribute("valorTroco", 0.0);
+		
+		
+		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");
 		view.forward(request, response);
 
 	}
-
 }
