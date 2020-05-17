@@ -13,6 +13,7 @@
 <body>
     <div class="container" id="main">
     	<div class="row" id="main-container">
+    	
 	        <div class="col-md-6" id="left">
 	        	<div class="row" id="left-first-row">
 	        		<p id="finalizar-texto"><strong>Finalizar venda</strong></p>
@@ -50,39 +51,60 @@
 		        	</div>
 	        	</div>
 	        </div>
+	        
 	        <div class="col-md-6" id="right">
 	        	<form action="<%=request.getContextPath()%>/controller.do" method="GET">
 	        		<div class="row" id="right-first-row">
-		        		<div class="col-md-12" id="area-desconto">
-		        			<button id="btn-desconto" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularDesconto">Calcular desconto</button>
-		        			<input class="form-control" id="descReais" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="descReais">
-		        			<input class="form-control" id="descPorc" placeholder="0%" onkeypress="return isNumberKey(event)" type="text" name="descPorc">
+		        		<div class="col-md-12" id="area-desconto">	
+		        			  <div class="form-row">
+		        			  	<div class="col">
+		        			  		<button id="btn-desconto" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularDesconto">Calcular desconto</button>
+		        			  	</div>
+							 	<div class="col">
+							 		<input class="form-control" id="descReais" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="descReais">
+							 	</div>
+							 	<div class="col">
+							 		<input class="form-control" id="descPorc" placeholder="0%" onkeypress="return isNumberKey(event)" type="text" name="descPorc">
+							 	</div>
+							 </div>
 		        		</div>
 	        		</div>
 	        	</form>
-	        	
 	        	<form action="<%=request.getContextPath()%>/controller.do" method="GET">	
 		        	<div class="row" id="right-second-row">
 		        		<div class="col-md-12" id="area-pagamento">
-		        			<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
-		        			<input class="form-control" id="pagamento" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="pagamento">
+		        			<div class="form-row">
+		        			  	<div class="col">
+		        			  		<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
+		        			  	</div>
+							 	<div class="col">
+							 		<input class="form-control" id="pagamento" placeholder="R$ 0,00" onkeypress="return isNumberKey(event)" type="text" name="pagamento">
+							 	</div>
+							 </div>
+
 		        		</div>
 		        	</div>
-		        	</form>
-		        	<div class="row" id="right-third-row">
-		        		<div class="col-md-12" id="area-resultado">
-							<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>					
-		        		</div>
+		        </form>
+		        <div class="row" id="right-third-row">
+		        	<div class="col-md-12" id="area-resultado">
+						<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>					
 		        	</div>
-		        	
-		        	<div class="row" id="right-fourth-row">
-		        		<div class="col-md-12" id="area-btn-limpar-finalizar">
-		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
-		        			<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
-		        			<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
-		        		</div>
+		        </div>
+		        <div class="row" id="right-fourth-row">
+		        	<div class="col-md-12" id="area-btn-limpar-finalizar">
+		        		<div class="form-row">
+		        			  <div class="col">
+		        			  	<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
+		        			  </div>
+							 <div class="col">
+							 	<button type="button" class="btn btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
+							 </div>
+							 <div class="col">
+							 	<button type="button" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
+							 </div>
+						</div>
 		        	</div>
-	        	
+		        </div>
         	</div>
         </div>
     </div>
