@@ -22,8 +22,10 @@ public class DinheiroFinalizado implements Command {
 		Double desconto = (Double)session.getAttribute("totalDinheiro");
 		session.setAttribute("valorDescontado", total-desconto);
 		
-		//if(session.getAttribute("valorTroco") == null);
-			//session.setAttribute("valorTroco", 0.0);
+		Object cpf = request.getParameter("cpf");
+		session.setAttribute("cpfClienteFinalizado", cpf);
+		
+		
 		
 		
 		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");

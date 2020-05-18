@@ -164,6 +164,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
+				
 					<a href="controller.do?command=DinheiroLimparDesconto"
 						class="btn btn-success">Limpar descontos</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -186,16 +187,18 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					Digite o CPF de cliente:<br>
-					<input type="text" name="cpf-cliente-dinheiro" class="form-control" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+					Digite o CPF do cliente:
 					<br><br>
-					Após finalizada, não será possível editar a venda.
+
+							<input type="text" id="cpfClienteDinheiro" name="cpfClienteDinheiro" class="form-control" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+						
 				</div>
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="controller.do?command=DinheiroFinalizado"
-						class="btn btn-success">Finalizar</a>
+
+						<a id="btnFinalizarModal" href="#"
+							class="btn btn-success" onclick="cpf();">Finalizar</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 
@@ -222,5 +225,15 @@
 			return cpf
 		}
 	</script>
+
+	<script type="text/javascript">
+	function cpf() {
+		var cpf = document.getElementById("cpfClienteDinheiro").value;
+
+		document.getElementById("btnFinalizarModal").href = "controller.do?command=DinheiroFinalizado&cpf="+cpf; 
+	}
+    	
+	</script>
+
 </body>
 </html>

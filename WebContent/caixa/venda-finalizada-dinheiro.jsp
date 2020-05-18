@@ -26,7 +26,7 @@
 					</div>
 					<div class="row" id="row-cpf">
 						<p id="titulo-texto"><strong>CPF: </strong></p>
-						<input type="text" name="cpf" class="form-control" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+						<input type="text" class="form-control" id="cpfClienteFinalizado" name="cpfClienteFinalizado" readonly value=${cpfClienteFinalizado }   >
 					</div>
 				</div>
 				<div class="col-md-1" id="meio"></div>
@@ -40,7 +40,7 @@
    						<input type="text" class="form-control" id='txt' readonly value=${valorDescontado }>
 					</div>
 					<div class="row" id="row-recebido">
-						<p id="titulo-texto"><strong>Recebido: </strong></p>
+						<p id="titulo-texto"><strong>Pagamento: </strong></p>
    						<input type="text" class="form-control" id='txt' readonly value=${valorRecebido } >
 					</div>
 					<div class="row" id="row-troco">
@@ -136,5 +136,9 @@
 			return cpf
 		}
 	</script>
+
+	
+
+	
 </body>
 </html>
