@@ -52,6 +52,14 @@
 					<a class="dropdown-item"
 						href="<%=request.getContextPath()%>/operadores/alteracao_operadores.jsp">Alteração</a>
 				</div></li>
+				<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#"
+				id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false"> Vendas </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<form action="controller.do" method="get">
+					<button type="submit" class="btn btn-success" name="command"value="ListarVendas">Listar Vendas</button>
+				</form>	</div>
 		</ul>
 		<button type="button" class="btn btn-danger" style="float: right;"
 			data-toggle="modal" data-target="#logoff" id="btn-logoff">Logoff</button>
