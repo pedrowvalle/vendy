@@ -98,6 +98,7 @@ public class PedidoDAO {
 					ped.setCpf_cliente(rs.getString("Cpf_cliente"));
 					ped.setDesconto(rs.getDouble("desconto"));
 					ped.setVendedor(rs.getString("vendedor"));
+					ped.setCod(cod);
 				} 
 			} catch (SQLException e) {
 				e.printStackTrace();

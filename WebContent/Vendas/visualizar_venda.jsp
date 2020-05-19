@@ -40,9 +40,13 @@
 	    			</div>
 	    		</div>
 	    		<div class="row">
-	    			<div class="col-md-12">
+	    			<div class="col-md-6">
 	    				<p><strong>Vendedor: </strong></p>
 	    				<p>${pedido.vendedor}</p>	    			
+	    			</div>
+	    			<div class="col-md-6">
+	    				<p><strong>Doc Cliente: </strong></p>
+	    				<p>${pedido.cpf_cliente}</p>	    			
 	    			</div>
 	    		</div>
 	    	</div>
