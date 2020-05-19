@@ -10,14 +10,15 @@ import model.Pedido;
 
 public class PedidoDAO {
 	public int incluir(Pedido ped) {
-		String SQLInsert = "INSERT INTO pedido (cod_produto,data_pedido,preco,cod_operador,cpf_cliente) VALUES (?,?,?,?,?)";
+		String SQLInsert = "INSERT INTO pedido (cod_produto,data_pedido,preco,cpf_cliente, desconto, vendedor) VALUES (?,?,?,?,?,?)";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLInsert);){
-			stm.setInt(1, ped.getCod_produto());
+			stm.setString(1, ped.getCod_produto());
 			stm.setString(2, ped.getData_pedido());
 			stm.setDouble(3, ped.getPreco());
-			stm.setInt(4, ped.getCod_operador());
-			stm.setString(5, ped.getCpf_cliente());
+			stm.setString(4, ped.getCpf_cliente());
+			stm.setDouble(5,  ped.getDesconto());
+			stm.setString(6, ped.getVendedor());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -33,15 +34,14 @@ public class PedidoDAO {
 	}
 	
 	public void atualizar(Pedido ped) {
-		String SQLUpdate = "UPDATE pedido SET cod_produto = ?, data_pedido=? ,preco =?, cod_operador=?, cpf_cliente=? WHERE cod=?";
+		String SQLUpdate = "UPDATE pedido SET cod_produto = ?, data_pedido=? ,preco =?, cpf_cliente=? WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLUpdate);){
-			stm.setInt(1, ped.getCod_produto());
+			stm.setString(1, ped.getCod_produto());
 			stm.setString(2, ped.getData_pedido());
 			stm.setDouble(3, ped.getPreco());
-			stm.setInt(4, ped.getCod_operador());
-			stm.setString(5, ped.getCpf_cliente());
-			stm.setInt(6, ped.getCod());
+			stm.setString(4, ped.getCpf_cliente());
+			stm.setInt(5, ped.getCod());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,11 +67,12 @@ public class PedidoDAO {
 			stm.setInt(1, ped.getCod());
 			try(ResultSet rs = stm.executeQuery();){
 				if (rs.next()) {
-					ped.setCod_produto(rs.getInt("cod_produto"));
+					ped.setCod_produto(rs.getString("cod_produto"));
 					ped.setData_pedido(rs.getString("data_pedido"));
 					ped.setPreco(rs.getDouble("preco"));
-					ped.setCod_operador(rs.getInt("cod_operador"));
 					ped.setCpf_cliente(rs.getString("Cpf_cliente"));
+					ped.setDesconto(rs.getDouble("desconto"));
+					ped.setVendedor(rs.getString("vendedor"));
 				} 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -91,11 +92,12 @@ public class PedidoDAO {
 			stm.setInt(1, cod);
 			try(ResultSet rs = stm.executeQuery();){
 				if (rs.next()) {
-					ped.setCod_produto(rs.getInt("cod_produto"));
+					ped.setCod_produto(rs.getString("cod_produto"));
 					ped.setData_pedido(rs.getString("data_pedido"));
 					ped.setPreco(rs.getDouble("preco"));
-					ped.setCod_operador(rs.getInt("cod_operador"));
 					ped.setCpf_cliente(rs.getString("Cpf_cliente"));
+					ped.setDesconto(rs.getDouble("desconto"));
+					ped.setVendedor(rs.getString("vendedor"));
 				} 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -137,11 +139,12 @@ public class PedidoDAO {
 				while(rs.next()) {
 					ped = new Pedido();
 					ped.setCod(rs.getInt("cod"));
-					ped.setCod_produto(rs.getInt("cod_produto"));
+					ped.setCod_produto(rs.getString("cod_produto"));
 					ped.setData_pedido(rs.getString("data_pedido"));
 					ped.setPreco(rs.getDouble("preco"));
-					ped.setCod_operador(rs.getInt("cod_operador"));
 					ped.setCpf_cliente(rs.getString("Cpf_cliente"));
+					ped.setDesconto(rs.getDouble("desconto"));
+					ped.setVendedor(rs.getString("vendedor"));
 					lista.add(ped);
 				}
 			}catch (SQLException e) {
@@ -164,11 +167,12 @@ public class PedidoDAO {
 				while(rs.next()) {
 					ped = new Pedido();
 					ped.setCod(rs.getInt("cod"));
-					ped.setCod_produto(rs.getInt("cod_produto"));
+					ped.setCod_produto(rs.getString("cod_produto"));
 					ped.setData_pedido(rs.getString("data_pedido"));
 					ped.setPreco(rs.getDouble("preco"));
-					ped.setCod_operador(rs.getInt("cod_operador"));
 					ped.setCpf_cliente(rs.getString("Cpf_cliente"));
+					ped.setDesconto(rs.getDouble("desconto"));
+					ped.setVendedor(rs.getString("vendedor"));
 					lista.add(ped);
 				}
 			}catch (SQLException e) {

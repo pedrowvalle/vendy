@@ -2,18 +2,18 @@ package model;
 
 public class Pedido{
 	private int cod;
-	private int cod_produto;
+	private String cod_produto;
 	private String data_pedido;
 	private double preco;
-	private int cod_operador;
 	private String cpf_cliente;
+	private double desconto;
+	private String vendedor;
 	
-	public Pedido(int cod, int cod_produto, String data_pedido, double preco, int cod_operador, String cpf_cliente) {
+	public Pedido(int cod, String cod_produto, String data_pedido, double preco, int cod_operador, String cpf_cliente) {
 		this.cod = cod;
 		this.cod_produto = cod_produto;
 		this.data_pedido = data_pedido;
 		this.preco = preco;
-		this.cod_operador = cod_operador;
 		this.cpf_cliente = cpf_cliente;
 	}
 
@@ -32,11 +32,11 @@ public class Pedido{
 		this.cod = cod;
 	}
 
-	public int getCod_produto() {
+	public String getCod_produto() {
 		return cod_produto;
 	}
 
-	public void setCod_produto(int cod_produto) {
+	public void setCod_produto(String cod_produto) {
 		this.cod_produto = cod_produto;
 	}
 
@@ -56,14 +56,6 @@ public class Pedido{
 		this.preco = preco;
 	}
 
-	public int getCod_operador() {
-		return cod_operador;
-	}
-
-	public void setCod_operador(int cod_operador) {
-		this.cod_operador = cod_operador;
-	}
-
 	public String getCpf_cliente() {
 		return cpf_cliente;
 	}
@@ -71,11 +63,29 @@ public class Pedido{
 	public void setCpf_cliente(String cpf_cliente) {
 		this.cpf_cliente = cpf_cliente;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "Pedido [cod=" + cod + ", cod_produto=" + cod_produto + ", data_pedido=" + data_pedido + ", preco="
-				+ preco + ", cod_operador=" + cod_operador + ", cpf_cliente=" + cpf_cliente + "]";
+				+ preco + ", cpf_cliente=" + cpf_cliente + "]";
+	}
+
+	public double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+
+	public String getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(String vendedor) {
+		this.vendedor = vendedor;
 	}
 	
 	
