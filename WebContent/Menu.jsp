@@ -58,7 +58,8 @@
 				aria-haspopup="true" aria-expanded="false"> Vendas </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<form action="controller.do" method="get">
-					<button type="submit" class="btn btn-success" name="command"value="ListarVendas">Listar Vendas</button>
+					<a class="dropdown-item"
+						href="controller.do?command=ListarVendas">Alteração</a>
 				</form>	</div>
 		</ul>
 		<button type="button" class="btn btn-danger" style="float: right;"

@@ -21,7 +21,7 @@ public class ListarVendas implements Command{
 		lista = ps.listarPedidos();
 		request.setAttribute("lista", lista);
 		
-		RequestDispatcher view = request.getRequestDispatcher("listagem_vendas.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("Vendas/listagem_vendas.jsp");
 		view.forward(request, response);
 
 	}
