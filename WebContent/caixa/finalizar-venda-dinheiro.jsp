@@ -19,8 +19,9 @@
 	        <div class="col-md-6" id="left">
 
 	        	<div class="row" id="left-second-row">
-	        		<div class="col-md-12 scroll tabela" id="area-lista">
-	        			<div class="lista" id="lista-produtos">
+	        		<div class="col-md-12  tabela" id="area-lista">
+						
+	        			<div class="lista scroll" id="lista-produtos">
 	                        <table class="table table-striped">
 								<thead>
 									<th>Produto</th>
@@ -39,6 +40,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
+
 	                    </div>
 	        		</div>
 	        	</div>
@@ -49,7 +51,7 @@
 	        	</div>
 	        	<div class="row" id="left-fourth-row">
 	        		<div class="col-md-12" id="area-btn-voltar">
-		        		<a href="<%=request.getContextPath()%>/controller.do?command=TecladoCategorias" class="btn btn-lg btn-primary">Voltar</a>
+		        		<a href="<%=request.getContextPath()%>/controller.do?command=TecladoCategorias" class="btn btn-lg btn-primary" id="btn-voltar">Voltar</a>
 		        	</div>
 	        	</div>
 	        </div>

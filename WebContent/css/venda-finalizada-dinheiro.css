@@ -1,4 +1,27 @@
-main-container
+body{
+	background: #e4eded !important;
+
+}
+#row-titulo
 {
-	height: 30rem;
+	font-size: 2rem;
+	text-align: center;
+	margin-top:1rem;
+}
+#dinheiro-field, #cpfClienteFinalizado, #txt
+{
+	background-color: white;
+}
+#row-dados
+{
+	font-size: 18px;
+}
+#esquerda
+{
+	padding-top: 2.5rem;
+}
+#btn-prox-venda
+{
+	font-size: 1.2rem;
+	margin-left: 9rem;
 }

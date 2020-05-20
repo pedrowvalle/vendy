@@ -52,7 +52,7 @@ public class LoginFilter implements Filter {
 						comando.equals("DinheiroLimparDesconto") || comando.equals("DinheiroLimparPagamentos") || comando.equals("FinalizarVenda") || comando.equals("FinalizarVendaDinheiro") ||
 						comando.equals("TecladoAddProduto") || comando.equals("TecladoAumentarQtd") || comando.equals("TecladoCategorias") || comando.equals("TecladoDiminuirQtd") ||
 						comando.equals("TecladoExcluirProduto") || comando.equals("TecladoInicio") || comando.equals("TecladoListarCategorias") || comando.equals("TecladoListarProdutos") ||
-						comando.equals("TecladoMostrar") || comando.equals("Logoff"))) {
+						comando.equals("TecladoMostrar") || comando.equals("Login") || comando.equals("Logoff"))) {
 			System.out.println("empregado tipo " + emp.getTipo_emp());
 			((HttpServletResponse) response).sendRedirect(path + "/sempermissao.jsp");
 			
@@ -62,7 +62,7 @@ public class LoginFilter implements Filter {
 						comando.equals("ExcluirProduto") || comando.equals("IncluirCliente") || comando.equals("IncluirOperador") || comando.equals("IncluirProduto") ||
 						comando.equals("ListarClientes") || comando.equals("ListarOperadores") || comando.equals("ListarProdutos") || comando.equals("ListarVendas") ||
 						comando.equals("VisualizarCliente") || comando.equals("VisualizarOperador") || comando.equals("VisualizarProduto") || comando.equals("VisualizarVenda")
-						 || comando.equals("Logoff"))) {
+						 || comando.equals("Login") || comando.equals("Logoff"))) {
 			System.out.println("empregado tipo " + emp.getTipo_emp());
 			((HttpServletResponse) response).sendRedirect(path + "/sempermissao.jsp");
 			

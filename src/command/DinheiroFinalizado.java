@@ -85,6 +85,8 @@ public class DinheiroFinalizado implements Command {
 				recibo.fechar();
 			}
 		}
+		
+		session.setAttribute("reciboPath", contextPath+File.separator+"recibo"+File.separator+Recibo.NOME);
 
 		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");
 		view.forward(request, response);

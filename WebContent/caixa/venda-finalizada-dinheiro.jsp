@@ -15,36 +15,36 @@
 
     <div class="container" id="main">
     	
-			<div class="row" id="row-titulo">
+			<div class="row justify-content-center" id="row-titulo">
 				<p id="titulo-texto"><strong>Venda<br>finalizada!</strong></p>
 			</div>
 			<div class="row" id="row-dados">
 				<div class="col-md-5" id="esquerda">
 					<div class="row" id="row-pagamento">
-						<p id="titulo-texto"><strong>Pagamento: </strong></p>
-						<input type="text" class="form-control" READONLY value="Dinheiro"/> 
+						<label  id="titulo-texto"><strong>Pagamento: </strong></label>
+						<input type="text" id="dinheiro-field"class="form-control" READONLY value="Dinheiro"/> 
 					</div>
 					<div class="row" id="row-cpf">
-						<p id="titulo-texto"><strong>CPF: </strong></p>
+						<label id="titulo-texto"><strong>CPF: </strong></label>
 						<input type="text" class="form-control" id="cpfClienteFinalizado" name="cpfClienteFinalizado" readonly value=${cpfClienteFinalizado }   >
 					</div>
 				</div>
 				<div class="col-md-1" id="meio"></div>
 				<div class="col-md-6" id="direita">
 					<div class="row" id="row-total">
-						<p id="titulo-texto"><strong>Total: </strong></p>
+						<label id="titulo-texto"><strong>Total: </strong></label>
    						<input type="text" class="form-control" id='txt' readonly value=${total } >
 					</div>
 					<div class="row" id="row-desconto">
-						<p id="titulo-texto"><strong>Desconto: </strong></p>
+						<label id="titulo-texto"><strong>Desconto: </strong></label>
    						<input type="text" class="form-control" id='txt' readonly value=${valorDescontado }>
 					</div>
 					<div class="row" id="row-recebido">
-						<p id="titulo-texto"><strong>Pagamento: </strong></p>
+						<label id="titulo-texto"><strong>Pagamento: </strong></label>
    						<input type="text" class="form-control" id='txt' readonly value=${valorRecebido } >
 					</div>
 					<div class="row" id="row-troco">
-						<p id="titulo-texto"><strong>Troco: </strong></p>
+						<label id="titulo-texto"><strong>Troco: </strong></label>
    						<input type="text" class="form-control" id='txt' readonly value=${valorTroco } >
 					</div>
 				</div>
@@ -52,10 +52,11 @@
 			<div class="row" id="row-botoes">
 				<div class="form-row">
 		        	<div class="col">
-		        		<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#imprimir" id="btn-limpar-descontos">Imprimir recibo</button>
+		        		<!-- <button id="downloadRecibo"  type="button" class="btn btn-primary" onclick="download()" >Imprimir recibo</button> -->
+		        		<input type="hidden" id="recibo" name="xxxx" value=${reciboPath }>	
 		        	</div>
 					<div class="col">
-						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#proxima-venda" id="btn-limpar-pagamentos">Próxima venda</button>
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#proxima-venda" id="btn-prox-venda">Próxima venda</button>
 					</div>
 				</div>
 		
@@ -136,6 +137,17 @@
 			return cpf
 		}
 	</script>
+	<script type="text/javascript">
+		function download(){
+			var recibo = document.getElementById("recibo").value;
+			var link = document.createElement("a");
+			link.download = "recibo.txt";
+			link.href = '';
+			link.click();
+		}
+		
+	</script>	
+	
 
 	
 

@@ -203,12 +203,15 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					Selecione o método de pagamento:
-					<ul>
-						<li><a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary">Dinheiro</a></li>
-						<li><a href="#" class="btn btn-primary">Crédito</a></li>
-						<li><a href="#" class="btn btn-primary">Débito</a></li>
-						<li><a href="#" class="btn btn-primary">Outros</a></li>
-					</ul>         
+					<br><br>
+					<div class="form-row col-md-12">
+		        		<div class="col">
+		        			  <a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary">Dinheiro</a>
+		        		</div>
+		        		<div class="col"><a href="#" class="btn btn-primary">  Crédito  </a></div>
+		        		<div class="col"><a href="#" class="btn btn-primary">  Débito  </a></div>
+		        		<div class="col"><a href="#" class="btn btn-primary">  Outros  </a></div>
+		        	</div>		  	
 				</div>
 			</div>
 		</div>

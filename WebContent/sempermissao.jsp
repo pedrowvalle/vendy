@@ -16,8 +16,8 @@
 	<br>
 	<br>
 	<div id="main" class="container">
-		<h1 class="mx-auto d-block">Você nâo tem permissão para acessar este recurso!</h1>
-		<h3 class="mx-auto d-block">Faça o login com um usuário que possui permissão para acessaro recurso.</h3>
+		<h1 class="mx-auto d-block">Você não tem permissão para acessar este recurso!</h1>
+		<h3 class="mx-auto d-block">Faça o login com um usuário que possui permissão para acessá-lo</h3>
 	</div>
 	
 	

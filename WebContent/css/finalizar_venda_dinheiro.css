@@ -1,17 +1,78 @@
+body{
+	background: #e4eded !important;
+
+}
+
 .tabela{
 	border-style: solid;
 	border-width: medium;
 	border-radius: 25px;
 	border-color: grey;
 	text-align: center;
+	font-size: 18px;
 }
 
 div.scroll{
-	overflow: auto;
+	overflow: scroll;
+	padding-top: 7px;
 	height: 400px;
 }
 
 #main-container{
     height: 20rem;
+    margin-top: 1rem;
+}
 
+#left-third-row
+{
+	text-align: center;
+	font-size: 35px;
+}
+#btn-voltar
+{
+	font-size: 25px;
+	padding: 10px 20px;
+}
+
+#right
+{
+	margin-top: 1.5rem;
+}
+
+#right-second-row
+{
+	margin-top:1rem;
+}
+
+#btn-troco
+{
+	padding-left: 27px;
+	padding-right: 27px;
+}
+
+#area-resultado
+{
+	font-size: 25px;
+	margin-top: 2rem;
+}
+
+#right-fourth-row
+{
+	margin-top: 3rem;
+}
+#btn-limpar-descontos
+{
+	margin-left: 2.8rem;
+	margin-right: 1rem;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+#btn-limpar-pagamentos
+{
+	margin-right: 1rem;
+}
+#btn-finalizar
+{
+	padding-left: 34px;
+	padding-right: 34px;
 }
