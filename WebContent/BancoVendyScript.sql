@@ -12,7 +12,7 @@ create table operador (cpf_emp varchar(10) not null, cod int, primary key (cod))
 /*produto (cod, nome, preco, categoria)*/
 create table produto (cod int not null auto_increment, nome varchar(20), preco double, categoria varchar(15), estoque int, primary key(cod));
 /*pedido (cod, cod_produto, data, preco, cod_operador, cpf_cliente)*/
-create table pedido (cod int not null, cod_produto varchar(10000), data_pedido date, preco decimal, cod_operador int not null, cpf_cliente varchar(10), primary key(cod));
+create table pedido (cod int not null auto_increment, cod_produto varchar(10000), data_pedido varchar(50), preco decimal, cpf_cliente varchar(20), desconto decimal, vendedor varchar(50), primary key(cod));
 /*cliente (CPF, nome, dt_nsc, sexo)*/
 create table cliente (cpf varchar(10) not null, nome varchar (20), dt_nsc varchar(10), genero char, primary key(cpf));
 /*caixa (id, data_abertura, data_fechamento, fundo_abertura, fundo_fechamento*/
@@ -45,16 +45,6 @@ ALTER TABLE `vendy`.`operador`
 ADD CONSTRAINT `cpf_emp_op`
   FOREIGN KEY (`cpf_emp`)
   REFERENCES `vendy`.`empregado` (`cpf`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
-  
-/*adicionar fks em pedido*/
-ALTER TABLE `vendy`.`pedido`
-ADD INDEX `cod_operador_idx` (`cod_operador` ASC);
-ALTER TABLE `vendy`.`pedido` 
-ADD CONSTRAINT `cod_operador`
-  FOREIGN KEY (`cod_operador`)
-  REFERENCES `vendy`.`operador` (`cod`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
   
@@ -159,3 +149,7 @@ insert into produto (nome, preco, categoria, estoque) values ("Beterraba 1Kg", 2
 insert into produto (nome, preco, categoria, estoque) values ("Chuchu 1Kg", 0.99, "Outros", 10);
 insert into produto (nome, preco, categoria, estoque) values ("Pimentão Verde 1Kg", 2.39, "Outros", 10);
 insert into produto (nome, preco, categoria, estoque) values ("Pimentão Amarelo 1Kg", 2.29, "Outros", 10);
+
+
+select * from empregado;
+select * from pedido;
