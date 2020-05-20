@@ -240,5 +240,6 @@
 		</div>
 	</div>
 	<c:import url="../bootstrap_body.jsp" />
+
 </body>
 </html>

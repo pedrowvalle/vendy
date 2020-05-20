@@ -99,9 +99,11 @@
 		        	<div class="col-md-12" id="area-resultado">
 		        		
 		        			<p id="total-texto"><strong>Recebido: </strong>R$ ${valorRecebido }</p>	
-
-
-		        			<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>	
+		        			<p id="total-texto"><strong>${resultadoTitulo } </strong> ${resultado }</p>
+		        			
+		        			<input type="hidden" id="totalModal" name="xxxx" value=${totalDinheiro }>
+		        			<input type="hidden" id="pagamentoModal" name="xxxx" value=${valorRecebido }>
+		        			<input type="hidden" id="trocoModal" name="xxxx" value=${resultadoTitulo }>	
 
 										
 		        	</div>
@@ -111,7 +113,7 @@
 		        		<div class="form-row">
 		        			 <button type="button" class="btn btn-lg btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-descontos" id="btn-limpar-descontos">Limpar<br>descontos</button>
 							 <button type="button" class="btn btn-lg btn-danger" style="float: right;" data-toggle="modal" data-target="#limpar-pagamentos" id="btn-limpar-pagamentos">Limpar<br>pagamentos</button>
-							 <button type="button" class="btn btn-lg btn-success" style="float: right;" data-toggle="modal" data-target="#finalizar" id="btn-finalizar">Finalizar<br>venda</button>
+							 <button type="button" class="btn btn-lg btn-success" id="btn-finalizar" onclick="verificar()">Finalizar<br>venda</button>
 						</div>
 		        	</div>
 		        </div>
@@ -146,7 +148,7 @@
 		</div>
 	</div>
 	
-	   <!-- The Modal -->
+	<!-- The Modal -->
 	<div class="modal" id="limpar-descontos">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -170,6 +172,45 @@
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 
+			</div>
+		</div>
+	</div>
+	
+	<!-- The Modal -->
+	<div class="modal" id="pagamentoInferior">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Pagamento insuficiente</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<p>O valor do pagamento é inferior ao valor da venda.</p>
+					<p>Valor restante: ${resultado }</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- The Modal -->
+	<div class="modal" id="pagamentoInferiorNull">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Pagamento insuficiente</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<p>Insira o valor do pagamento.</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -231,6 +272,22 @@
 		var cpf = document.getElementById("cpfClienteDinheiro").value;
 
 		document.getElementById("btnFinalizarModal").href = "controller.do?command=DinheiroFinalizado&cpf="+cpf; 
+	}
+    	
+	</script>
+	
+	<script type="text/javascript">
+	function verificar() {
+		var pagamento = document.getElementById("pagamentoModal").value;
+		var total = document.getElementById("totalModal").value;
+		var troco = document.getElementById("trocoModal").value
+		if (pagamento < total && pagamento !== "")
+			$('#pagamentoInferior').modal('show')
+		else if (pagamento < total && pagamento === "")
+			$('#pagamentoInferiorNull').modal('show')
+		else if (troco.localeCompare("Troco: "))
+			$('#finalizar').modal('show')
+
 	}
     	
 	</script>

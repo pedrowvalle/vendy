@@ -1,9 +1,11 @@
 package command;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,7 @@ import model.Empregado;
 import model.Pedido;
 import model.Produto;
 import service.PedidoService;
+import utils.Recibo;
 
 public class DinheiroFinalizado implements Command {
 
@@ -31,15 +34,34 @@ public class DinheiroFinalizado implements Command {
 		Object cpf = request.getParameter("cpf");
 		session.setAttribute("cpfClienteFinalizado", cpf);
 		
+		Double recebido = (Double)session.getAttribute("valorRecebido");
+		Double troco = (Double)session.getAttribute("valorTroco");
+		
+		
+		
+		
 		Empregado emp = (Empregado)session.getAttribute("logado");
 		ArrayList <Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
 		String produtos = "";
 		java.util.Date date = new java.util.Date();
+		
+		ServletContext context = request.getServletContext();
+		String textoRecibo = "";
+		String textoProdutos = "";
+		String contextPath = context.getRealPath(File.separator);
+
+		textoRecibo = String
+				.format("RECIBO\n\nData: %s\n\nPRODUTOS:\n\n",
+						date.toString());
+		textoRecibo+="==================================\n";
+		produtos="";
 		for(Produto p : venda) {
 			produtos += p.getNome();
 			produtos += "( " + p.getCont() + " )";
 			produtos += ";";
+			textoProdutos += String.format(" - %d   %s\n", p.getCont(), p.getNome());
 		}
+		textoProdutos+="==================================";
 		Pedido pedido = new Pedido();
 		pedido.setCod_produto(produtos);
 		pedido.setCpf_cliente(cpf.toString());
@@ -51,6 +73,19 @@ public class DinheiroFinalizado implements Command {
 		PedidoService ps = new PedidoService();
 		ps.incluir(pedido);
 		
+		textoRecibo += String.format("%s\n\nTOTAL: R$ %.2f\nDESCONTO: R$ %.2f\n\nVALOR PAGO: R$ %.2f\nTROCO: R$ %.2f\n\nCPF: %s", textoProdutos, total, total-desconto, recebido, troco, cpf.toString());
+		
+		
+		synchronized (textoRecibo) {
+			if (textoRecibo!= "") 
+			{
+				Recibo recibo = new Recibo();
+				recibo.abrir(contextPath + File.separator + "recibo" + File.separator + Recibo.NOME);
+				recibo.escrever(textoRecibo);
+				recibo.fechar();
+			}
+		}
+
 		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");
 		view.forward(request, response);
 
