@@ -205,12 +205,12 @@
 					Selecione o método de pagamento:
 					<br><br>
 					<div class="form-row col-md-12">
-		        		<div class="col">
-		        			  <a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary">Dinheiro</a>
+		        		<div class="col-md-3 ">
+		        			  <a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary botaoPagamento">Dinheiro</a>
 		        		</div>
-		        		<div class="col"><a href="#" class="btn btn-primary">  Crédito  </a></div>
-		        		<div class="col"><a href="#" class="btn btn-primary">  Débito  </a></div>
-		        		<div class="col"><a href="#" class="btn btn-primary">  Outros  </a></div>
+		        		<div class="col-md-3 "><a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVenda" class="btn btn-primary botaoPagamento">  Crédito  </a></div>
+		        		<div class="col-md-3 "><a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVenda" class="btn btn-primary botaoPagamento">  Débito  </a></div>
+		        		<div class="col-md-3 "><a href="<%=request.getContextPath()%>/controller.do?command=FinalizarVendaDinheiro" class="btn btn-primary botaoPagamento">  Outros  </a></div>
 		        	</div>		  	
 				</div>
 			</div>

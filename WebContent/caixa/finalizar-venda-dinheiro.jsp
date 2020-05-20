@@ -85,7 +85,7 @@
 		        		<div class="col-md-12" id="area-pagamento">
 		        			<div class="form-row">
 		        			  	<div class="col">
-		        			  		<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Calcular troco</button>
+		        			  		<button id="btn-troco" type="submit" class="btn btn-primary custom" name="command" value="DinheiroCalcularTroco">Receber</button>
 		        			  	</div>
 							 	<div class="col col-md-8">
 							 		<div class="input-group">
