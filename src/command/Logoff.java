@@ -18,7 +18,7 @@ public class Logoff implements Command {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-		view.forward(request, response);
 		session.invalidate();
+		view.forward(request, response);
 	}
 }

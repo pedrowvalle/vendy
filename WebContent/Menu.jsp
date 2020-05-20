@@ -10,11 +10,6 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbar">
-		<form action="../TecladoListarCategorias" method="get">
-			<a class="nav-link"
-				href="<%=request.getContextPath()%>/caixa/teclado.jsp" name="acao"
-				value="mostrarTeclado">Teclado</a>
-		</form>
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#"
