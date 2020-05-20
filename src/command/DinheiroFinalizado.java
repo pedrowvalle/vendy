@@ -59,7 +59,7 @@ public class DinheiroFinalizado implements Command {
 			produtos += p.getNome();
 			produtos += "( " + p.getCont() + " )";
 			produtos += ";";
-			textoProdutos += String.format(" - %d   %s\n", p.getCont(), p.getNome());
+			textoProdutos += String.format(" - %d   %s   %.2f\n", p.getCont(), p.getNome(), p.getPreco());
 		}
 		textoProdutos+="==================================";
 		Pedido pedido = new Pedido();
