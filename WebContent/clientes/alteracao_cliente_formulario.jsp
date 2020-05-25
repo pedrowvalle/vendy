@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Clientes</h3>
             <hr>
-				<form action="../controller.do" method="get">
+				<form action="controller.do" method="get">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">CPF:</label>
@@ -61,7 +61,7 @@
                 </div>
             </form>
            	<hr>
-       		<form action="../controller.do" method="get">
+       		<form action="controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>

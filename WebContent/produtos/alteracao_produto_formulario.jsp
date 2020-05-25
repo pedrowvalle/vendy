@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Produtos</h3>
             <hr>
-				<form action="../controller.do" method="GET">
+				<form action="controller.do" method="GET">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">Código do Produto:</label>
@@ -63,7 +63,7 @@
                 </div>
             </form>
            	<hr>
-       		<form action="../controller.do" method="get">
+       		<form action="controller.do" method="GET">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do produto, confirme o código do produto:</label>

@@ -21,7 +21,7 @@
         	<br>
             <h3 class="page-header">Alterar Operador</h3>
             <hr>
-				<form action="../controller.do" method="GET">
+				<form action="controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
@@ -78,7 +78,7 @@
             </form>
            	
 			<hr>
-       		<form action="../controller.do" method="get">
+       		<form action="controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Operador, confirme o CPF:</label>
