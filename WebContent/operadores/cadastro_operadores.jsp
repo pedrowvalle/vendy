@@ -24,28 +24,28 @@
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
-                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do operador">
+                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do operador" onkeypress="return isNumericKey(event)" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="cpf_cliente">CPF: </label>
-                        <input type="number" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros">
+                        <input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Ex.: 000.000.000-00" onkeypress="return isNumberKey(event)" pattern=".{14,}"   required title="Digite um cpf válido" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
 	                    <label for="dt_nsc">Data de Nascimento: </label>
-                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
+                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
                     </div>
                     <div class="col-md-3 align-self-center text-center">
                     	<h4>Gênero: </h4>
                     </div>
 					<div class="form-group col-md-3" style="margin-top:30px;">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino" required>
 						  <label class="form-check-label" for="genero">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino" required>
 						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
 						</div>
 					</div>
@@ -53,14 +53,14 @@
 				<div class="row">
 					<div class="form-group col-md-4">
 						<label for="cpf_cliente">Usuário: </label>
-                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="">
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Digite o nome de usuário Min: 3 caracteres" pattern=".{3,}"   required title="Mínimo de 3 caracteres">
 					</div>
 					<div class="form-group col-md-4">
 						<label for="cpf_cliente">Senha: </label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite a senha. Min: 3 caracteres" pattern=".{3,}"   required title="Mínimo de 3 caracteres">
 					</div>
 					<div class="form-group col-md-4">
-	                    <label for="categoria">Selecione tipo do operador</label>
+	                    <label for="categoria">Selecione tipo do empregado</label>
 		                    <select class="form-control" id="tipo" name="tipo">
 		                        <option>Operador</option>
 		                        <option>Estoquista</option>
@@ -77,5 +77,6 @@
             </form>
         </div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

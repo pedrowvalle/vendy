@@ -24,28 +24,28 @@
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Cliente:</label>
-                        <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente">
+                        <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" onkeypress="return isNumericKey(event)" placeholder="Digite o nome do cliente" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="cpf_cliente">CPF: </label>
-                        <input type="number" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Apenas numeros">
+                        <input type="text" class="form-control" id="cpf_cliente" name="cpf_cliente" placeholder="Ex.: 000.000.000-00" pattern=".{14,}"   required title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
 	                    <label for="dt_nsc">Data de Nascimento: </label>
-                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
+                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
                     </div>
                     <div class="col-md-3 align-self-center text-center">
                     	<h4>Gênero: </h4>
                     </div>
 					<div class="form-group col-md-3" style="margin-top:30px;">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m" required>
 						  <label class="form-check-label" for="genero">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f" required>
 						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
 						</div>
 					</div>
@@ -60,5 +60,6 @@
             </form>
         </div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

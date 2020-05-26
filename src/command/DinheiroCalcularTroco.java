@@ -32,12 +32,20 @@ public class DinheiroCalcularTroco implements Command {
 		
 		Double pagamento = 0.0;
 		if (!isNullOrBlank(request.getParameter("pagamento"))) 
-			pagamento = Double.parseDouble(request.getParameter("pagamento"));
+		{
+			pagamento = Double.parseDouble(request.getParameter("pagamento").replaceFirst("^0+(?!$)", ""));
+			pagamento = round (pagamento, 2);
+		} 
+			
 		
 		
 		Double totalPagamento = 0.0;
-		if (session.getAttribute("valorRecebido") != null)
+		if (session.getAttribute("valorRecebido") != null) 
+		{
 			totalPagamento = (Double) session.getAttribute("valorRecebido");
+			totalPagamento = round (totalPagamento, 2);
+		}
+			
 		
 		
 		if (pagamento > 0.0) 
@@ -45,8 +53,8 @@ public class DinheiroCalcularTroco implements Command {
 
 			if (pagamento <= total) 
 			{
-				total = total - pagamento;
-				totalPagamento = totalPagamento + pagamento;
+				total = round (total - pagamento, 2);
+				totalPagamento = round (totalPagamento + pagamento, 2);
 				session.setAttribute("resultadoTitulo", "Falta: ");
 				session.setAttribute("resultado", "R$ "+total);
 				session.setAttribute("valorRecebido", totalPagamento);
@@ -56,8 +64,8 @@ public class DinheiroCalcularTroco implements Command {
 			}
 			else if (pagamento > total) 
 			{
-				total = total - pagamento;
-				totalPagamento = totalPagamento + pagamento;
+				total = round (total - pagamento, 2);
+				totalPagamento = round (totalPagamento + pagamento, 2);
 				Double totalModulo = Math.abs(total);
 				session.setAttribute("resultado", "R$ "+totalModulo);
 				session.setAttribute("resultadoTitulo", "Troco: ");
@@ -81,5 +89,13 @@ public class DinheiroCalcularTroco implements Command {
 	}
 	public boolean isNullOrBlank(final String s) {
 	    return s == null || s.trim().length() == 0;
+	}
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
 	}
 }

@@ -24,11 +24,11 @@
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_produto">Nome do Produto:</label>
-                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto">
+                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto" onkeypress="return isNumericKey(event)" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="preco">Preço do produto</label>
-                        <input type="number" class="form-control" id="preco" name="preco" placeholder="Insira o preço de venda do produto">
+                        <input type="text" class="form-control" id="preco" name="preco" placeholder="Digite o preço de venda do produto" onkeypress="return isNumberKey(event)" required>
                     </div>
                 </div>
                 <div class="row">
@@ -45,7 +45,7 @@
                     </div>
 					<div class="form-group col-md-6">
 						<label for="estoque">Digite a quantidade inicial do estoque</label>
-						<input type="number" class="form-control" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque">
+						<input type="text" class="form-control" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque" onkeypress="return isOnlyNumber(event)" required>
 					</div>
                 </div>
                 <hr>
@@ -58,5 +58,6 @@
             </form>
         </div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

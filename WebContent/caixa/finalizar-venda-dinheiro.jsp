@@ -90,7 +90,7 @@
 							 	<div class="col col-md-8">
 							 		<div class="input-group">
 							 			<span class="input-group-addon" id="sizing-addon3">R$</span>
-							 			<input class="form-control" id="pagamento" placeholder="0.00" onkeypress="return isNumberKey(event)" type="text" name="pagamento" aria-describedby="sizing-addon3">
+							 			<input class="form-control" id="pagamento" placeholder="0.00" onkeypress="return isNumberKey(event)" onkeydown="javascript: formatMoney(this)"type="text" name="pagamento" aria-describedby="sizing-addon3">
 							 		</div>						 		
 							 	</div>
 							 </div>
@@ -192,7 +192,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<p>O valor do pagamento é inferior ao valor da venda.</p>
-					<p>Valor restante: ${resultado }</p>
+					<p>Resta a ser pago: ${resultado }</p>
 				</div>
 			</div>
 		</div>

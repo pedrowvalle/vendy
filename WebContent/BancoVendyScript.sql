@@ -2,19 +2,19 @@ drop database if exists vendy;
 create database vendy;
 use vendy;
 /*comercio (nome, cnpj, endereco, telefone)*/
-create table comercio (nome varchar(20) not null, cnpj varchar(20) not null, endereco varchar(50), telefone varchar(10), primary key (cnpj));
+create table comercio (nome varchar(100) not null, cnpj varchar(20) not null, endereco varchar(50), telefone varchar(10), primary key (cnpj));
 /*empregado (CPF, sexo, dt_nsc, nome, cnpj_comercio)*/
-create table empregado (cpf varchar(10) not null, genero smallint, dt_nsc varchar(10), nome varchar(20) not null, cnpj_comercio varchar(20), usuario varchar(20), senha varchar(20), tipo smallint, primary key (cpf));
+create table empregado (cpf varchar(14) not null, genero smallint, dt_nsc varchar(10), nome varchar(100) not null, cnpj_comercio varchar(20), usuario varchar(20), senha varchar(20), tipo smallint, primary key (cpf));
 /*estoqusta(cpf_emp, cod)*/
 create table estoquista (cpf_emp varchar(10) not null, cod int, primary key (cod));
 /*operador (cpf_emp, cod)*/
 create table operador (cpf_emp varchar(10) not null, cod int, primary key (cod));
 /*produto (cod, nome, preco, categoria)*/
-create table produto (cod int not null auto_increment, nome varchar(20), preco double, categoria varchar(15), estoque int, primary key(cod));
+create table produto (cod int not null auto_increment, nome varchar(100), preco double, categoria varchar(100), estoque int, primary key(cod));
 /*pedido (cod, cod_produto, data, preco, cod_operador, cpf_cliente)*/
-create table pedido (cod int not null auto_increment, cod_produto varchar(10000), data_pedido varchar(50), preco decimal, cpf_cliente varchar(20), desconto decimal, vendedor varchar(50), primary key(cod));
+create table pedido (cod int not null auto_increment, cod_produto varchar(10000), data_pedido varchar(50), preco decimal, cpf_cliente varchar(20), desconto decimal, vendedor varchar(100), primary key(cod));
 /*cliente (CPF, nome, dt_nsc, sexo)*/
-create table cliente (cpf varchar(10) not null, nome varchar (20), dt_nsc varchar(10), genero char, primary key(cpf));
+create table cliente (cpf varchar(14) not null, nome varchar (100), dt_nsc varchar(10), genero char, primary key(cpf));
 /*caixa (id, data_abertura, data_fechamento, fundo_abertura, fundo_fechamento*/
 create table caixa (id int auto_increment not null, data_abertura date, data_fechamento date, fundo_abertura decimal, fundo_fechamento decimal, primary key(id));
 /* adicionar fk em empregado*/
@@ -152,4 +152,6 @@ insert into produto (nome, preco, categoria, estoque) values ("Pimentão Amarelo 
 
 
 select * from empregado;
+select * from produto;
+select * from cliente;
 select * from pedido;

@@ -54,7 +54,7 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<form action="controller.do" method="get">
 					<a class="dropdown-item"
-						href="controller.do?command=ListarVendas">Consultar vendas</a>
+						href="<%=request.getContextPath()%>/controller.do?command=ListarVendas">Consultar vendas</a>
 				</form>	</div>
 		</ul>
 		<button type="button" class="btn btn-danger" style="float: right;"

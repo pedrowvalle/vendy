@@ -28,17 +28,25 @@ public class DinheiroCalcularDesconto implements Command {
 		
 		Double total = (Double) session.getAttribute("totalDinheiro");
 		Double descReais = 0.0;
-		if (!isNullOrBlank(request.getParameter("descReais")) && Double.parseDouble(request.getParameter("descReais")) <= total && isNullOrBlank(request.getParameter("descPorc")))
-			descReais = Double.parseDouble(request.getParameter("descReais"));
+		if (!isNullOrBlank(request.getParameter("descReais")) && Double.parseDouble(request.getParameter("descReais")) <= total && isNullOrBlank(request.getParameter("descPorc"))) 
+		{
+			descReais = Double.parseDouble(request.getParameter("descReais").replaceFirst("^0+(?!$)", ""));
+			descReais = round (descReais, 2);
+		}
+			
 		Double descPorc = 0.0;
-		if (!isNullOrBlank(request.getParameter("descPorc")) && total * (1 - (Double.parseDouble(request.getParameter("descPorc"))/100)) >= 0.0 && isNullOrBlank(request.getParameter("descReais")))
-			descPorc = Double.parseDouble(request.getParameter("descPorc"));
+		if (!isNullOrBlank(request.getParameter("descPorc")) && total * (1 - (Double.parseDouble(request.getParameter("descPorc"))/100)) >= 0.0 && isNullOrBlank(request.getParameter("descReais"))) 
+		{
+			descPorc = Double.parseDouble(request.getParameter("descPorc").replaceFirst("^0+(?!$)", ""));
+			descPorc = round (descPorc, 2);
+		}
+			
 	
 		if (descReais > 0.0 && descPorc == 0.0) 
 		{
 			if (total >= 0.0 && descReais <= total) 
 			{
-				total = total - descReais;
+				total = round (total - descReais, 2);
 				session.setAttribute("totalTitulo", "Total (com desconto)");
 				session.setAttribute("totalDinheiro", total);
 				view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
@@ -51,7 +59,7 @@ public class DinheiroCalcularDesconto implements Command {
 		{
 			if (total >= 0.0 && total * (1 - (descPorc/100)) >= 0.0) 
 			{
-				total = total * (1 - (descPorc/100));
+				total = round(total * (1 - (descPorc/100)), 2);
 				session.setAttribute("totalTitulo", "Total (com desconto)");
 				session.setAttribute("totalDinheiro", total);
 				view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
@@ -69,6 +77,13 @@ public class DinheiroCalcularDesconto implements Command {
 	public boolean isNullOrBlank(final String s) {
 	    return s == null || s.trim().length() == 0;
 	}
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
 
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
+	}
 
 }
