@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="cpf_cliente">CPF: </label>
-                        <input type="number" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros"value="${empregado.cpf}">
+                        <input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros"value="${empregado.cpf}">
                     </div>
                 </div>
                 <div class="row">
