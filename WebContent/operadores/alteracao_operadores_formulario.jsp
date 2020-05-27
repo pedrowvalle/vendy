@@ -25,28 +25,28 @@
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
                         <label for="nome_cliente">Nome do Operador:</label>
-                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do operador"value="${empregado.nome}">
+                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do operador"value="${empregado.nome}" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="cpf_cliente">CPF: </label>
-                        <input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros"value="${empregado.cpf}">
+                        <input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros"value="${empregado.cpf}" readonly>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
 	                    <label for="dt_nsc">Data de Nascimento: </label>
-                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'"value="${empregado.dt_nsc}">
+                        <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10" value="${empregado.dt_nsc}">
                     </div>
                     <div class="col-md-3 align-self-center text-center">
                     	<h4>Gênero: </h4>
                     </div>
 					<div class="form-group col-md-3" style="margin-top:30px;">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino" required>
 						  <label class="form-check-label" for="genero">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino" required>
 						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
 						</div>
 					</div>
@@ -62,7 +62,7 @@
 					</div>
 					<div class="form-group col-md-4">
 	                    <label for="categoria">Selecione tipo do operador</label>
-		                    <select class="form-control" id="tipo" name="tipo">
+		                    <select class="form-control" id="tipo" name="tipo" required>
 		                        <option>Operador</option>
 		                        <option>Estoquista</option>
 		                    </select>
@@ -72,7 +72,7 @@
                 <div class="row">
                 	<div id="actions" class="col-md-6 align-self-center">
                 		<button type="submit" class="btn btn-primary custom" name="command" value="AlterarOperador">Cadastrar</button>
-						<a href="operadores/alteracao_operadores.jsp" class="btn btn-default custom">Cancelar</a>
+						<a href="<%=request.getContextPath()%>/controller.do?command=ListarOperadores" class="btn btn-default custom">Cancelar</a>
 					</div>
                 </div>
             </form>
@@ -82,7 +82,7 @@
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Operador, confirme o CPF:</label>
-						<input type="text" class="form-control" id="cpf_operador_del" name="cpf_operador_del" placeholder="Esta ação não pode ser desfeita">
+						<input type="text" class="form-control" id="cpf_operador_del" name="cpf_operador_del" placeholder="Esta ação não pode ser desfeita" pattern=".{14,}" title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="command" value="ExcluirOperador">Apagar Operador</button>
@@ -91,5 +91,6 @@
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

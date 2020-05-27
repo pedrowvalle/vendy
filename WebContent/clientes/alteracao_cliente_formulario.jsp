@@ -25,30 +25,32 @@
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">CPF:</label>
-	                        <input type="text" class="form-control" value="${cliente.cpf}" id="cpf_cliente" name="cpf_cliente" placeholder="Somente números">
+	                        <input type="text" class="form-control" value="${cliente.cpf}" id="cpf_cliente" name="cpf_cliente" readonly>
 	                    </div>
     				</div>
                 	<div class="row">
 	                    <div class="form-group col-md-6 mx-auto">
 	                        <label for="nome_produto">Nome do Cliente:</label>
-	                        <input type="text" class="form-control" value="${cliente.nome}" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente">
+	                        <input type="text" class="form-control" value="${cliente.nome}" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente" required>
 	                    </div>
 	                    <div class="form-group col-md-6 mx-auto">
 	                        <label for="preco">Data de Nascimento</label>
-	                        <input type="text" class="form-control" value="${cliente.dt_nsc}" id="dt_nsc" name="dt_nsc" placeholder="Formato 'DD/MM/AAAA'">
+	                        <input type="text" class="form-control" value="${cliente.dt_nsc}" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
 	                    </div>
                 	</div>
 	                <div class="row">
 	                    <div class="col-md-3 align-self-center text-center">
-                    	<h4>Gênero: </h4>
+                    	
                     </div>
 					<div class="form-group col-md-3" style="margin-top:30px; margin-left:auto">
+						<h4>Gênero: </h4>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
+						  
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m" required>
 						  <label class="form-check-label" for="genero">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f">
+						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f" required>
 						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
 						</div>
 					</div>
@@ -56,7 +58,7 @@
                 <div class="row">
                 	<div id="actions" class="col-md-6">
 						<button type="submit" class="btn btn-primary" name="command" value="AlterarCliente">Alterar</button>
-						<a href="clientes/alteracao_cliente.jsp" class="btn btn-default">Cancelar</a>
+						<a href="<%=request.getContextPath()%>/controller.do?command=ListarClientes" class="btn btn-default">Cancelar</a>
 					</div>
                 </div>
             </form>
@@ -65,7 +67,7 @@
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
-						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita">
+						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita" pattern=".{14,}" title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="command"
@@ -75,5 +77,6 @@
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

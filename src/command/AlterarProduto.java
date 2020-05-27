@@ -24,9 +24,10 @@ public class AlterarProduto implements Command {
 		
 		int cod = Integer.parseInt(request.getParameter("cod_produto"));
 		String nomeProduto = request.getParameter("nome_produto");
-		double preco = Double.parseDouble(request.getParameter("preco"));
+		double preco = Double.parseDouble(request.getParameter("preco").replaceFirst("^0+(?!$)", ""));
+		preco = round (preco, 2);
 		String categoria = request.getParameter("categoria");
-		int estoque = Integer.parseInt(request.getParameter("estoque"));
+		int estoque = Integer.parseInt(request.getParameter("estoque").replaceFirst("^0+(?!$)", ""));
 		produto.setCod(cod);
 		produto.setNome(nomeProduto);
 		produto.setCategoria(categoria);
@@ -37,6 +38,14 @@ public class AlterarProduto implements Command {
 		view = request.getRequestDispatcher("produtos/consulta_produto_resultado.jsp");
 		view.forward(request, response);
 
+	}
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
 	}
 
 }

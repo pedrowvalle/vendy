@@ -25,17 +25,17 @@
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
 	                        <label for="nome_produto">Código do Produto:</label>
-	                        <input type="text" class="form-control" value="${produto.cod}" id="cod_produto" name="cod_produto" placeholder="Digite o nome do produto">
+	                        <input type="text" class="form-control" value="${produto.cod}" id="cod_produto" name="cod_produto" readonly>
 	                    </div>
     				</div>
                 	<div class="row">
 	                    <div class="form-group col-md-6 mx-auto">
 	                        <label for="nome_produto">Nome do Produto:</label>
-	                        <input type="text" class="form-control" value="${produto.nome}" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto">
+	                        <input type="text" class="form-control" value="${produto.nome}" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto" required>
 	                    </div>
 	                    <div class="form-group col-md-6 mx-auto">
 	                        <label for="preco">Preço do produto</label>
-	                        <input type="number" class="form-control" value="${produto.preco}" id="preco" name="preco" placeholder="Insira o preço de venda do produto">
+	                        <input type="text" class="form-control" value="${produto.preco}" id="preco" name="preco" placeholder="Insira o preço de venda do produto" onkeypress="return isNumberKey(event)" required>
 	                    </div>
                 	</div>
 	                <div class="row">
@@ -52,13 +52,13 @@
 			              </div>
 					<div class="form-group col-md-6 mx-auto">
 						<label for="estoque">Digite nova quantidade do estoque</label>
-						<input type="number" class="form-control" value="${produto.quantidade}" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque">
+						<input type="text" class="form-control" value="${produto.quantidade}" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque" onkeypress="return isOnlyNumber(event)" required>
 					</div>
                 </div>
                 <div class="row">
                 	<div id="actions" class="col-md-6">
 						<button type="submit" class="btn btn-primary" name="command" value="AlterarProduto">Alterar</button>
-						<a href="produtos/alteracao_produto.jsp" class="btn btn-default">Cancelar</a>
+						<a href="<%=request.getContextPath()%>/controller.do?command=ListarProdutos" class="btn btn-default">Cancelar</a>
 					</div>
                 </div>
             </form>
@@ -67,7 +67,7 @@
        			<div class="row">
 					<div class="form-group col-md-6">
 						<label for="cod_produto">Para confirmar a exclusão do produto, confirme o código do produto:</label>
-						<input type="text" class="form-control" id="cod_produto_del" name="cod_produto_del" placeholder="Esta ação não pode ser desfeita">
+						<input type="text" class="form-control" id="cod_produto_del" name="cod_produto_del" placeholder="Esta ação não pode ser desfeita" pattern=".{1,}" title="Digite um código válido" onkeypress="return isOnlyNumber(event)" required>
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="command"
@@ -77,5 +77,6 @@
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
 	</body>
 </html>

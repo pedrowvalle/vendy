@@ -23,7 +23,7 @@
             <form action="../controller.do" method="get">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="nome_cliente">Nome do Cliente:</label>
+                        <label for="nome_cliente">Nome do cliente:</label>
                         <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" onkeypress="return isNumericKey(event)" placeholder="Digite o nome do cliente" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-	                    <label for="dt_nsc">Data de Nascimento: </label>
+	                    <label for="dt_nsc">Data de nascimento: </label>
                         <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
                     </div>
                     <div class="col-md-3 align-self-center text-center">

@@ -30,6 +30,7 @@
 	    								<th>Nome</th>
 	    								<th>Data de nascimento</th>
 	    								<th>Gênero</th>
+	    								<th>Opções</th>
 	    							</tr>
 	    						</thead>
 	    						<tbody>
@@ -46,6 +47,10 @@
 													Feminino
 												</c:if>
 	    									</th>
+	    									<th>
+	    										<a class="btn btn-success btn-xs" href="controller.do?command=VisualizarCliente&cpf_cliente=${cliente.cpf}">Visualizar</a>
+	    										<a class="btn btn-warning btn-xs" href="controller.do?command=EditarCliente&cpf_cliente=${cliente.cpf}">Editar</a>
+                                            </th>
 	    							</c:forEach>
 	    						</tbody>
 	    					</table>

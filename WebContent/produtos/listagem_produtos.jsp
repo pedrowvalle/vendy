@@ -22,7 +22,7 @@
 	    		<hr>
 	    		<c:if test="${not empty lista}">
 	    			<div id="list" class="row">
-	    				<div class="table-responsive col-md-12">
+	    				<div class="table-responsive col-md-12" style="text-align: center">
 	    					<table class="table table-striped">
 	    						<thead>
 	    							<tr>
@@ -30,7 +30,8 @@
 	    								<th>Nome</th>
 	    								<th>Categoria</th>
 	    								<th>Preço</th>
-	    								<th>Quantidade em estoque</th>
+	    								<th>Qtd. em estoque</th>
+	    								<th>Opções</th>
 	    							</tr>
 	    						</thead>
 	    						<tbody>
@@ -41,6 +42,10 @@
 	    									<th>${produto.categoria}</th>
 	    									<th>R$ ${produto.preco}</th>
 	    									<th>${produto.quantidade}</th>
+	    									<th>
+	    										<a class="btn btn-success btn-xs" href="controller.do?command=VisualizarProduto&cod=${produto.cod}">Visualizar</a>
+	    										<a class="btn btn-warning btn-xs" href="controller.do?command=EditarProduto&cod=${produto.cod}">Editar</a>
+                                            </th>
 	    							</c:forEach>
 	    						</tbody>
 	    					</table>

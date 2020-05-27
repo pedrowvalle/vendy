@@ -45,6 +45,7 @@
 	    				<p>${produto.quantidade}</p>	    			
 	    			</div>
 	    		</div>
+	    		<a href="<%=request.getContextPath()%>/controller.do?command=ListarProdutos" class="btn btn-primary">Voltar</a>
 	    	</div>
 	    	<c:import url="../bootstrap_body.jsp"/>
 		</body>

@@ -50,9 +50,9 @@ ADD CONSTRAINT `cpf_emp_op`
   
 insert into comercio (nome, cnpj, endereco, telefone) values ("João", "0123456789", "Rua dos penas, 10", "0116587852");
 
-insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("40305550", 1, '1991-05-30', "Pedro", "0123456789", "pedro", "0123", 1);
-insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("11122233", 1, '2001-07-10', "Caio", "0123456789", "caio", "0123", 2);
-insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("123654789", 1, '1996-07-22', "Gabriel", "0123456789", "gabriel", "123", 2);
+insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("40305550", 1, '30/05/1991', "Pedro", "0123456789", "pedro", "0123", 1);
+insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("11122233", 1, '10/07/2001', "Caio", "0123456789", "caio", "0123", 2);
+insert into empregado (cpf, genero, dt_nsc, nome, cnpj_comercio, usuario, senha, tipo) values ("123654789", 1, '22/07/1996', "Gabriel", "0123456789", "gabriel", "123", 2);
 
 insert into produto (nome, preco, categoria, estoque) values ("X-Salada", 7, "Lanches", 10);
 insert into produto (nome, preco, categoria, estoque) values ("X-Egg", 9, "Lanches", 10);

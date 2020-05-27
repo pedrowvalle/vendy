@@ -26,7 +26,7 @@ public class EditarCliente implements Command {
 		RequestDispatcher view = null;
 		HttpSession session = request.getSession();
 		
-		cliente = cs.carregar(cliente.getCpf());
+		cliente = cs.carregar(request.getParameter("cpf_cliente"));
 		session.setAttribute("cliente", cliente);
 		view = request.getRequestDispatcher("clientes/alteracao_cliente_formulario.jsp");
 		

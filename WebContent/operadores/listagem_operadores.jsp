@@ -19,7 +19,7 @@
 	    	
 	    	<div id="main" class="container">
 	    		<br>
-	    		<h3 class="page-header">Lista de Operadores</h3>
+	    		<h3 class="page-header">Lista de Empregados</h3>
 	    		<hr>
 	    		<c:if test="${not empty lista}">
 	    			<div id="list" class="row">
@@ -31,7 +31,8 @@
 	    								<th>Nome</th>
 	    								<th>Data de nascimento</th>
 	    								<th>Gênero</th>
-	    								<th>Tipo de operador</th>
+	    								<th>Tipo de empregado</th>
+	    								<th>Opções</th>
 	    							</tr>
 	    						</thead>
 	    						<tbody>
@@ -49,6 +50,10 @@
 													Estoquista
 												</c:if>
 											</th>
+											<th>
+	    										<a class="btn btn-success btn-xs" href="controller.do?command=VisualizarOperador&cpf_operador=${empregado.cpf}">Visualizar</a>
+	    										<a class="btn btn-warning btn-xs" href="controller.do?command=EditarOperador&cpf_operador=${empregado.cpf}">Editar</a>
+                                            </th>
 	    							</c:forEach>
 	    						</tbody>
 	    					</table>

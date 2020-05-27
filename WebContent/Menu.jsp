@@ -17,11 +17,9 @@
 				aria-haspopup="true" aria-expanded="false"> Produtos </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/produtos/cadastro_produtos.jsp">Cadastro</a>
+						href="<%=request.getContextPath()%>/produtos/cadastro_produtos.jsp">Cadastrar produto</a>
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/produtos/consulta_produto.jsp">Consulta</a>
-					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/produtos/alteracao_produto.jsp">Altera</a>
+						href="<%=request.getContextPath()%>/controller.do?command=ListarProdutos">Listar produtos</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#"
@@ -29,23 +27,19 @@
 				aria-haspopup="true" aria-expanded="false"> Clientes </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/clientes/cadastro_clientes.jsp">Cadastro</a>
+						href="<%=request.getContextPath()%>/clientes/cadastro_clientes.jsp">Cadastrar cliente</a>
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/clientes/consulta_clientes.jsp">Consulta</a>
-					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/clientes/alteracao_cliente.jsp">Alteração</a>
+						href="<%=request.getContextPath()%>/controller.do?command=ListarClientes">Listar clientes</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#"
 				id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false"> Operadores </a>
+				aria-haspopup="true" aria-expanded="false"> Empregados </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/operadores/cadastro_operadores.jsp">Cadastro</a>
+						href="<%=request.getContextPath()%>/operadores/cadastro_operadores.jsp">Cadastrar empregado</a>
 					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/operadores/consulta_operadores.jsp">Consulta</a>
-					<a class="dropdown-item"
-						href="<%=request.getContextPath()%>/operadores/alteracao_operadores.jsp">Alteração</a>
+						href="<%=request.getContextPath()%>/controller.do?command=ListarOperadores">Listar empregados</a>
 				</div></li>
 				<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#"

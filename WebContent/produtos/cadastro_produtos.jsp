@@ -23,8 +23,8 @@
             <form action="../controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="nome_produto">Nome do Produto:</label>
-                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto" onkeypress="return isNumericKey(event)" required>
+                        <label for="nome_produto">Nome do produto:</label>
+                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="preco">Preço do produto</label>
@@ -44,8 +44,8 @@
 		                    </select>
                     </div>
 					<div class="form-group col-md-6">
-						<label for="estoque">Digite a quantidade inicial do estoque</label>
-						<input type="text" class="form-control" id="estoque" name="estoque" placeholder = "Quantidade inicial de estoque" onkeypress="return isOnlyNumber(event)" required>
+						<label for="estoque">Estoque</label>
+						<input type="text" class="form-control" id="estoque" name="estoque" placeholder = "Digite a quantidade inicial de estoque" onkeypress="return isOnlyNumber(event)" required>
 					</div>
                 </div>
                 <hr>
