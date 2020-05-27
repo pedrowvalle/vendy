@@ -43,8 +43,8 @@
 	    									<th>R$ ${produto.preco}</th>
 	    									<th>${produto.quantidade}</th>
 	    									<th>
-	    										<a class="btn btn-success btn-xs" href="controller.do?command=VisualizarProduto&cod=${produto.cod}">Visualizar</a>
-	    										<a class="btn btn-warning btn-xs" href="controller.do?command=EditarProduto&cod=${produto.cod}">Editar</a>
+	    										<a class="btn btn-info btn-xs" href="controller.do?command=VisualizarProduto&cod=${produto.cod}">Visualizar</a>
+	    										<a class="btn btn-info btn-xs" href="controller.do?command=EditarProduto&cod=${produto.cod}">Editar</a>
                                             </th>
 	    							</c:forEach>
 	    						</tbody>

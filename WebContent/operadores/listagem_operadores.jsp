@@ -51,8 +51,8 @@
 												</c:if>
 											</th>
 											<th>
-	    										<a class="btn btn-success btn-xs" href="controller.do?command=VisualizarOperador&cpf_operador=${empregado.cpf}">Visualizar</a>
-	    										<a class="btn btn-warning btn-xs" href="controller.do?command=EditarOperador&cpf_operador=${empregado.cpf}">Editar</a>
+	    										<a class="btn btn-info btn-xs" href="controller.do?command=VisualizarOperador&cpf_operador=${empregado.cpf}">Visualizar</a>
+	    										<a class="btn btn-info btn-xs" href="controller.do?command=EditarOperador&cpf_operador=${empregado.cpf}">Editar</a>
                                             </th>
 	    							</c:forEach>
 	    						</tbody>
