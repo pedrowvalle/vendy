@@ -49,6 +49,7 @@
 	    				<p>${pedido.cpf_cliente}</p>	    			
 	    			</div>
 	    		</div>
+	    		<a href="<%=request.getContextPath()%>/controller.do?command=ListarVendas" class="btn btn-primary">Voltar</a>
 	    	</div>
 	    	<c:import url="../bootstrap_body.jsp"/>
 		</body>
