@@ -28,6 +28,11 @@ public class EmpregadoService {
 	public ArrayList <Empregado> listarEmpregados (){
 		return dao.listar();
 	}
+	
+	public ArrayList <Empregado> listarEmpregados (String chave){
+		return dao.listarEmpregado(chave);
+	}
+	
 	public void tipoEmpregado(Empregado empregado) {
 		dao.empregadoLogado(empregado);
 	}

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Empregado;
+import model.Produto;
 
 public class EmpregadoDAO {
 	
@@ -35,6 +36,39 @@ public class EmpregadoDAO {
 			e.printStackTrace();
 		}
 		return empregados;
+	}
+	
+	public ArrayList<Empregado> listarEmpregado(String chave){
+		Empregado emp;
+		ArrayList<Empregado> lista = new ArrayList<>();
+		String sqlSelect = "select * from empregado where upper(nome) like ?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+			stm.setString(1,  "%"+chave.toUpperCase()+"%");
+			try(ResultSet rs = stm.executeQuery()){
+				while(rs.next()) {
+					emp = new Empregado();
+					emp.setCpf(rs.getString("cpf"));
+					emp.setNome(rs.getString("nome"));
+					emp.setDt_nsc(rs.getString("dt_nsc"));
+					emp.setUsuario(rs.getString("usuario"));
+					emp.setSenha(rs.getString("senha"));
+					if(rs.getInt("genero") == 1) {
+						emp.setGenero("Masculino");
+					}else {
+						emp.setGenero("Feminino");
+					}
+					emp.setTipo_emp(rs.getInt("tipo"));
+					
+					lista.add(emp);
+				}
+			}catch (SQLException e) {
+					e.printStackTrace();
+			}
+		}catch (SQLException e1) {
+				e1.printStackTrace();
+		}
+		return lista;
 	}
 	
 	public void incluir(Empregado emp) {

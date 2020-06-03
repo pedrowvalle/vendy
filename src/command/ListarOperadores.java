@@ -19,9 +19,14 @@ public class ListarOperadores implements Command {
 	@Override
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String chave = request.getParameter("data[search]");
 		ArrayList<Empregado> lista = null;
 		EmpregadoService es = new EmpregadoService();
-		lista = es.listarEmpregados();
+		if (chave != null && chave.length() > 0) {
+			lista = es.listarEmpregados(chave);
+		}else {
+			lista = es.listarEmpregados();
+		}
 		request.setAttribute("lista", lista);
 		
 		RequestDispatcher view = request.getRequestDispatcher("operadores/listagem_operadores.jsp");

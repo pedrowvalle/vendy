@@ -19,9 +19,14 @@ public class ListarClientes implements Command {
 	@Override
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String chave = request.getParameter("data[search]");
 		ArrayList<Cliente> lista = null;
 		ClienteService cs = new ClienteService();
-		lista = cs.listarCliente();
+		if (chave != null && chave.length() > 0) {
+			lista = cs.listarCliente(chave);
+		}else {
+			lista = cs.listarCliente();
+		}
 		request.setAttribute("lista", lista);
 		
 		RequestDispatcher view = request.getRequestDispatcher("clientes/listagem_clientes.jsp");
