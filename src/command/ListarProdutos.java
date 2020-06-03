@@ -18,9 +18,14 @@ public class ListarProdutos implements Command {
 	@Override
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String chave = request.getParameter("data[search]");
 		ArrayList<Produto> lista = null;
 		ProdutoService ps = new ProdutoService();
-		lista = ps.listarProdutos();
+		if(chave != null && chave.length() > 0) {
+			lista = ps.listarProdutos(chave);
+		}else {
+			lista = ps.listarProdutos();
+		}
 		request.setAttribute("lista", lista);
 		
 		RequestDispatcher view = request.getRequestDispatcher("produtos/listagem_produtos.jsp");

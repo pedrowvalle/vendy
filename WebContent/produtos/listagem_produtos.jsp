@@ -20,6 +20,24 @@
 	    		<br>
 	    		<h3 class="page-header">Lista de produtos</h3>
 	    		<hr>
+	    		<form action="controller.do" method="POST">
+		            <div id="top" class="row">
+		                <div class="col-md-6">
+		                    <div class="input-group h2">
+		                        <input name="data[search]" class="form-control" id="search" type="text"
+		                            placeholder="Pesquisar produtos">
+							</div>
+		                </div>
+		                <div class="col-md-3">
+		                    <button class="btn btn-primary" type="submit" name="command"
+										value="ListarProdutos">
+										Pesquisar
+									</button>
+		                </div>
+		            </div>
+		            <!--Fim da barra de pesquisa superior-->
+       		 	</form>
+	    		<hr>
 	    		<c:if test="${not empty lista}">
 	    			<div id="list" class="row">
 	    				<div class="table-responsive col-md-12" style="text-align: center">
