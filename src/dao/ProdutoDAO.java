@@ -46,6 +46,18 @@ public class ProdutoDAO {
 		}
 	}
 	
+	public void atualizarEstoque(Produto prod) {
+		String SQLUpdate = "UPDATE produto SET estoque=? WHERE cod=?";
+		try(Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(SQLUpdate);){
+			stm.setInt(1, prod.getQuantidade() - prod.getCont());
+			stm.setInt(2, prod.getCod());
+			stm.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void excluir(Produto prod) {
 		String SQLDelete = "DELETE FROM produto WHERE cod=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();

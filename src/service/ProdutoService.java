@@ -18,6 +18,10 @@ public class ProdutoService {
 	public void atualizar(Produto prod) {
 		dao.atualizar(prod);
 	}
+	public void atualizarEstoque (Produto prod) 
+	{
+		dao.atualizarEstoque(prod);
+	}
 	public void excluir(int id) {
 		dao.excluir(new Produto(id));
 	}

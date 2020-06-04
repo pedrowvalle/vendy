@@ -102,9 +102,29 @@
 										
 										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoExcluirProduto&cod=${produto.cod}&total=${total}"><img src="images/lixo.png" class="lixo"></a></td>
 										<td>${produto.nome }</td>
-										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoDiminuirQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/minus.png" class="modificarQuantidade"></a></td>
+										<td>
+											<c:choose>
+												<c:when test="${produto.cont > 1 }">
+													<a href="<%=request.getContextPath()%>/controller.do?command=TecladoDiminuirQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/minus.png" class="modificarQuantidade"></a>
+												</c:when>
+												<c:otherwise>
+													
+												</c:otherwise>
+											</c:choose>
+										
+										</td>
 										<td>${produto.cont }</td>
-										<td><a href="<%=request.getContextPath()%>/controller.do?command=TecladoAumentarQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/plus.png" class="modificarQuantidade"></a> </td>
+										<td>
+											<c:choose>
+												<c:when test="${produto.cont < produto.quantidade }">
+													<a href="<%=request.getContextPath()%>/controller.do?command=TecladoAumentarQtd&cod=${produto.cod}" id="botaoQuantidade"><img src="images/plus.png" class="modificarQuantidade"></a> 
+												</c:when>
+												<c:otherwise>
+													
+												</c:otherwise>
+											</c:choose>
+										
+										</td>
 										<td>R$ ${produto.preco }</td>
 									</tr>
 								</c:forEach>
@@ -155,8 +175,17 @@
 			<div class="col-md-8" id="produtos">
 				<div id="area-produtos">
 					<c:forEach var="produto" items="${produtos}">
-						<a href="<%=request.getContextPath()%>/controller.do?command=TecladoAddProduto&cod=${produto.cod }&total=${total}&cont=1"
+					<c:choose>
+						<c:when test="${produto.quantidade > 0 }">
+							<a href="<%=request.getContextPath()%>/controller.do?command=TecladoAddProduto&cod=${produto.cod }&total=${total}&cont=1"
 							class="btn btn-outline-primary custom">${produto.nome }</a>
+						</c:when>
+						<c:otherwise>
+							<a href="#"
+							class="btn btn-outline-secondary custom">${produto.nome }</a>
+						</c:otherwise>
+					</c:choose>
+						
 					</c:forEach>
 				</div>
 			</div>

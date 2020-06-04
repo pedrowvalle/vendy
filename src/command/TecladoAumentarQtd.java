@@ -26,8 +26,11 @@ public class TecladoAumentarQtd implements Command {
 		for (Produto prod : venda) {
 			if (prod.getCod() == cod) {
 				int aux = prod.getCont();
-				aux++;
-				prod.setCont(aux);
+				if (aux <= prod.getQuantidade() - 1) 
+				{
+					aux++;
+					prod.setCont(aux);
+				}
 			}
 			total += prod.getPreco() * prod.getCont();
 		}

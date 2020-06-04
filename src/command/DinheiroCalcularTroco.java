@@ -51,7 +51,7 @@ public class DinheiroCalcularTroco implements Command {
 		if (pagamento > 0.0) 
 		{
 
-			if (pagamento <= total) 
+			if (pagamento < total) 
 			{
 				total = round (total - pagamento, 2);
 				totalPagamento = round (totalPagamento + pagamento, 2);
@@ -62,11 +62,12 @@ public class DinheiroCalcularTroco implements Command {
 				view = request.getRequestDispatcher("caixa/finalizar-venda-dinheiro.jsp");
 				view.forward(request, response);
 			}
-			else if (pagamento > total) 
+			else if (pagamento >= total) 
 			{
 				total = round (total - pagamento, 2);
 				totalPagamento = round (totalPagamento + pagamento, 2);
 				Double totalModulo = Math.abs(total);
+				
 				session.setAttribute("resultado", "R$ "+totalModulo);
 				session.setAttribute("resultadoTitulo", "Troco: ");
 				session.setAttribute("valorRecebido", totalPagamento);

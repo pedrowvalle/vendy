@@ -15,6 +15,7 @@ import model.Empregado;
 import model.Pedido;
 import model.Produto;
 import service.PedidoService;
+import service.ProdutoService;
 import utils.Recibo;
 
 public class DinheiroFinalizado implements Command {
@@ -24,6 +25,8 @@ public class DinheiroFinalizado implements Command {
 			throws ServletException, IOException {
 		RequestDispatcher view = null;
 		HttpSession session = request.getSession();
+		
+		ProdutoService prodServ = new ProdutoService();
 		
 		Double total = (Double)session.getAttribute("total");
 		session.setAttribute("total", total);
@@ -60,6 +63,9 @@ public class DinheiroFinalizado implements Command {
 			produtos += "( " + p.getCont() + " )";
 			produtos += ";";
 			textoProdutos += String.format(" - %d   %s   %.2f\n", p.getCont(), p.getNome(), p.getPreco());
+
+			prodServ.atualizarEstoque(p);
+
 		}
 		textoProdutos+="==================================";
 		Pedido pedido = new Pedido();
