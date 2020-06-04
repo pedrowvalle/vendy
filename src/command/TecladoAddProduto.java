@@ -33,7 +33,6 @@ public class TecladoAddProduto implements Command {
 			produto.setCont(1);
 			venda.add(produto);
 			total += produto.getPreco();
-
 		}
 		ArrayList<Produto> categorias = ps.listarCategorias();
 		ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
