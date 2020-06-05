@@ -18,8 +18,8 @@
 		<br>
 		<!-- Inicio do container principal -->
         <div id="main" class="container">
-        	<br>
-            <h3 class="page-header">Alterar Clientes</h3>
+        	
+            <h3 class="page-header">Alterar Cliente</h3>
             <hr>
 				<form action="controller.do" method="get">
     				<div class="row">
@@ -30,11 +30,11 @@
     				</div>
                 	<div class="row">
 	                    <div class="form-group col-md-6 mx-auto">
-	                        <label for="nome_produto">Nome do Cliente:</label>
+	                        <label for="nome_produto">Nome:</label>
 	                        <input type="text" class="form-control" value="${cliente.nome}" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente" required>
 	                    </div>
 	                    <div class="form-group col-md-6 mx-auto">
-	                        <label for="preco">Data de Nascimento</label>
+	                        <label for="preco">Data de nascimento:</label>
 	                        <input type="text" class="form-control" value="${cliente.dt_nsc}" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
 	                    </div>
                 	</div>
@@ -66,17 +66,26 @@
        		<form action="controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
-						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
+						<label for="cod_produto">Para confirmar a exclusão do cliente, digite o CPF:</label>
 						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita" pattern=".{14,}" title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+						<input type="hidden" class="form-control" id="cpf_aux_cliente" name="cpf_aux_cliente" value=" ">
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="command"
-						value="ExcluirCliente">Apagar Cliente</button>
+						value="ExcluirCliente" onclick="verificar()">Excluir cliente</button>
 					</div>
 				</div>
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
 		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
+		<script type="text/javascript">
+			function verificar() {
+				var cpf = document.getElementById("cpf_cliente").value;
+				var campo = document.getElementById("cpf_cliente_del").value;
+				if (campo === cpf)
+					document.getElementById("cpf_aux_cliente").value = cpf;	
+			}
+		</script>
 	</body>
 </html>

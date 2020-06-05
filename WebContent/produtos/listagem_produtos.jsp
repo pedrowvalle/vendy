@@ -22,18 +22,20 @@
 	    		<hr>
 	    		<form action="controller.do" method="POST">
 		            <div id="top" class="row">
-		                <div class="col-md-6">
+		                <div class="col-md-8">
 		                    <div class="input-group h2">
+		                    
 		                        <input name="data[search]" class="form-control" id="search" type="text"
-		                            placeholder="Pesquisar produtos">
+		                            placeholder="Digite o nome do produto (deixe em branco para listar todos)">
+		                            
+		                    	<button class="btn btn-primary" type="submit" name="command"
+										value="ListarProdutos">
+										<span class="glyphicon glyphicon-search" >Pesquisar</span>
+								</button>
+		                
 							</div>
 		                </div>
-		                <div class="col-md-3">
-		                    <button class="btn btn-primary" type="submit" name="command"
-										value="ListarProdutos">
-										Pesquisar
-									</button>
-		                </div>
+		                
 		            </div>
 		            <!--Fim da barra de pesquisa superior-->
        		 	</form>

@@ -22,10 +22,13 @@ public class ExcluirOperador implements Command {
 		HttpSession session = request.getSession();
 		
 		String pCpf=request.getParameter("cpf_operador_del");
-		es.excluir(pCpf);
+		String aux=request.getParameter("cpf_aux");
+		if (pCpf.equals(aux)) 
+			es.excluir(pCpf);
 		ArrayList<Empregado> lista = es.listarEmpregados();
 		session.setAttribute("lista", lista);
 		view = request.getRequestDispatcher("operadores/listagem_operadores.jsp");
+		
 		
 		view.forward(request, response);
 

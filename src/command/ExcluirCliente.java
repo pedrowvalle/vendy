@@ -22,7 +22,9 @@ public class ExcluirCliente implements Command {
 		HttpSession session = request.getSession();
 		
 		String pCpf = request.getParameter("cpf_cliente_del");
-		cs.excluir(pCpf);
+		String aux=request.getParameter("cpf_aux_cliente");
+		if (pCpf.equals(aux))
+			cs.excluir(pCpf);
 		ArrayList<Cliente> lista = cs.listarCliente();
 		session.setAttribute("lista", lista);
 		view = request.getRequestDispatcher("clientes/listagem_clientes.jsp");

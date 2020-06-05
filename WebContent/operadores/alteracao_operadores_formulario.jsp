@@ -18,14 +18,14 @@
 		<br>
 		<!-- Inicio do container principal -->
         <div id="main" class="container">
-        	<br>
-            <h3 class="page-header">Alterar Operador</h3>
+        	
+            <h3 class="page-header">Alterar Empregado</h3>
             <hr>
 				<form action="controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="nome_cliente">Nome do Operador:</label>
-                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do operador"value="${empregado.nome}" required>
+                        <label for="nome_cliente">Nome:</label>
+                        <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do empregado"value="${empregado.nome}" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
                         <label for="cpf_cliente">CPF: </label>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-	                    <label for="dt_nsc">Data de Nascimento: </label>
+	                    <label for="dt_nsc">Data de nascimento: </label>
                         <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10" value="${empregado.dt_nsc}">
                     </div>
                     <div class="col-md-3 align-self-center text-center">
@@ -61,7 +61,7 @@
                         <input type="password" class="form-control" id="senha" name="senha" placeholder=""value="${empregado.senha}">
 					</div>
 					<div class="form-group col-md-4">
-	                    <label for="categoria">Selecione tipo do operador</label>
+	                    <label for="categoria">Selecione tipo do empregado</label>
 		                    <select class="form-control" id="tipo" name="tipo" required>
 		                        <option>Operador</option>
 		                        <option>Estoquista</option>
@@ -81,16 +81,25 @@
        		<form action="controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
-						<label for="cod_produto">Para confirmar a exclusão do Operador, confirme o CPF:</label>
+						<label for="cod_produto">Para confirmar a exclusão do empregado, digite o CPF:</label>
 						<input type="text" class="form-control" id="cpf_operador_del" name="cpf_operador_del" placeholder="Esta ação não pode ser desfeita" pattern=".{14,}" title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+						<input type="hidden" class="form-control" id="cpf_aux" name="cpf_aux" value=" ">
 					</div>
 					<div class="col-md-6 align-self-end custom">
-						<button type="submit" class="btn btn-danger" name="command" value="ExcluirOperador">Apagar Operador</button>
+						<button type="submit" class="btn btn-danger" name="command" value="ExcluirOperador" onclick="verificar()">Excluir empregado</button>
 					</div>
 				</div>
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
 		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
+		<script type="text/javascript">
+			function verificar() {
+				var cpf = document.getElementById("cpf_operador").value;
+				var campo = document.getElementById("cpf_operador_del").value;
+				if (campo === cpf)
+					document.getElementById("cpf_aux").value = cpf;	
+			}
+		</script>
 	</body>
 </html>

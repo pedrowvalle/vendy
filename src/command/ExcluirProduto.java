@@ -21,7 +21,9 @@ public class ExcluirProduto implements Command {
 		RequestDispatcher view = null;
 		
 		int pCod = Integer.parseInt(request.getParameter("cod_produto_del"));
-		ps.excluir(pCod);
+		int aux= Integer.parseInt(request.getParameter("cod_aux"));
+		if (pCod == aux)
+			ps.excluir(pCod);
 		ArrayList<Produto> lista = null;
 		lista = ps.listarProdutos();
 		request.setAttribute("lista", lista);
