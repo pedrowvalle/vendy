@@ -280,16 +280,15 @@
 	
 	<script type="text/javascript">
 	function verificar() {
-		var pagamento = document.getElementById("pagamentoModal").value;
+		var pagamento = ${valorRecebido };
 		var total = document.getElementById("totalModal").value;
-		var troco = document.getElementById("trocoModal").value
-		if (pagamento < total && pagamento !== "")
-			$('#pagamentoInferior').modal('show')
-		else if (pagamento < total && pagamento === "")
-			$('#pagamentoInferiorNull').modal('show')
-		else if (troco.localeCompare("Troco: "))
-			$('#finalizar').modal('show')
-
+			
+		if (pagamento >= total)
+			$('#finalizar').modal('show');
+		else if (pagamento != "")
+			$('#pagamentoInferior').modal('show');
+		else 
+			$('#pagamentoInferiorNull').modal('show');
 	}
     	
 	</script>

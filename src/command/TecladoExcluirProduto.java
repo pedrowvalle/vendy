@@ -24,15 +24,18 @@ public class TecladoExcluirProduto implements Command {
 		HttpSession session = request.getSession();
 		
 		ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+		ArrayList<String> vendaAux = (ArrayList<String>) session.getAttribute("vendaAux");
 		if(venda.size() == 1) {
 			ArrayList<Produto> categorias = ps.listarCategorias();
 			venda = new ArrayList<>();
+			vendaAux = new ArrayList<>();
 			String categoria = request.getParameter("categoria");
 			ArrayList<Produto> produtos = ps.listarProdutoCategoria(categoria);
 			double total = 0;
 			session.setAttribute("produtos", produtos);
 			session.setAttribute("categorias", categorias);
 			session.setAttribute("venda", venda);
+			session.setAttribute("vendaAux", vendaAux);
 			session.setAttribute("total", total);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}else {
@@ -42,7 +45,9 @@ public class TecladoExcluirProduto implements Command {
 			int i = busca(produto, venda);
 			total -= (venda.get(i).getPreco() * venda.get(i).getCont());
 			venda.remove(i);
+			vendaAux.remove(i);
 			session.setAttribute("venda", venda);
+			session.setAttribute("vendaAux", vendaAux);
 			session.setAttribute("total", total);
 			view = request.getRequestDispatcher("caixa/teclado.jsp");
 		}

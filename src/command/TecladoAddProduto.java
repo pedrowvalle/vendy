@@ -27,16 +27,23 @@ public class TecladoAddProduto implements Command {
 		int cod = Integer.parseInt(request.getParameter("cod"));
 		int cont = Integer.parseInt(request.getParameter("cont"));
 		ArrayList<Produto> venda = (ArrayList<Produto>) session.getAttribute("venda");
+		ArrayList<String> vendaAux = (ArrayList<String>) session.getAttribute("vendaAux");
 		produto = ps.carregar(cod);
 		if (produto.getQuantidade() > 0) 
 		{
 			produto.setCont(1);
-			venda.add(produto);
-			total += produto.getPreco();
+			if (vendaAux.isEmpty() || !vendaAux.contains(produto.getNome())) 
+			{
+				venda.add(produto);
+				vendaAux.add(produto.getNome());
+				total += produto.getPreco();
+			}
+	
 		}
 		ArrayList<Produto> categorias = ps.listarCategorias();
 		ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
 		session.setAttribute("venda", venda);
+		session.setAttribute("vendaAux", vendaAux);
 		session.setAttribute("produtos", produtos);
 		session.setAttribute("categorias", categorias);
 		session.setAttribute("total", total);

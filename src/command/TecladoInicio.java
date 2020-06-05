@@ -23,12 +23,14 @@ public class TecladoInicio implements Command {
 		
 		ArrayList<Produto> categorias = ps.listarCategorias();
 		ArrayList<Produto> venda = new ArrayList<>();
+		ArrayList<String> vendaAux = new ArrayList<>();
 		String categoria = request.getParameter("categoria");
 		ArrayList<Produto> produtos = ps.listarProdutoCategoria(categoria);
 		double total = 0;
 		session.setAttribute("produtos", produtos);
 		session.setAttribute("categorias", categorias);
 		session.setAttribute("venda", venda);
+		session.setAttribute("vendaAux", vendaAux);
 		session.setAttribute("total", total);
 		session.setAttribute("valorRecebido", null);
 		session.setAttribute("valorTroco", null);
