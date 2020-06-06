@@ -55,8 +55,10 @@
 		        		<!-- <button id="downloadRecibo"  type="button" class="btn btn-primary" onclick="download()" >Imprimir recibo</button> -->
 		        		<input type="hidden" id="recibo" name="xxxx" value=${reciboPath }>	
 		        	</div>
-					<div class="col">
+					<div class="row">
 						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#proxima-venda" id="btn-prox-venda">Próxima venda</button>
+						&nbsp;
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#imprimir" id="btn-Imprimir">Download recibo</button>
 					</div>
 				</div>
 		
@@ -82,8 +84,7 @@
 				
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<a href="#"
-						class="btn btn-success">Imprimir</a>
+					<a href="recibo/recibo.txt; charset=utf-8;" download class="btn btn-success">Imprimir</a>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 

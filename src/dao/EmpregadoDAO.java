@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import model.Empregado;
-import model.Produto;
 
 public class EmpregadoDAO {
 	
@@ -26,8 +26,10 @@ public class EmpregadoDAO {
 				emp.setSenha(rs.getString("senha"));
 				if(rs.getInt("genero") == 1) {
 					emp.setGenero("Masculino");
-				}else {
+				}else if (rs.getInt("genero") == 2) {
 					emp.setGenero("Feminino");
+				} else {
+					emp.setGenero("Outro");
 				}
 				emp.setTipo_emp(rs.getInt("tipo"));
 				empregados.add(emp);
@@ -71,53 +73,50 @@ public class EmpregadoDAO {
 		return lista;
 	}
 	
-	public void incluir(Empregado emp) {
-        String SQLInsert = "INSERT INTO empregado (cpf,nome,dt_nsc,usuario,senha,genero,cnpj_comercio,tipo) VALUES (?,?,?,?,?,?,?,?)";
+	public Empregado incluir(Empregado emp) throws ParseException{
+        String SQLInsert = "INSERT INTO empregado (cpf,genero,dt_nsc,nome,cnpj_comercio,usuario,senha,tipo) VALUES (?,?,?,?,?,?,?,?)";
         try(Connection conn = ConnectionFactory.obtemConexao();
                 PreparedStatement stm = conn.prepareStatement(SQLInsert);){
             stm.setString(1, emp.getCpf());
-            stm.setString(2, emp.getNome());
-            stm.setString(3, emp.getDt_nsc());
-            stm.setString(4, emp.getUsuario());
-            stm.setString(5, emp.getSenha());
-            if(emp.getGenero().equals("Masculino")) {
-            	stm.setInt(6, 1);
+            if(emp.getGenero().equals("m")) {
+            	stm.setInt(2, 1);
+            }else if (emp.getGenero().equals("f")) {
+            	stm.setInt(2,  2);
             }else {
-            	stm.setInt(6,  2);
+            	stm.setInt(2,  3);
             }
-            stm.setString(7, "0123456789");
+            stm.setString(3, emp.getDt_nsc());
+            stm.setString(4, emp.getNome());
+            stm.setString(5, "0123456789");
+            stm.setString(6, emp.getUsuario());
+            stm.setString(7, emp.getSenha());
             stm.setInt(8, emp.getTipo_emp());
             stm.execute();
-            String sqlQuery = "SELECT LAST_INSERT_ID()";
-            try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
-                    ResultSet rs = stm2.executeQuery();) {
-                if(rs.next()) {
-                    emp.setCpf(rs.getString(1));
-                }
-            }
         } catch (SQLException e) {
             e.printStackTrace();
            
         }
-    
+        return emp;
     }
 	
 	public void atualizar(Empregado emp) {
-		String SQLUpdate = "UPDATE empregado SET nome=?,dt_nsc=?,usuario=?,senha=?,genero=?,tipo=? WHERE cpf=?";
+		String SQLUpdate = "UPDATE empregado SET genero=?,dt_nsc=?,nome=?,usuario=?,senha=?,tipo=? WHERE cpf=?";
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLUpdate);){	
-			stm.setString(1, emp.getNome());
-			stm.setString(2, emp.getDt_nsc());
-			stm.setString(3, emp.getUsuario());
-			stm.setString(4, emp.getSenha());
-			if(emp.getGenero().equals("Masculino")) {
-            	stm.setInt(6, 1);
-            }else {
-            	stm.setInt(6,  2);
-            }
-			stm.setInt(6, emp.getTipo_emp());
-			stm.setString(7, emp.getCpf());
-			stm.execute();
+	            if(emp.getGenero().equals("m")) {
+	            	stm.setInt(1, 1);
+	            }else if (emp.getGenero().equals("f")) {
+	            	stm.setInt(1,  2);
+	            }else {
+	            	stm.setInt(1,  3);
+	            }
+	            stm.setString(2, emp.getDt_nsc());
+	            stm.setString(3, emp.getNome());
+	            stm.setString(4, emp.getUsuario());
+	            stm.setString(5, emp.getSenha());
+	            stm.setInt(6, emp.getTipo_emp());
+	            stm.setString(7, emp.getCpf());
+	            stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -136,7 +135,7 @@ public class EmpregadoDAO {
 	}
 	
 	public Empregado carregar(String cpf) {
-		String SQLSelect = "SELECT * FROM empregado WHERE cpf = ?";
+		String SQLSelect = "SELECT * FROM empregado WHERE empregado.cpf = ?";
 		Empregado emp = new Empregado();
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLSelect);){	
@@ -144,16 +143,19 @@ public class EmpregadoDAO {
 			try(ResultSet rs = stm.executeQuery();){
 				if (rs.next()) {
 					emp.setCpf(rs.getString("cpf"));
-					emp.setNome(rs.getString("nome"));
+					if(rs.getInt("genero") == 1) {
+						emp.setGenero("Masculino");
+					}else if (rs.getInt("genero") == 2){
+						emp.setGenero("Feminino");
+					}else {
+						emp.setGenero("Outro");
+					}
 					emp.setDt_nsc(rs.getString("dt_nsc"));
+					emp.setNome(rs.getString("nome"));
 					emp.setUsuario(rs.getString("usuario"));
 					emp.setSenha(rs.getString("senha"));
 					emp.setTipo_emp(rs.getInt("tipo"));
-					if(rs.getInt("genero") == 1) {
-						emp.setGenero("Masculino");
-					}else {
-						emp.setGenero("Feminino");
-					}
+					
 				} return emp;
 			} catch (SQLException e) {
 				e.printStackTrace();

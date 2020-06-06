@@ -1,6 +1,7 @@
 package command;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +44,12 @@ public class IncluirOperador implements Command {
 		empregado.setUsuario(usuario);
 		empregado.setSenha(senha);
 		empregado.setTipo_emp(tipoOp);			
-		es.incluir(empregado);
+		try {
+			es.incluir(empregado);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		empregado = es.carregar(cpf);
 		session.setAttribute("empregado", empregado);

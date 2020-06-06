@@ -1,5 +1,6 @@
 package service;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import dao.EmpregadoDAO;
@@ -12,8 +13,8 @@ public class EmpregadoService {
 		dao = new EmpregadoDAO();
 	}
 	
-	public void incluir (Empregado emp) {
-		dao.incluir(emp);
+	public Empregado incluir (Empregado emp) throws ParseException {
+		return dao.incluir(emp);
 	}
 	public void atualizar(Empregado emp) {
 		dao.atualizar(emp);
