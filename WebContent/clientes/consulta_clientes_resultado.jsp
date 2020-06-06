@@ -17,7 +17,6 @@
 	    	<c:import url="../Menu.jsp"/>
 	    	
 	    	<div id="main" class="container">
-	    	<br>
 	    		<h3 class="page-header">Consulta de Clientes</h3>
 	    		<hr>
 	    		<div class="row">
@@ -42,7 +41,10 @@
 	    				</c:if>
 	    				<c:if test="${cliente.sexo=='f'}">
 	    				<p>Feminino</p>
-	    				</c:if>    			
+	    				</c:if>
+	    				<c:if test="${cliente.sexo=='o'}">
+	    				<p>Outro</p>
+	    				</c:if>     			
 	    			</div>
 	    		</div>
 	    		<a href="<%=request.getContextPath()%>/controller.do?command=ListarClientes" class="btn btn-primary">Voltar</a>

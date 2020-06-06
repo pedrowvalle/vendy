@@ -18,8 +18,8 @@
 		<br>
 		<!-- Inicio do container principal -->
         <div id="main" class="container">
-        	
-            <h3 class="page-header">Alterar Cliente</h3>
+        	<br>
+            <h3 class="page-header">Alterar Clientes</h3>
             <hr>
 				<form action="controller.do" method="get">
     				<div class="row">
@@ -30,62 +30,60 @@
     				</div>
                 	<div class="row">
 	                    <div class="form-group col-md-6 mx-auto">
-	                        <label for="nome_produto">Nome:</label>
+	                        <label for="nome_produto">Nome do Cliente:</label>
 	                        <input type="text" class="form-control" value="${cliente.nome}" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente" required>
 	                    </div>
 	                    <div class="form-group col-md-6 mx-auto">
-	                        <label for="preco">Data de nascimento:</label>
+	                        <label for="preco">Data de Nascimento</label>
 	                        <input type="text" class="form-control" value="${cliente.dt_nsc}" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
 	                    </div>
                 	</div>
-	                <div class="row">
-	                    <div class="col-md-3 align-self-center text-center">
+                	
+	                <div class="col">
+	                    <div class="form-group col-md-6 mx-auto">
                     	
                     </div>
-					<div class="form-group col-md-3" style="margin-top:30px; margin-left:auto">
-						<h4>Gênero: </h4>
-						<div class="form-check form-check-inline">
-						  
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="m" required>
-						  <label class="form-check-label" for="genero">Masculino</label>
+                    
+					<div class="row align-items-start">
+						<label for="genero">Gênero: </label>
+						  <div class="form-group col-md" style="margin-top:1px;">
+							<div class="form-check form-check-inline">
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="m" required>
+						  	<label class="form-check-label" for="genero">Masculino</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="f" required>
+						  	<label class="form-check-label" for="genero">Feminino</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="o" required>
+						  	<label class="form-check-label" for="genero">Outro</label>
+							</div>
 						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="f" required>
-						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
-						</div>
-					</div>
-                </div>
-                <div class="row">
-                	<div id="actions" class="col-md-6">
+					
+                
+                	<div id="actions" class="row align-self-center">
 						<button type="submit" class="btn btn-primary" name="command" value="AlterarCliente">Alterar</button>
 						<a href="<%=request.getContextPath()%>/controller.do?command=ListarClientes" class="btn btn-default">Cancelar</a>
 					</div>
-                </div>
+					</div>
+					</div>
+               
             </form>
+             
            	<hr>
        		<form action="controller.do" method="get">
        			<div class="row">
 					<div class="form-group col-md-6">
-						<label for="cod_produto">Para confirmar a exclusão do cliente, digite o CPF:</label>
+						<label for="cod_produto">Para confirmar a exclusão do Cliente, confirme o CPF:</label>
 						<input type="text" class="form-control" id="cpf_cliente_del" name="cpf_cliente_del" placeholder="Esta ação não pode ser desfeita" pattern=".{14,}" title="Digite um cpf válido" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
-						<input type="hidden" class="form-control" id="cpf_aux_cliente" name="cpf_aux_cliente" value=" ">
 					</div>
 					<div class="col-md-6 align-self-end custom">
 						<button type="submit" class="btn btn-danger" name="command"
-						value="ExcluirCliente" onclick="verificar()">Excluir cliente</button>
+						value="ExcluirCliente">Apagar Cliente</button>
 					</div>
 				</div>
 			</form>
            	</div>
 		<c:import url="../bootstrap_body.jsp"/>
 		<script type="text/javascript" src="<%= request.getContextPath() %>/js/inputText.js"></script>
-		<script type="text/javascript">
-			function verificar() {
-				var cpf = document.getElementById("cpf_cliente").value;
-				var campo = document.getElementById("cpf_cliente_del").value;
-				if (campo === cpf)
-					document.getElementById("cpf_aux_cliente").value = cpf;	
-			}
-		</script>
 	</body>
 </html>
