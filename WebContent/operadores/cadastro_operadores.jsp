@@ -36,17 +36,19 @@
 	                    <label for="dt_nsc">Data de nascimento: </label>
                         <input type="text" class="form-control" id="dt_nsc" name="dt_nsc" placeholder="Ex.: dd/mm/aaaa" onkeypress="return isNumberKey(event)" onkeydown="javascript: fMasc( this, mData );"  pattern=".{10,}"   required title="Digite uma data de nascimento válida" maxlength="10">
                     </div>
-                    <div class="col-md-3 align-self-center text-center">
-                    	<h4>Gênero: </h4>
-                    </div>
-					<div class="form-group col-md-3" style="margin-top:30px;">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Masculino" required>
-						  <label class="form-check-label" for="genero">Masculino</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="genero" id="genero" value="Feminino" required>
-						  <label class="form-check-label" for="inlineRadio2">Feminino</label>
+                   <div class="form-group col-md-6 mx-auto">
+						<label for="genero">Gênero: </label>
+						  <div class="form-group col-md-3" style="margin-top:7px;">
+							<div class="form-check form-check-inline">
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="m" required>
+						  	<label class="form-check-label" for="genero">Masculino</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="f" required>
+						  	<label class="form-check-label" for="genero">Feminino</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						  	<input class="form-check-input" type="radio" name="genero" id="genero" value="o" required>
+						  	<label class="form-check-label" for="genero">Outro</label>
+							</div>
 						</div>
 					</div>
 				</div>
