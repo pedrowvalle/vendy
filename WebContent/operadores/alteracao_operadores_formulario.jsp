@@ -24,11 +24,11 @@
 				<form action="controller.do" method="GET">
                 <div class="row">
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="nome_cliente">Nome:</label>
+                        <label for="nome_operador">Nome:</label>
                         <input type="text" class="form-control" id="nome_operador" name="nome_operador" placeholder="Digite o nome do empregado"value="${empregado.nome}" required>
                     </div>
                     <div class="form-group col-md-6 mx-auto">
-                        <label for="cpf_cliente">CPF: </label>
+                        <label for="cpf_operador">CPF: </label>
                         <input type="text" class="form-control" id="cpf_operador" name="cpf_operador" placeholder="Apenas numeros"value="${empregado.cpf}" readonly>
                     </div>
                 </div>
@@ -55,15 +55,15 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-4">
-						<label for="cpf_cliente">Usuário: </label>
+						<label for="usuario">Usuário: </label>
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder=""value="${empregado.usuario}">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="cpf_cliente">Senha: </label>
+						<label for="senha">Senha: </label>
                         <input type="password" class="form-control" id="senha" name="senha" placeholder=""value="${empregado.senha}">
 					</div>
 					<div class="form-group col-md-4">
-	                    <label for="categoria">Selecione tipo do empregado</label>
+	                    <label for="tipo">Selecione tipo do empregado</label>
 		                    <select class="form-control" id="tipo" name="tipo" required>
 		                        <option>Operador</option>
 		                        <option>Estoquista</option>

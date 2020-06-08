@@ -127,7 +127,6 @@ public class EmpregadoDAO {
 		try(Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(SQLDelete);){
 			stm.setString(1, cpf);
-			
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -24,7 +24,7 @@
 				<form action="controller.do" method="GET">
     				<div class="row">
     					<div class="form-group col-md-12 mx-auto">
-	                        <label for="nome_produto">Código do produto:</label>
+	                        <label for="cod_produto">Código do produto:</label>
 	                        <input type="text" class="form-control" value="${produto.cod}" id="cod_produto" name="cod_produto" readonly>
 	                    </div>
     				</div>
@@ -66,7 +66,7 @@
        		<form action="controller.do" method="GET">
        			<div class="row">
 					<div class="form-group col-md-6">
-						<label for="cod_produto">Para confirmar a exclusão, digite o código do produto:</label>
+						<label for="cod_produto_del">Para confirmar a exclusão, digite o código do produto:</label>
 						<input type="text" class="form-control" id="cod_produto_del" name="cod_produto_del" placeholder="Esta ação não pode ser desfeita" pattern=".{1,}" title="Digite um código válido" onkeypress="return isOnlyNumber(event)" required>
 						<input type="hidden" class="form-control" id="cod_aux" name="cod_aux" value="-1">
 					</div>
