@@ -15,7 +15,7 @@
 		<body>
 			<!-- Importação da barra de menus -->
 	    	<c:import url="../Menu.jsp"/>
-	    	
+	    	<br>
 	    	<div id="main" class="container">
 	    		<h3 class="page-header">Consulta de Clientes</h3>
 	    		<hr>
