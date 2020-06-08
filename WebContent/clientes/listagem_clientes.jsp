@@ -20,6 +20,26 @@
 	    		<br>
 	    		<h3 class="page-header">Lista de Clientes</h3>
 	    		<hr>
+	    		<form action="controller.do" method="POST">
+		            <div id="top" class="row">
+		                <div class="col-md-8">
+		                    <div class="input-group h2">
+		                    
+		                        <input name="data[search]" class="form-control" id="search" type="text"
+		                            placeholder="Digite o nome do Cliente (deixe em branco para listar todos)">
+		                            
+		                    	<button class="btn btn-primary" type="submit" name="command"
+										value="ListarClientes">
+										<span class="glyphicon glyphicon-search" >Pesquisar</span>
+								</button>
+		                
+							</div>
+		                </div>
+		                
+		            </div>
+		            <!--Fim da barra de pesquisa superior-->
+       		 	</form>
+	    		<hr>
 	    		<c:if test="${not empty lista}">
 	    			<div id="list" class="row">
 	    				<div class="table-responsive col-md-12">
