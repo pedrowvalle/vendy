@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,7 +61,7 @@
 	    									<th>${produto.cod}</th>
 	    									<th>${produto.nome}</th>
 	    									<th>${produto.categoria}</th>
-	    									<th>R$ ${produto.preco}</th>
+	    									<th>R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${produto.preco}"/></th>
 	    									<th>${produto.quantidade}</th>
 	    									<th>
 	    										<a class="btn btn-info btn-xs" href="controller.do?command=VisualizarProduto&cod=${produto.cod}">Visualizar</a>
