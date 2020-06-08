@@ -125,7 +125,7 @@
 											</c:choose>
 										
 										</td>
-										<td>R$ ${produto.preco }</td>
+										<td>R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${produto.preco}"/></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -139,7 +139,7 @@
 						<h1>Total</h1>
 						<br><br><br><br>
 						<hr/>
-						<h1 style="float: right;">R$ <fmt:formatNumber type="number" maxFractionDigits="2" value="${total}"/></h1>
+						<h1 style="float: right;">R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${total}"/></h1>
 					</div>
 				</div>
 				<div class="row">

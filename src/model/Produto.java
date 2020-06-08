@@ -8,6 +8,7 @@ public class Produto{
 	private double preco;
 	private int quantidade;
 	private int cont;
+	private String precoString;
 	
 	public Produto() {}
 	
@@ -17,6 +18,7 @@ public class Produto{
 		this.categoria = categoria;
 		this.preco = preco;
 		this.quantidade = quantidade;
+		setPrecoString(String.format("%.2f", preco));
 	}
 	
 	public Produto(String nome, String categoria, double preco, int quantidade) {
@@ -86,6 +88,14 @@ public class Produto{
 
 	public void setCont(int cont) {
 		this.cont = cont;
+	}
+
+	public String getPrecoString() {
+		return precoString;
+	}
+
+	public void setPrecoString(String precoString) {
+		this.precoString = precoString;
 	}
 	
 	

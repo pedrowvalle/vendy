@@ -79,7 +79,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					Deseja imprimir o recibo?
+					Deseja fazer o download do recibo?
 				</div>
 				
 				<!-- Modal footer -->

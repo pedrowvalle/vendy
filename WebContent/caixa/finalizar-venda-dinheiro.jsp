@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +35,7 @@
 										<tr>
 											<td>${produto.nome }</td>
 											<td>${produto.cont }</td>
-											<td>R$ ${produto.preco }</td>
+											<td>R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${produto.preco}"/></td>
 
 										</tr>
 									</c:forEach>
@@ -46,7 +47,7 @@
 	        	</div>
 	        	<div class="row" id="left-third-row">
 		        	<div class="col-md-12" id="area-total">
-		        		<p id="total-texto"><strong>${totalTitulo }: </strong>R$ ${totalDinheiro }</p>
+		        		<p id="total-texto"><strong>${totalTitulo }: </strong>R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${totalDinheiro}"/></p>
 		        	</div>
 	        	</div>
 	        	<div class="row" id="left-fourth-row">
