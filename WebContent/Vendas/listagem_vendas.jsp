@@ -39,7 +39,7 @@
 	    								<tr class="lista">
 	    									<th>${pedido.cod}</th>
 	    									<th>${pedido.data_pedido}</th>
-	    									<th>R$ ${pedido.preco}</th>
+	    									<th>R$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${pedido.preco}"/></th>
 	    									<th>${pedido.vendedor}</th>
 	    									<th>
 	    									<a class="btn btn-success btn-xs"
