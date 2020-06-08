@@ -12,7 +12,7 @@ create table operador (cpf_emp varchar(10) not null, cod int, primary key (cod))
 /*produto (cod, nome, preco, categoria)*/
 create table produto (cod int not null auto_increment, nome varchar(100), preco double, categoria varchar(100), estoque int, primary key(cod));
 /*pedido (cod, cod_produto, data, preco, cod_operador, cpf_cliente)*/
-create table pedido (cod int not null auto_increment, cod_produto varchar(10000), data_pedido varchar(50), preco decimal, cpf_cliente varchar(20), desconto decimal, vendedor varchar(100), primary key(cod));
+create table pedido (cod int not null auto_increment, cod_produto varchar(10000), data_pedido varchar(50), preco double, cpf_cliente varchar(20), desconto decimal, vendedor varchar(100), primary key(cod));
 /*cliente (CPF, nome, dt_nsc, sexo)*/
 create table cliente (cpf varchar(14) not null, nome varchar (100), dt_nsc varchar(10), genero char, primary key(cpf));
 /*caixa (id, data_abertura, data_fechamento, fundo_abertura, fundo_fechamento*/
