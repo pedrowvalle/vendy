@@ -29,16 +29,24 @@ public class DinheiroFinalizado implements Command {
 		ProdutoService prodServ = new ProdutoService();
 		
 		Double total = (Double)session.getAttribute("total");
-		session.setAttribute("total", total);
+		String totalS = String.format("%.2f", total);
+		session.setAttribute("total", totalS);
 		
 		Double desconto = (Double)session.getAttribute("totalDinheiro");
-		session.setAttribute("valorDescontado", total-desconto);
+		Double calculo = total-desconto;
+		String calculoS = String.format("%.2f", calculo);
+		session.setAttribute("valorDescontado", calculoS);
 		
 		Object cpf = request.getParameter("cpf");
 		session.setAttribute("cpfClienteFinalizado", cpf);
 		
 		Double recebido = (Double)session.getAttribute("valorRecebido");
+		String recebidoS = String.format("%.2f", recebido);
+		session.setAttribute("valorRecebidoFormat", recebidoS);
+		
 		Double troco = (Double)session.getAttribute("valorTroco");
+		String trocoS = String.format("%.2f", troco);
+		session.setAttribute("trocoFormat", trocoS);
 		
 		
 		
@@ -97,5 +105,13 @@ public class DinheiroFinalizado implements Command {
 		view = request.getRequestDispatcher("caixa/venda-finalizada-dinheiro.jsp");
 		view.forward(request, response);
 
+	}
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
 	}
 }

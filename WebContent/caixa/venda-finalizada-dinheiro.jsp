@@ -41,11 +41,11 @@
 					</div>
 					<div class="row" id="row-recebido">
 						<label id="titulo-texto"><strong>Pagamento: </strong></label>
-   						<input type="text" class="form-control" id='txt' readonly value=${valorRecebido } >
+   						<input type="text" class="form-control" id='txt' readonly value=${valorRecebidoFormat } >
 					</div>
 					<div class="row" id="row-troco">
 						<label id="titulo-texto"><strong>Troco: </strong></label>
-   						<input type="text" class="form-control" id='txt' readonly value=${valorTroco } >
+   						<input type="text" class="form-control" id='txt' readonly value=${trocoFormat } >
 					</div>
 				</div>
 			</div>

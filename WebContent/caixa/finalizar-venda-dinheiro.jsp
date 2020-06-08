@@ -273,7 +273,6 @@
 	<script type="text/javascript">
 	function cpf() {
 		var cpf = document.getElementById("cpfClienteDinheiro").value;
-
 		document.getElementById("btnFinalizarModal").href = "controller.do?command=DinheiroFinalizado&cpf="+cpf; 
 	}
     	
